@@ -2,25 +2,32 @@
   text-align: center;
   justify-content: center;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 0.5fr 4fr 4fr 0.5fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  gap: 1rem;
 }
 
 .serversContainer {
-
-    background-color:black;
+    color:white;
+    max-width: 800px;
+    min-width: 23rem;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgba(0, 145, 255, 0.364));
     padding: 0.5rem;
+    padding-top: 0;
+    grid-row: 2;
     grid-column: 2;
-    margin-top: 3rem;
     justify-content: center;
-    border: 2px solid black;
+    border: 2px solid rgb(0, 123, 168);
     border-radius: 1rem;
+    box-shadow: 0px 0px 10px 2px rgb(0, 123, 168);
 }
 
 .individualServer {
+
     display:grid;
-    background-color: rgb(150, 150, 150);
-    grid-template-columns: 3fr 1fr 1fr 3fr 0.5fr;
-    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.5);
+    grid-template-columns: 3fr 1fr 0.3fr 1fr 2.5fr 0.5fr;
+    border: 1px solid rgb(52, 77, 94);
     margin-bottom: 0.5em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -38,10 +45,18 @@
     border-bottom-right-radius: 1rem;
 }
 
+.serverIP {
+    padding-left: 0.4rem;
+}
+
 .team1Score {
-    border-left: 1px solid black;
+    border-left: 1px solid rgb(52, 77, 94);
 }
 
 .team2Score {
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(52, 77, 94);
+}
+
+.notification {
+    padding-right: 0.4rem;
 }

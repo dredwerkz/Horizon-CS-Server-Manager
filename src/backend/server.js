@@ -51,7 +51,7 @@ async function readServerContainerFile() {
 }
 
 function updateServerContainer(msg, addr, port) {
-    const serverKey = `${addr}_${port}`;
+    const serverKey = `${addr}:${port}`;
 
     let serverIndex = serverContainer.findIndex(server => server.server === serverKey);
 

@@ -1,44 +1,58 @@
 [
   {
-    "server": "127.0.0.1_50000",
+    "server": "127.0.0.1:50000",
     "CT": "6",
     "TERRORIST": "7",
     "map": "de_dust2",
     "rounds": "13"
   },
   {
-    "server": "127.0.0.1_50001",
+    "server": "127.0.0.1:50001",
     "CT": "6",
     "TERRORIST": "7",
     "map": "de_inferno",
     "rounds": "13"
   },
   {
-    "server": "127.0.0.1_50002",
+    "server": "127.0.0.1:50002",
     "CT": "6",
     "TERRORIST": "7",
     "map": "de_vertigo",
     "rounds": "13"
   },
   {
-    "server": "127.0.0.1_50003",
+    "server": "127.0.0.1:50003",
     "CT": "9",
     "TERRORIST": "10",
     "map": "de_ancient",
     "rounds": "13"
   },
   {
-    "server": "127.0.0.1_50007",
+    "server": "127.0.0.1:50007",
     "CT": "6",
     "TERRORIST": "7",
     "map": "de_vertigo",
     "rounds": "13"
   },
   {
-    "server": "127.0.0.1_50005",
+    "server": "127.0.0.1:50005",
     "CT": "6",
     "TERRORIST": "7",
-    "map": "de_vertigo",
+    "map": "de_season",
     "rounds": "13"
+  },
+  {
+    "server": "127.0.0.1:50010",
+    "CT": "6",
+    "TERRORIST": "7",
+    "map": "de_anubis",
+    "rounds": "13"
+  },
+  {
+    "server": "127.0.0.1:50011",
+    "CT": "6",
+    "map": "de_season",
+    "rounds": "13",
+    "TERRORIST": "7"
   }
 ]

@@ -24,6 +24,7 @@ function ServerContainer() {
     if (Object.keys(serverData).length > 0) {
         return (
             <div className="serversContainer">
+            <h1>Active Servers:</h1>
                 {serverData.map((server) => {
                     return (
                         <Server
@@ -41,7 +42,7 @@ function ServerContainer() {
     } else {
         return (
             <div className="serversContainer">
-                <h1>Loading your server data...</h1>
+                <h1 style={{color: `white`}}>Loading your server data...</h1>
             </div>
         );
     }
