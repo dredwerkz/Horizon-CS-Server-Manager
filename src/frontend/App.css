@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.serversContainer {
+
+    background-color:black;
+    padding: 0.5rem;
+    grid-column: 2;
+    margin-top: 3rem;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+
+.individualServer {
+    display:grid;
+    background-color: rgb(150, 150, 150);
+    grid-template-columns: 3fr 1fr 1fr 3fr 0.5fr;
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    justify-content: center;
+}
+
+.individualServer:first-of-type {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.individualServer:last-of-type {
+    margin-bottom: 0;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.team1Score {
+    border-left: 1px solid black;
+}
+
+.team2Score {
+    border-right: 1px solid black;
+}

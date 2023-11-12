@@ -1,0 +1,922 @@
+L 05/31/2023 - 22:11:36: Log file started (file "logs\L192_168_000_015_27015_202305312211_000.log") (game "E:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\csgo") (version "8802")
+L 05/31/2023 - 22:11:36: Loading map "de_dust2"
+L 05/31/2023 - 22:11:36: server cvars start
+L 05/31/2023 - 22:11:36: "cash_player_killed_teammate" = "-300"
+L 05/31/2023 - 22:11:36: "sv_maxspeed" = "320"
+L 05/31/2023 - 22:11:36: "cash_player_respawn_amount" = "0"
+L 05/31/2023 - 22:11:36: "cash_team_winner_bonus_consecutive_rounds" = "0"
+L 05/31/2023 - 22:11:36: "cash_team_rescued_hostage" = "600"
+L 05/31/2023 - 22:11:36: "cash_team_win_by_defusing_bomb" = "3500"
+L 05/31/2023 - 22:11:36: "sv_rollangle" = "0"
+L 05/31/2023 - 22:11:36: "r_AirboatViewZHeight" = "0.0"
+L 05/31/2023 - 22:11:36: "sv_cheats" = "0"
+L 05/31/2023 - 22:11:36: "r_VehicleViewDampen" = "1"
+L 05/31/2023 - 22:11:36: "mp_allowNPCs" = "1"
+L 05/31/2023 - 22:11:36: "mp_tournament" = "0"
+L 05/31/2023 - 22:11:36: "sv_vote_issue_pause_match_spec_only" = "0"
+L 05/31/2023 - 22:11:36: "sv_spec_hear" = "1"
+L 05/31/2023 - 22:11:36: "cash_player_interact_with_hostage" = "300"
+L 05/31/2023 - 22:11:36: "mp_flashlight" = "0"
+L 05/31/2023 - 22:11:36: "mp_maxrounds" = "16"
+L 05/31/2023 - 22:11:36: "sv_tags" = ""
+L 05/31/2023 - 22:11:36: "sv_stepsize" = "18"
+L 05/31/2023 - 22:11:36: "mp_teamlist" = "hgrunt;scientist"
+L 05/31/2023 - 22:11:36: "sv_alltalk" = "0"
+L 05/31/2023 - 22:11:36: "mp_footsteps" = "1"
+L 05/31/2023 - 22:11:36: "sv_noclipaccelerate" = "5"
+L 05/31/2023 - 22:11:36: "sv_accelerate_debug_speed" = "0"
+L 05/31/2023 - 22:11:36: "sv_wateraccelerate" = "10"
+L 05/31/2023 - 22:11:36: "mp_autocrosshair" = "1"
+L 05/31/2023 - 22:11:36: "mp_stalemate_enable" = "0"
+L 05/31/2023 - 22:11:36: "cash_team_elimination_bomb_map" = "3250"
+L 05/31/2023 - 22:11:36: "cash_player_get_killed" = "0"
+L 05/31/2023 - 22:11:36: "mp_roundtime_defuse" = "1.92"
+L 05/31/2023 - 22:11:36: "sv_autobuyammo" = "0"
+L 05/31/2023 - 22:11:36: "sv_rollspeed" = "200"
+L 05/31/2023 - 22:11:36: "sv_airaccelerate" = "12"
+L 05/31/2023 - 22:11:36: "mp_teams_unbalance_limit" = "1"
+L 05/31/2023 - 22:11:36: "sv_show_team_equipment_prohibit" = "0"
+L 05/31/2023 - 22:11:36: "mp_timelimit" = "0"
+L 05/31/2023 - 22:11:36: "cash_team_loser_bonus" = "1400"
+L 05/31/2023 - 22:11:36: "sv_deadtalk" = "1"
+L 05/31/2023 - 22:11:36: "cash_player_rescued_hostage" = "1000"
+L 05/31/2023 - 22:11:36: "sv_waterfriction" = "1"
+L 05/31/2023 - 22:11:36: "sv_competitive_official_5v5" = "0"
+L 05/31/2023 - 22:11:36: "sv_steamgroup" = ""
+L 05/31/2023 - 22:11:36: "cash_player_killed_enemy_default" = "300"
+L 05/31/2023 - 22:11:36: "coop" = "0"
+L 05/31/2023 - 22:11:36: "mp_respawnwavetime" = "10.0"
+L 05/31/2023 - 22:11:36: "sv_teamid_overhead" = "1"
+L 05/31/2023 - 22:11:36: "tv_enable1" = "0"
+L 05/31/2023 - 22:11:36: "nextlevel" = ""
+L 05/31/2023 - 22:11:36: "sv_stopspeed" = "80"
+L 05/31/2023 - 22:11:36: "sv_specaccelerate" = "5"
+L 05/31/2023 - 22:11:36: "deathmatch" = "1"
+L 05/31/2023 - 22:11:36: "tv_enable" = "0"
+L 05/31/2023 - 22:11:36: "mp_falldamage" = "0"
+L 05/31/2023 - 22:11:36: "mp_roundtime_hostage" = "1.92"
+L 05/31/2023 - 22:11:36: "mp_freezetime" = "15"
+L 05/31/2023 - 22:11:36: "mp_teammates_are_enemies" = "0"
+L 05/31/2023 - 22:11:36: "sv_accelerate_use_weapon_speed" = "1"
+L 05/31/2023 - 22:11:36: "sv_voiceenable" = "1"
+L 05/31/2023 - 22:11:36: "sv_teamid_overhead_always_prohibit" = "0"
+L 05/31/2023 - 22:11:36: "sv_bounce" = "0"
+L 05/31/2023 - 22:11:36: "r_AirboatViewDampenFreq" = "7.0"
+L 05/31/2023 - 22:11:36: "mp_disable_respawn_times" = "0"
+L 05/31/2023 - 22:11:36: "mp_weaponstay" = "0"
+L 05/31/2023 - 22:11:36: "mp_hostagepenalty" = "10"
+L 05/31/2023 - 22:11:36: "tv_advertise_watchable" = "0"
+L 05/31/2023 - 22:11:36: "mp_friendlyfire" = "1"
+L 05/31/2023 - 22:11:36: "sv_noclipspeed" = "5"
+L 05/31/2023 - 22:11:36: "cash_team_hostage_interaction" = "600"
+L 05/31/2023 - 22:11:36: "sv_allchat" = "1"
+L 05/31/2023 - 22:11:36: "cash_team_win_by_time_running_out_bomb" = "3250"
+L 05/31/2023 - 22:11:36: "mp_buy_during_immunity" = "0"
+L 05/31/2023 - 22:11:36: "cash_player_killed_enemy_factor" = "1"
+L 05/31/2023 - 22:11:36: "r_JeepViewDampenDamp" = "1.0"
+L 05/31/2023 - 22:11:36: "mp_c4timer" = "40"
+L 05/31/2023 - 22:11:36: "r_AirboatViewDampenDamp" = "1.0"
+L 05/31/2023 - 22:11:36: "sv_competitive_minspec" = "1"
+L 05/31/2023 - 22:11:36: "sv_max_allowed_net_graph" = "1"
+L 05/31/2023 - 22:11:36: "mp_stalemate_at_timelimit" = "0"
+L 05/31/2023 - 22:11:36: "mp_limitteams" = "2"
+L 05/31/2023 - 22:11:36: "sv_footsteps" = "1"
+L 05/31/2023 - 22:11:36: "sv_vote_issue_kick_allowed" = "1"
+L 05/31/2023 - 22:11:36: "cash_team_survive_guardian_wave" = "1000"
+L 05/31/2023 - 22:11:36: "tv_relaypassword" = ""
+L 05/31/2023 - 22:11:36: "mp_teamplay" = "0"
+L 05/31/2023 - 22:11:36: "cash_team_terrorist_win_bomb" = "3500"
+L 05/31/2023 - 22:11:36: "cash_team_elimination_hostage_map_t" = "3000"
+L 05/31/2023 - 22:11:36: "r_JeepViewDampenFreq" = "7.0"
+L 05/31/2023 - 22:11:36: "sv_specnoclip" = "1"
+L 05/31/2023 - 22:11:36: "sv_friction" = "5.2"
+L 05/31/2023 - 22:11:36: "cash_team_win_by_time_running_out_hostage" = "3250"
+L 05/31/2023 - 22:11:36: "cash_player_bomb_planted" = "300"
+L 05/31/2023 - 22:11:36: "mp_autoteambalance" = "1"
+L 05/31/2023 - 22:11:36: "sv_contact" = ""
+L 05/31/2023 - 22:11:36: "sv_vote_kick_ban_duration" = "15"
+L 05/31/2023 - 22:11:36: "cash_player_bomb_defused" = "300"
+L 05/31/2023 - 22:11:36: "mp_roundtime" = "1.92"
+L 05/31/2023 - 22:11:36: "sv_kick_ban_duration" = "15"
+L 05/31/2023 - 22:11:36: "cash_team_planted_bomb_but_defused" = "800"
+L 05/31/2023 - 22:11:36: "cash_player_killed_hostage" = "-1000"
+L 05/31/2023 - 22:11:36: "sv_vote_issue_loadbackup_allowed" = "1"
+L 05/31/2023 - 22:11:36: "nextmode" = ""
+L 05/31/2023 - 22:11:36: "mp_fraglimit" = "0"
+L 05/31/2023 - 22:11:36: "cash_team_bonus_shorthanded" = "1000"
+L 05/31/2023 - 22:11:36: "mp_forcerespawn" = "1"
+L 05/31/2023 - 22:11:36: "mp_buy_anywhere" = "0"
+L 05/31/2023 - 22:11:36: "sv_accelerate" = "5.5"
+L 05/31/2023 - 22:11:36: "mp_winlimit" = "0"
+L 05/31/2023 - 22:11:36: "sv_gravity" = "800"
+L 05/31/2023 - 22:11:36: "sv_password" = ""
+L 05/31/2023 - 22:11:36: "cash_team_elimination_hostage_map_ct" = "3000"
+L 05/31/2023 - 22:11:36: "cash_team_win_by_hostage_rescue" = "2900"
+L 05/31/2023 - 22:11:36: "sv_vote_issue_loadbackup_spec_only" = "0"
+L 05/31/2023 - 22:11:36: "r_JeepViewZHeight" = "10.0"
+L 05/31/2023 - 22:11:36: "cash_team_loser_bonus_consecutive_rounds" = "500"
+L 05/31/2023 - 22:11:36: "cash_player_damage_hostage" = "-30"
+L 05/31/2023 - 22:11:36: "cash_team_hostage_alive" = "0"
+L 05/31/2023 - 22:11:36: "tv_password" = ""
+L 05/31/2023 - 22:11:36: "sv_specspeed" = "3"
+L 05/31/2023 - 22:11:36: server cvars end
+L 05/31/2023 - 22:11:43: Started map "de_dust2" (CRC "-2003525442")
+L 05/31/2023 - 22:11:43: server_cvar: "cash_player_interact_with_hostage" "150"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_elimination_hostage_map_ct" "2000"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_elimination_hostage_map_t" "1000"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_hostage_interaction" "500"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_bonus_shorthanded" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_rescued_hostage" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_win_by_defusing_bomb" "3250"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_win_by_hostage_rescue" "3500"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_freezetime" "6"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_friendlyfire" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_maxrounds" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_roundtime" "5"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_roundtime_defuse" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_roundtime_hostage" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_timelimit" "5"
+L 05/31/2023 - 22:11:43: server_cvar: "sv_deadtalk" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_player_interact_with_hostage" "300"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_elimination_hostage_map_t" "3000"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_elimination_hostage_map_ct" "3000"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_hostage_interaction" "600"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_bonus_shorthanded" "1000"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_rescued_hostage" "600"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_win_by_defusing_bomb" "3500"
+L 05/31/2023 - 22:11:43: server_cvar: "cash_team_win_by_hostage_rescue" "2900"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_freezetime" "15"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_friendlyfire" "1"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_maxrounds" "30"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_roundtime" "1.92"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_roundtime_hostage" "1.92"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_roundtime_defuse" "1.92"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_timelimit" "0"
+L 05/31/2023 - 22:11:43: server_cvar: "sv_deadtalk" "1"
+L 05/31/2023 - 22:11:43: server_cvar: "mp_maxrounds" "16"
+L 05/31/2023 - 22:11:44: World triggered "Round_Start"
+L 05/31/2023 - 22:11:45: "Supermarket Sushi<73><STEAM_1:1:16333471><>" entered the game
+L 05/31/2023 - 22:11:45: "Brian<99><BOT><>" connected, address ""
+L 05/31/2023 - 22:11:45: "Brian<99><BOT>" switched from team <Unassigned> to <TERRORIST>
+L 05/31/2023 - 22:11:45: World triggered "Game_Commencing"
+L 05/31/2023 - 22:11:45: "Brian<99><BOT><>" entered the game
+L 05/31/2023 - 22:11:45: "Kevin<100><BOT><>" connected, address ""
+L 05/31/2023 - 22:11:45: "Kevin<100><BOT>" switched from team <Unassigned> to <CT>
+L 05/31/2023 - 22:11:45: "Kevin<100><BOT><>" entered the game
+L 05/31/2023 - 22:11:50: Starting Freeze period
+L 05/31/2023 - 22:11:50: World triggered "Match_Start" on "de_dust2"
+L 05/31/2023 - 22:11:50: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:11:50: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:11:50: MatchStatus: Score: 0:0 on map "de_dust2" RoundsPlayed: -1
+L 05/31/2023 - 22:11:52: World triggered "Round_Start"
+L 05/31/2023 - 22:11:54: "Paul Bohill<74><STEAM_1:1:25555325><>" entered the game
+L 05/31/2023 - 22:11:54: "Supermarket Sushi<73><STEAM_1:1:16333471>" switched from team <Unassigned> to <CT>
+L 05/31/2023 - 22:11:54: "Kevin<100><BOT><CT>" disconnected (reason "Kicked by Console")
+L 05/31/2023 - 22:11:54: "Kevin<100><BOT>" switched from team <CT> to <Unassigned>
+L 05/31/2023 - 22:12:00: "MARSHY<84><STEAM_1:1:33284838><>" entered the game
+L 05/31/2023 - 22:12:03: "Paul Bohill<74><STEAM_1:1:25555325>" switched from team <Unassigned> to <CT>
+L 05/31/2023 - 22:12:06: "Draccer<94><STEAM_1:0:46253715><>" entered the game
+L 05/31/2023 - 22:12:08: "MARSHY<84><STEAM_1:1:33284838>" switched from team <Unassigned> to <TERRORIST>
+L 05/31/2023 - 22:12:08: "Brian<99><BOT><TERRORIST>" disconnected (reason "Kicked by Console")
+L 05/31/2023 - 22:12:08: "Brian<99><BOT>" switched from team <TERRORIST> to <Unassigned>
+L 05/31/2023 - 22:12:09: "Deaglán<86><STEAM_1:0:190979385><>" entered the game
+L 05/31/2023 - 22:12:11: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11579 3856 3584] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12240 4096 3648] with "deagle" (headshot penetrated)
+L 05/31/2023 - 22:12:17: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11587 3856 3584] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12240 4096 3648] with "galilar" (headshot)
+L 05/31/2023 - 22:12:23: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11597 3867 3584] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12240 4096 3648] with "galilar" (headshot)
+L 05/31/2023 - 22:12:23: "Griggs<95><STEAM_1:1:447979011><>" entered the game
+L 05/31/2023 - 22:12:29: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11545 3863 3584] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12240 4096 3648] with "galilar" (penetrated)
+L 05/31/2023 - 22:12:29: "Deaglán<86><STEAM_1:0:190979385>" switched from team <Unassigned> to <TERRORIST>
+L 05/31/2023 - 22:12:31: "Draccer<94><STEAM_1:0:46253715>" switched from team <Unassigned> to <CT>
+L 05/31/2023 - 22:12:34: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11592 3872 3584] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-12240 4096 3648] with "m4a1" (headshot)
+L 05/31/2023 - 22:12:35: "Griggs<95><STEAM_1:1:447979011>" switched from team <Unassigned> to <TERRORIST>
+L 05/31/2023 - 22:12:38: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11779 7901 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "ak47"
+L 05/31/2023 - 22:12:44: "Draccer<94><STEAM_1:0:46253715><CT>" [-12106 4285 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11853 3862 3648] with "awp"
+L 05/31/2023 - 22:12:45: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11754 7897 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "glock" (headshot)
+L 05/31/2023 - 22:12:49: "Draccer<94><STEAM_1:0:46253715><CT>" [-12118 3906 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11448 3955 3648] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:12:53: "Draccer<94><STEAM_1:0:46253715><CT>" [-12196 3908 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11396 3958 3648] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:12:53: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11719 7476 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:13:00: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-12234 7513 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11321 7582 3648] with "awp"
+L 05/31/2023 - 22:13:04: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11427 7535 3584] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-12162 7497 3648] with "m4a1" (headshot)
+L 05/31/2023 - 22:13:05: "Draccer<94><STEAM_1:0:46253715><CT>" [-11782 4323 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 4096 3648] with "ak47" (headshot)
+L 05/31/2023 - 22:13:08: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-12229 7756 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11327 7581 3648] with "ak47" (headshot)
+L 05/31/2023 - 22:13:12: "Draccer<94><STEAM_1:0:46253715><CT>" [-12207 4156 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11364 4223 3648] with "famas"
+L 05/31/2023 - 22:13:14: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11906 7458 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "deagle" (headshot)
+L 05/31/2023 - 22:13:19: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11334 3929 3584] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-12229 3949 3648] with "glock"
+L 05/31/2023 - 22:13:21: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11885 7448 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:13:29: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11873 7461 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "ak47" (headshot)
+L 05/31/2023 - 22:13:35: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11797 7445 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:13:42: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11822 7458 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "m4a1" (headshot)
+L 05/31/2023 - 22:13:44: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11930 4103 3584] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-11915 4069 3648] with "knife"
+L 05/31/2023 - 22:13:49: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11889 7443 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11312 7680 3648] with "galilar" (headshot penetrated)
+L 05/31/2023 - 22:13:51: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11317 4055 3584] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-12170 4077 3673] with "awp"
+L 05/31/2023 - 22:13:56: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11310 4144 3585] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-12156 4197 3648] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:13:59: "Draccer<94><STEAM_1:0:46253715><CT>" [-12190 4214 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11313 4148 3649] with "m4a1" (headshot)
+L 05/31/2023 - 22:14:06: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11946 7492 3584] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-12240 7680 3648] with "m4a1" (headshot)
+L 05/31/2023 - 22:14:09: "Draccer<94><STEAM_1:0:46253715><CT>" [-12231 4200 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11310 4015 3648] with "deagle"
+L 05/31/2023 - 22:14:13: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11350 4034 3584] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-12225 4174 3648] with "galilar" (headshot)
+L 05/31/2023 - 22:14:17: "Draccer<94><STEAM_1:0:46253715><CT>" [-12234 4196 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11312 4127 3649] with "m4a1" (headshot)
+L 05/31/2023 - 22:14:25: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-12240 7680 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-12221 7627 3648] with "m4a1_silencer"
+L 05/31/2023 - 22:14:30: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12224 953 3584] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-12209 1038 3648] with "glock"
+L 05/31/2023 - 22:14:35: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-12203 7577 3584] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-12147 7567 3630] with "knife"
+L 05/31/2023 - 22:14:37: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12238 1101 3584] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-11310 933 3648] with "awp"
+L 05/31/2023 - 22:14:38: "Draccer<94><STEAM_1:0:46253715><CT>" [-12009 4292 3584] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-12035 4264 3648] with "knife"
+L 05/31/2023 - 22:14:41: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-11395 4161 3584] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-12216 4157 3648] with "ak47" (headshot)
+L 05/31/2023 - 22:14:45: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-11530 7568 3584] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-11472 7539 3648] with "knife"
+L 05/31/2023 - 22:14:47: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-11410 821 3586] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-12156 929 3648] with "famas" (headshot)
+L 05/31/2023 - 22:14:47: Starting Freeze period
+L 05/31/2023 - 22:14:47: World triggered "Match_Start" on "de_dust2"
+L 05/31/2023 - 22:14:47: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:14:47: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:14:47: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:14:47: MatchStatus: Score: 0:0 on map "de_dust2" RoundsPlayed: 0
+L 05/31/2023 - 22:14:49: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:14:53: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:14:54: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "revolver"
+L 05/31/2023 - 22:14:56: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:14:56: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "p250"
+L 05/31/2023 - 22:14:58: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:14:59: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:15:00: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "tec9"
+L 05/31/2023 - 22:15:02: World triggered "Round_Start"
+L 05/31/2023 - 22:15:03: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" say_team "short"
+L 05/31/2023 - 22:15:06: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:15:15: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" threw smokegrenade [152 1498 3]
+L 05/31/2023 - 22:15:15: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" threw smokegrenade [-261 1290 -123]
+L 05/31/2023 - 22:15:23: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [305 1546 3] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [454 1583 66] with "revolver" (headshot)
+L 05/31/2023 - 22:15:31: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw flashbang [813 2741 173] flashbang entindex 348)
+L 05/31/2023 - 22:15:31: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" blinded for 0.71 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 348 
+L 05/31/2023 - 22:15:31: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 0.71 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 348 
+L 05/31/2023 - 22:15:31: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 1.05 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 348 
+L 05/31/2023 - 22:15:34: "Draccer<94><STEAM_1:0:46253715><CT>" [1534 1971 -10] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [395 2371 159] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:16:02: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:16:02: "Draccer<94><STEAM_1:0:46253715><CT>" [1506 1411 -7] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [539 629 67] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:16:09: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:16:32: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [169 18 8] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [150 362 63] with "glock"
+L 05/31/2023 - 22:16:32: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" assisted killing "Paul Bohill<74><STEAM_1:1:25555325><CT>"
+L 05/31/2023 - 22:16:36: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [398 125 -3] killed "Draccer<94><STEAM_1:0:46253715><CT>" [582 110 61] with "glock"
+L 05/31/2023 - 22:16:36: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "0") (T "1")
+L 05/31/2023 - 22:16:36: Team "CT" scored "0" with "3" players
+L 05/31/2023 - 22:16:36: Team "TERRORIST" scored "1" with "3" players
+L 05/31/2023 - 22:16:36: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:16:36: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:16:36: MatchStatus: Score: 0:1 on map "de_dust2" RoundsPlayed: 1
+L 05/31/2023 - 22:16:36: World triggered "Round_End"
+L 05/31/2023 - 22:16:43: Starting Freeze period
+L 05/31/2023 - 22:16:43: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:16:43: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:16:43: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:16:43: MatchStatus: Score: 0:1 on map "de_dust2" RoundsPlayed: 1
+L 05/31/2023 - 22:16:47: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:16:48: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:16:49: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "sg556"
+L 05/31/2023 - 22:16:50: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:16:50: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "galilar"
+L 05/31/2023 - 22:16:51: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "nova"
+L 05/31/2023 - 22:16:51: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:16:52: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "ump45"
+L 05/31/2023 - 22:16:52: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "decoy"
+L 05/31/2023 - 22:16:52: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:16:53: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:16:53: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:16:53: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:16:53: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "fiveseven"
+L 05/31/2023 - 22:16:58: World triggered "Round_Start"
+L 05/31/2023 - 22:17:01: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "fiveseven"
+L 05/31/2023 - 22:17:14: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw flashbang [-1955 1987 17] flashbang entindex 362)
+L 05/31/2023 - 22:17:14: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 1.93 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 362 
+L 05/31/2023 - 22:17:14: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 0.72 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 362 
+L 05/31/2023 - 22:17:14: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" blinded for 0.92 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 362 
+L 05/31/2023 - 22:17:14: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" blinded for 3.90 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 362 
+L 05/31/2023 - 22:17:14: Molotov projectile spawned at -1696.377686 2499.263672 77.906570, velocity -216.403046 -610.735596 189.200409
+L 05/31/2023 - 22:17:15: "Draccer<94><STEAM_1:0:46253715><CT>" threw molotov [-1996 1654 33]
+L 05/31/2023 - 22:17:16: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-2017 1944 1] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-1801 1831 196] with "nova" (headshot)
+L 05/31/2023 - 22:17:17: "Draccer<94><STEAM_1:0:46253715><CT>" [-1626 2399 2] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-2027 1930 66] with "ump45"
+L 05/31/2023 - 22:17:27: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw decoy [-2034 1785 34]
+L 05/31/2023 - 22:17:29: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-1736 1116 32] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-2042 1163 98] with "fiveseven"
+L 05/31/2023 - 22:17:47: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:17:47: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-2158 1814 4] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-1165 2279 68] with "sg556"
+L 05/31/2023 - 22:17:47: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "1") (T "1")
+L 05/31/2023 - 22:17:47: Team "CT" scored "1" with "3" players
+L 05/31/2023 - 22:17:47: Team "TERRORIST" scored "1" with "3" players
+L 05/31/2023 - 22:17:47: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:17:47: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:17:47: MatchStatus: Score: 1:1 on map "de_dust2" RoundsPlayed: 2
+L 05/31/2023 - 22:17:47: World triggered "Round_End"
+L 05/31/2023 - 22:17:54: Starting Freeze period
+L 05/31/2023 - 22:17:54: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:17:54: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:17:54: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:17:54: MatchStatus: Score: 1:1 on map "de_dust2" RoundsPlayed: 2
+L 05/31/2023 - 22:17:58: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:17:58: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "flashbang"
+L 05/31/2023 - 22:17:59: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:17:59: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "flashbang"
+L 05/31/2023 - 22:17:59: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:18:00: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:18:02: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:18:07: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:18:08: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:18:08: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:18:08: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:18:09: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:18:09: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:18:09: World triggered "Round_Start"
+L 05/31/2023 - 22:18:10: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:18:10: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "flashbang"
+L 05/31/2023 - 22:18:12: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "p250"
+L 05/31/2023 - 22:18:17: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "p250"
+L 05/31/2023 - 22:18:21: Molotov projectile spawned at 1422.744507 1301.359619 55.121693, velocity -775.877930 -582.216309 117.212494
+L 05/31/2023 - 22:18:21: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw hegrenade [133 1453 110]
+L 05/31/2023 - 22:18:22: "Draccer<94><STEAM_1:0:46253715><CT>" threw molotov [610 692 2]
+L 05/31/2023 - 22:18:23: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "galilar"
+L 05/31/2023 - 22:18:23: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "galilar"
+L 05/31/2023 - 22:18:28: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw flashbang [371 1773 104] flashbang entindex 383)
+L 05/31/2023 - 22:18:37: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:18:37: "Draccer<94><STEAM_1:0:46253715><CT>" [1075 595 6] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [737 967 64] with "ump45" (headshot)
+L 05/31/2023 - 22:18:38: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw smokegrenade [233 1399 2]
+L 05/31/2023 - 22:18:46: "Draccer<94><STEAM_1:0:46253715><CT>" threw smokegrenade [557 617 5]
+L 05/31/2023 - 22:19:05: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-1 1527 1] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-959 1387 -48] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:19:21: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [639 825 1] killed "Draccer<94><STEAM_1:0:46253715><CT>" [588 798 66] with "p250" (headshot)
+L 05/31/2023 - 22:19:28: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [594 453 2] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [686 1189 68] with "m4a1_silencer"
+L 05/31/2023 - 22:19:28: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "2") (T "1")
+L 05/31/2023 - 22:19:28: Team "CT" scored "2" with "3" players
+L 05/31/2023 - 22:19:28: Team "TERRORIST" scored "1" with "3" players
+L 05/31/2023 - 22:19:28: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:19:28: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:19:28: MatchStatus: Score: 2:1 on map "de_dust2" RoundsPlayed: 3
+L 05/31/2023 - 22:19:28: World triggered "Round_End"
+L 05/31/2023 - 22:19:35: Starting Freeze period
+L 05/31/2023 - 22:19:35: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:19:35: MatchStatus: Team "CT" is unset.
+L 05/31/2023 - 22:19:35: MatchStatus: Team "TERRORIST" is unset.
+L 05/31/2023 - 22:19:35: MatchStatus: Score: 2:1 on map "de_dust2" RoundsPlayed: 3
+L 05/31/2023 - 22:19:37: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "ssg08"
+L 05/31/2023 - 22:19:37: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:19:38: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:19:39: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:19:40: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:19:41: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:19:41: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:19:41: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:19:41: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:19:42: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "flashbang"
+L 05/31/2023 - 22:19:42: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:19:43: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:19:43: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "p250"
+L 05/31/2023 - 22:19:43: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "galilar"
+L 05/31/2023 - 22:19:50: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "xm1014"
+L 05/31/2023 - 22:19:50: World triggered "Round_Start"
+L 05/31/2023 - 22:19:51: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:19:51: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:20:00: Molotov projectile spawned at -1769.357056 2089.317139 64.713150, velocity -487.935638 -819.563354 190.424072
+L 05/31/2023 - 22:20:01: "Draccer<94><STEAM_1:0:46253715><CT>" threw molotov [-1963 1365 29]
+L 05/31/2023 - 22:20:14: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-644 1518 -107] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-451 1428 -64] with "xm1014" (headshot)
+L 05/31/2023 - 22:20:25: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw flashbang [-826 2403 30] flashbang entindex 356)
+L 05/31/2023 - 22:20:29: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:20:29: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:20:31: "Draccer<94><STEAM_1:0:46253715><CT>" threw hegrenade [-2001 1533 54]
+L 05/31/2023 - 22:20:33: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-558 1886 -119] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-599 2413 -32] with "xm1014"
+L 05/31/2023 - 22:20:37: "Draccer<94><STEAM_1:0:46253715><CT>" threw smokegrenade [-2038 1488 36]
+L 05/31/2023 - 22:20:43: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw flashbang [-1394 2203 15] flashbang entindex 354)
+L 05/31/2023 - 22:20:43: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" blinded for 4.10 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 354 
+L 05/31/2023 - 22:20:43: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 4.10 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 354 
+L 05/31/2023 - 22:20:43: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 4.10 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 354 
+L 05/31/2023 - 22:20:43: Molotov projectile spawned at -1017.646362 2119.958252 43.538578, velocity -605.218018 218.077286 204.397659
+L 05/31/2023 - 22:20:45: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw molotov [-1334 2212 3]
+L 05/31/2023 - 22:20:45: "Draccer<94><STEAM_1:0:46253715><CT>" [-1879 2410 16] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-2026 1791 97] with "m4a1_silencer"
+L 05/31/2023 - 22:20:49: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-2021 1837 21] killed "Draccer<94><STEAM_1:0:46253715><CT>" [-1870 2555 98] with "sg556"
+L 05/31/2023 - 22:20:49: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" assisted killing "Draccer<94><STEAM_1:0:46253715><CT>"
+L 05/31/2023 - 22:20:49: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "2") (T "2")
+L 05/31/2023 - 22:20:49: Team "CT" scored "2" with "3" players
+L 05/31/2023 - 22:20:49: Team "TERRORIST" scored "2" with "3" players
+L 05/31/2023 - 22:20:49: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:20:49: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:20:49: MatchStatus: Score: 2:2 on map "de_dust2" RoundsPlayed: 4
+L 05/31/2023 - 22:20:49: World triggered "Round_End"
+L 05/31/2023 - 22:20:50: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw flashbang [-1581 2455 11] flashbang entindex 360)
+L 05/31/2023 - 22:20:50: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" blinded for 0.32 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:20:50: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 0.32 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:20:50: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" blinded for 4.19 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:20:50: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 0.32 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:20:50: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" blinded for 4.19 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:20:56: Starting Freeze period
+L 05/31/2023 - 22:20:56: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:20:56: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:20:56: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:20:56: MatchStatus: Score: 2:2 on map "de_dust2" RoundsPlayed: 4
+L 05/31/2023 - 22:20:57: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:20:58: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:20:58: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:20:59: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "molotov"
+L 05/31/2023 - 22:20:59: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:21:00: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:21:01: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "awp"
+L 05/31/2023 - 22:21:02: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:21:02: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "molotov"
+L 05/31/2023 - 22:21:03: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:21:03: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:21:03: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:21:04: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "deagle"
+L 05/31/2023 - 22:21:11: World triggered "Round_Start"
+L 05/31/2023 - 22:21:11: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:21:11: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:21:12: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:21:12: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:21:12: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:21:14: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:21:23: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw flashbang [958 664 686] flashbang entindex 372)
+L 05/31/2023 - 22:21:23: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 2.80 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 372 
+L 05/31/2023 - 22:21:24: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" threw smokegrenade [-267 1287 -123]
+L 05/31/2023 - 22:21:28: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [1047 1155 0] killed "Draccer<94><STEAM_1:0:46253715><CT>" [1304 700 43] with "xm1014" (headshot)
+L 05/31/2023 - 22:21:30: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [1578 1230 1] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [1114 1181 64] with "m4a1_silencer"
+L 05/31/2023 - 22:21:37: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw hegrenade [674 539 10]
+L 05/31/2023 - 22:21:43: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw flashbang [517 661 19] flashbang entindex 358)
+L 05/31/2023 - 22:21:48: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw flashbang [539 630 5] flashbang entindex 347)
+L 05/31/2023 - 22:21:48: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 0.31 by "Paul Bohill<74><STEAM_1:1:25555325><CT>" from flashbang entindex 347 
+L 05/31/2023 - 22:21:48: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 0.31 by "Paul Bohill<74><STEAM_1:1:25555325><CT>" from flashbang entindex 347 
+L 05/31/2023 - 22:21:53: "Draccer<94><STEAM_1:0:46253715><CT>" say_team "remember they cna come ct"
+L 05/31/2023 - 22:21:58: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [306 2007 99] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [1521 2378 83] with "ak47"
+L 05/31/2023 - 22:22:05: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:22:05: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [1503 1870 -9] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [474 2515 160] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:22:17: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw smokegrenade [682 2061 -78]
+L 05/31/2023 - 22:22:56: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [370 1949 96] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [1235 2784 188] with "m4a1_silencer"
+L 05/31/2023 - 22:22:56: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "3") (T "2")
+L 05/31/2023 - 22:22:56: Team "CT" scored "3" with "3" players
+L 05/31/2023 - 22:22:56: Team "TERRORIST" scored "2" with "3" players
+L 05/31/2023 - 22:22:56: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:22:56: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:22:56: MatchStatus: Score: 3:2 on map "de_dust2" RoundsPlayed: 5
+L 05/31/2023 - 22:22:56: World triggered "Round_End"
+L 05/31/2023 - 22:23:03: Starting Freeze period
+L 05/31/2023 - 22:23:03: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:23:03: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:23:03: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:23:03: MatchStatus: Score: 3:2 on map "de_dust2" RoundsPlayed: 5
+L 05/31/2023 - 22:23:06: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:23:08: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:23:09: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:23:09: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:23:09: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:23:09: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:23:09: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "flashbang"
+L 05/31/2023 - 22:23:10: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:23:13: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:23:13: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:23:14: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:23:14: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:23:16: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "sg556"
+L 05/31/2023 - 22:23:17: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:23:18: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "xm1014"
+L 05/31/2023 - 22:23:18: World triggered "Round_Start"
+L 05/31/2023 - 22:23:18: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:23:18: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:23:19: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:23:19: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:23:19: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:23:19: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:23:20: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "molotov"
+L 05/31/2023 - 22:23:27: Molotov projectile spawned at -1861.196289 2008.338501 63.993023, velocity -328.239380 -899.991943 174.053711
+L 05/31/2023 - 22:23:29: "Draccer<94><STEAM_1:0:46253715><CT>" threw molotov [-1943 1219 33]
+L 05/31/2023 - 22:23:39: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-446 761 -1] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-389 1616 -81] with "ak47"
+L 05/31/2023 - 22:23:39: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw hegrenade [-1925 1172 53]
+L 05/31/2023 - 22:23:47: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" threw flashbang [-480 2373 -98] flashbang entindex 359)
+L 05/31/2023 - 22:23:47: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" blinded for 0.93 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 359 
+L 05/31/2023 - 22:23:47: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 0.93 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 359 
+L 05/31/2023 - 22:23:47: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" blinded for 1.70 by "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" from flashbang entindex 359 
+L 05/31/2023 - 22:23:48: Molotov projectile spawned at -1708.507935 1062.040405 100.508530, velocity -489.067932 687.155823 205.412140
+L 05/31/2023 - 22:23:49: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:23:49: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-1008 2476 -7] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-420 2052 -64] with "m4a1_silencer"
+L 05/31/2023 - 22:23:50: "Draccer<94><STEAM_1:0:46253715><CT>" threw smokegrenade [-1987 1532 33]
+L 05/31/2023 - 22:23:50: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" threw molotov [-1971 1779 34]
+L 05/31/2023 - 22:23:54: "Draccer<94><STEAM_1:0:46253715><CT>" threw hegrenade [-1926 1244 35]
+L 05/31/2023 - 22:24:05: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw smokegrenade [-442 1628 -124]
+L 05/31/2023 - 22:24:16: "Draccer<94><STEAM_1:0:46253715><CT>" [-2093 2041 3] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-1857 1048 101] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:24:40: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [-393 1625 -127] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-276 1474 18] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:24:40: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" assisted killing "MARSHY<84><STEAM_1:1:33284838><TERRORIST>"
+L 05/31/2023 - 22:24:40: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "4") (T "2")
+L 05/31/2023 - 22:24:40: Team "CT" scored "4" with "3" players
+L 05/31/2023 - 22:24:40: Team "TERRORIST" scored "2" with "3" players
+L 05/31/2023 - 22:24:40: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:24:40: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:24:40: MatchStatus: Score: 4:2 on map "de_dust2" RoundsPlayed: 6
+L 05/31/2023 - 22:24:40: World triggered "Round_End"
+L 05/31/2023 - 22:24:47: Starting Freeze period
+L 05/31/2023 - 22:24:47: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:24:47: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:24:47: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:24:47: MatchStatus: Score: 4:2 on map "de_dust2" RoundsPlayed: 6
+L 05/31/2023 - 22:24:50: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:24:51: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:24:51: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:24:51: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "m4a1"
+L 05/31/2023 - 22:24:53: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:24:53: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:24:53: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:24:53: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:24:54: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:24:54: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:24:54: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:24:55: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "flashbang"
+L 05/31/2023 - 22:24:55: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "flashbang"
+L 05/31/2023 - 22:24:55: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:24:55: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:24:57: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:24:57: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:25:02: World triggered "Round_Start"
+L 05/31/2023 - 22:25:06: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "ump45"
+L 05/31/2023 - 22:25:07: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:25:09: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "sawedoff"
+L 05/31/2023 - 22:25:09: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" threw flashbang [1369 836 483] flashbang entindex 384)
+L 05/31/2023 - 22:25:09: "Paul Bohill<74><STEAM_1:1:25555325><CT>" blinded for 0.42 by "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" from flashbang entindex 384 
+L 05/31/2023 - 22:25:09: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 3.88 by "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" from flashbang entindex 384 
+L 05/31/2023 - 22:25:14: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw hegrenade [191 1335 196]
+L 05/31/2023 - 22:25:17: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" threw smokegrenade [123 1423 2]
+L 05/31/2023 - 22:25:17: Molotov projectile spawned at 1428.303467 1326.658447 55.427177, velocity -752.450684 -570.130615 144.315811
+L 05/31/2023 - 22:25:18: "Draccer<94><STEAM_1:0:46253715><CT>" threw molotov [544 657 4]
+L 05/31/2023 - 22:25:24: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [574 1071 2] killed "Draccer<94><STEAM_1:0:46253715><CT>" [1111 1096 63] with "ak47"
+L 05/31/2023 - 22:25:25: "Draccer<94><STEAM_1:0:46253715><CT>" threw hegrenade [718 469 14]
+L 05/31/2023 - 22:25:29: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" threw flashbang [-248 1454 139] flashbang entindex 361)
+L 05/31/2023 - 22:25:29: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" blinded for 0.93 by "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" from flashbang entindex 361 
+L 05/31/2023 - 22:25:29: "Draccer<94><STEAM_1:0:46253715><CT>" blinded for 0.92 by "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" from flashbang entindex 361 
+L 05/31/2023 - 22:25:29: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" blinded for 4.87 by "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" from flashbang entindex 361 
+L 05/31/2023 - 22:25:29: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" blinded for 1.03 by "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" from flashbang entindex 361 
+L 05/31/2023 - 22:25:29: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" threw flashbang [1322 1547 0] flashbang entindex 369)
+L 05/31/2023 - 22:25:31: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-64 1543 1] killed "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-101 1461 46] with "ump45"
+L 05/31/2023 - 22:25:32: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw flashbang [1480 1495 153] flashbang entindex 354)
+L 05/31/2023 - 22:25:32: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" blinded for 0.88 by "Paul Bohill<74><STEAM_1:1:25555325><CT>" from flashbang entindex 354 
+L 05/31/2023 - 22:25:35: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [1287 1929 1] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [1637 887 37] with "m4a1"
+L 05/31/2023 - 22:25:39: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw flashbang [284 2118 111] flashbang entindex 356)
+L 05/31/2023 - 22:25:39: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" blinded for 1.59 by "Paul Bohill<74><STEAM_1:1:25555325><CT>" from flashbang entindex 356 
+L 05/31/2023 - 22:25:39: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" blinded for 1.99 by "Paul Bohill<74><STEAM_1:1:25555325><CT>" from flashbang entindex 356 
+L 05/31/2023 - 22:25:39: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" blinded for 1.59 by "Paul Bohill<74><STEAM_1:1:25555325><CT>" from flashbang entindex 356 
+L 05/31/2023 - 22:25:44: "Paul Bohill<74><STEAM_1:1:25555325><CT>" [1331 2625 93] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [398 2637 160] with "m4a1"
+L 05/31/2023 - 22:25:44: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" assisted killing "Deaglán<86><STEAM_1:0:190979385><TERRORIST>"
+L 05/31/2023 - 22:25:46: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [374 2357 95] killed "Paul Bohill<74><STEAM_1:1:25555325><CT>" [1300 2679 170] with "ak47"
+L 05/31/2023 - 22:25:46: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" assisted killing "Paul Bohill<74><STEAM_1:1:25555325><CT>"
+L 05/31/2023 - 22:25:46: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "4") (T "3")
+L 05/31/2023 - 22:25:46: Team "CT" scored "4" with "3" players
+L 05/31/2023 - 22:25:46: Team "TERRORIST" scored "3" with "3" players
+L 05/31/2023 - 22:25:46: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:25:46: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:25:46: MatchStatus: Score: 4:3 on map "de_dust2" RoundsPlayed: 7
+L 05/31/2023 - 22:25:46: World triggered "Round_End"
+L 05/31/2023 - 22:25:53: Starting Freeze period
+L 05/31/2023 - 22:25:53: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:25:53: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:25:53: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:25:53: MatchStatus: Score: 4:3 on map "de_dust2" RoundsPlayed: 7
+L 05/31/2023 - 22:25:56: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:25:57: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:25:58: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "deagle"
+L 05/31/2023 - 22:25:58: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:25:58: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "sawedoff"
+L 05/31/2023 - 22:25:58: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:25:58: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "ump45"
+L 05/31/2023 - 22:25:58: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:25:59: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:25:59: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "decoy"
+L 05/31/2023 - 22:25:59: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:25:59: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:25:59: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "flashbang"
+L 05/31/2023 - 22:26:00: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:26:00: "Draccer<94><STEAM_1:0:46253715><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:26:00: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:26:00: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:26:01: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:26:02: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:26:02: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:26:02: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:26:03: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "flashbang"
+L 05/31/2023 - 22:26:04: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:26:06: "Paul Bohill<74><STEAM_1:1:25555325><CT>" purchased "fiveseven"
+L 05/31/2023 - 22:26:08: World triggered "Round_Start"
+L 05/31/2023 - 22:26:19: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" threw flashbang [-1704 1343 77] flashbang entindex 389)
+L 05/31/2023 - 22:26:19: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" blinded for 0.67 by "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" from flashbang entindex 389 
+L 05/31/2023 - 22:26:19: "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" blinded for 1.89 by "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" from flashbang entindex 389 
+L 05/31/2023 - 22:26:19: "Griggs<95><STEAM_1:1:447979011><TERRORIST>" blinded for 4.32 by "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" from flashbang entindex 389 
+L 05/31/2023 - 22:26:20: "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:26:20: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-1980 1538 32] killed "MARSHY<84><STEAM_1:1:33284838><TERRORIST>" [-1929 1297 95] with "deagle"
+L 05/31/2023 - 22:26:23: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw smokegrenade [-483 1793 -122]
+L 05/31/2023 - 22:26:27: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-2169 1088 39] killed "Deaglán<86><STEAM_1:0:190979385><TERRORIST>" [-1181 1162 96] with "ak47" (headshot)
+L 05/31/2023 - 22:26:40: "Paul Bohill<74><STEAM_1:1:25555325><CT>" threw hegrenade [-1771 514 36]
+L 05/31/2023 - 22:26:40: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" [-1624 938 35] killed "Griggs<95><STEAM_1:1:447979011><TERRORIST>" [-1701 661 96] with "ak47"
+L 05/31/2023 - 22:26:40: "Draccer<94><STEAM_1:0:46253715><CT>" assisted killing "Griggs<95><STEAM_1:1:447979011><TERRORIST>"
+L 05/31/2023 - 22:26:40: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "5") (T "3")
+L 05/31/2023 - 22:26:40: Team "CT" scored "5" with "3" players
+L 05/31/2023 - 22:26:40: Team "TERRORIST" scored "3" with "3" players
+L 05/31/2023 - 22:26:40: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:26:40: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:26:40: MatchStatus: Score: 5:3 on map "de_dust2" RoundsPlayed: 8
+L 05/31/2023 - 22:26:40: World triggered "Round_End"
+L 05/31/2023 - 22:26:43: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" say "gh"
+L 05/31/2023 - 22:26:55: "Supermarket Sushi<73><STEAM_1:1:16333471>" switched from team <CT> to <TERRORIST>
+L 05/31/2023 - 22:26:55: "Paul Bohill<74><STEAM_1:1:25555325>" switched from team <CT> to <TERRORIST>
+L 05/31/2023 - 22:26:55: "MARSHY<84><STEAM_1:1:33284838>" switched from team <TERRORIST> to <CT>
+L 05/31/2023 - 22:26:55: "Griggs<95><STEAM_1:1:447979011>" switched from team <TERRORIST> to <CT>
+L 05/31/2023 - 22:26:55: "Deaglán<86><STEAM_1:0:190979385>" switched from team <TERRORIST> to <CT>
+L 05/31/2023 - 22:26:55: "Draccer<94><STEAM_1:0:46253715>" switched from team <CT> to <TERRORIST>
+L 05/31/2023 - 22:26:55: Starting Freeze period
+L 05/31/2023 - 22:26:55: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:26:55: MatchStatus: Team playing "CT": Fucking Legends
+L 05/31/2023 - 22:26:55: MatchStatus: Team playing "TERRORIST": Losers
+L 05/31/2023 - 22:26:55: MatchStatus: Score: 3:5 on map "de_dust2" RoundsPlayed: 8
+L 05/31/2023 - 22:27:00: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "deagle"
+L 05/31/2023 - 22:27:01: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:27:02: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "taser"
+L 05/31/2023 - 22:27:03: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:27:05: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" say_team "longe"
+L 05/31/2023 - 22:27:06: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" say_team "push short I sya"
+L 05/31/2023 - 22:27:10: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:27:10: World triggered "Round_Start"
+L 05/31/2023 - 22:27:12: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:27:15: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:27:21: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [840 861 0] killed "Deaglán<86><STEAM_1:0:190979385><CT>" [1544 1394 48] with "deagle" (headshot)
+L 05/31/2023 - 22:27:37: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite A
+L 05/31/2023 - 22:27:40: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" triggered "Planted_The_Bomb" at bombsite A
+L 05/31/2023 - 22:27:41: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [1217 2945 128] killed "Griggs<95><STEAM_1:1:447979011><CT>" [405 1951 160] with "deagle" (headshot)
+L 05/31/2023 - 22:27:47: "MARSHY<84><STEAM_1:1:33284838><CT>" [328 1689 50] killed "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" [591 2690 161] with "usp_silencer" (headshot)
+L 05/31/2023 - 22:28:00: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [1093 2583 96] killed "MARSHY<84><STEAM_1:1:33284838><CT>" [275 1822 161] with "hkp2000"
+L 05/31/2023 - 22:28:00: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "3") (T "6")
+L 05/31/2023 - 22:28:00: Team "CT" scored "3" with "3" players
+L 05/31/2023 - 22:28:00: Team "TERRORIST" scored "6" with "3" players
+L 05/31/2023 - 22:28:00: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:28:00: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:28:00: MatchStatus: Score: 3:6 on map "de_dust2" RoundsPlayed: 9
+L 05/31/2023 - 22:28:00: World triggered "Round_End"
+L 05/31/2023 - 22:28:07: Starting Freeze period
+L 05/31/2023 - 22:28:07: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:28:07: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:28:07: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:28:07: MatchStatus: Score: 3:6 on map "de_dust2" RoundsPlayed: 9
+L 05/31/2023 - 22:28:10: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:28:11: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:28:11: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:28:11: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:28:12: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "ssg08"
+L 05/31/2023 - 22:28:12: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:28:13: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:28:14: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "ump45"
+L 05/31/2023 - 22:28:14: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:28:14: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:28:15: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:28:15: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:28:15: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "mag7"
+L 05/31/2023 - 22:28:17: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:28:19: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "ump45"
+L 05/31/2023 - 22:28:20: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:28:20: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:28:20: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:28:22: World triggered "Round_Start"
+L 05/31/2023 - 22:28:33: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" threw flashbang [-1987 1859 14] flashbang entindex 400)
+L 05/31/2023 - 22:28:38: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" threw flashbang [-1965 1878 59] flashbang entindex 368)
+L 05/31/2023 - 22:28:38: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" blinded for 0.91 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 368 
+L 05/31/2023 - 22:28:38: "MARSHY<84><STEAM_1:1:33284838><CT>" blinded for 0.59 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 368 
+L 05/31/2023 - 22:28:46: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:28:46: "Deaglán<86><STEAM_1:0:190979385><CT>" [-1961 1165 32] killed "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-2037 2267 64] with "mag7" (headshot)
+L 05/31/2023 - 22:28:46: "MARSHY<84><STEAM_1:1:33284838><CT>" assisted killing "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>"
+L 05/31/2023 - 22:28:48: "Deaglán<86><STEAM_1:0:190979385><CT>" [-1970 1509 33] killed "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" [-2070 2287 65] with "mag7"
+L 05/31/2023 - 22:28:48: "MARSHY<84><STEAM_1:1:33284838><CT>" assisted killing "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>"
+L 05/31/2023 - 22:28:50: "Deaglán<86><STEAM_1:0:190979385><CT>" [-2023 1823 32] killed "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [-1901 1818 95] with "mag7"
+L 05/31/2023 - 22:28:50: "MARSHY<84><STEAM_1:1:33284838><CT>" assisted killing "Draccer<94><STEAM_1:0:46253715><TERRORIST>"
+L 05/31/2023 - 22:28:50: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "4") (T "6")
+L 05/31/2023 - 22:28:50: Team "CT" scored "4" with "3" players
+L 05/31/2023 - 22:28:50: Team "TERRORIST" scored "6" with "3" players
+L 05/31/2023 - 22:28:50: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:28:50: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:28:50: MatchStatus: Score: 4:6 on map "de_dust2" RoundsPlayed: 10
+L 05/31/2023 - 22:28:50: World triggered "Round_End"
+L 05/31/2023 - 22:28:57: Starting Freeze period
+L 05/31/2023 - 22:28:57: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:28:57: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:28:57: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:28:57: MatchStatus: Score: 4:6 on map "de_dust2" RoundsPlayed: 10
+L 05/31/2023 - 22:28:59: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:28:59: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:29:01: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:29:01: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:29:01: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:29:02: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "flashbang"
+L 05/31/2023 - 22:29:02: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:29:02: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "mac10"
+L 05/31/2023 - 22:29:05: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "item_kevlar"
+L 05/31/2023 - 22:29:06: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:29:06: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "deagle"
+L 05/31/2023 - 22:29:12: World triggered "Round_Start"
+L 05/31/2023 - 22:29:31: "MARSHY<84><STEAM_1:1:33284838><CT>" threw flashbang [-155 1136 3] flashbang entindex 366)
+L 05/31/2023 - 22:29:31: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" blinded for 0.15 by "MARSHY<84><STEAM_1:1:33284838><CT>" from flashbang entindex 366 
+L 05/31/2023 - 22:29:31: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" blinded for 2.09 by "MARSHY<84><STEAM_1:1:33284838><CT>" from flashbang entindex 366 
+L 05/31/2023 - 22:29:35: "MARSHY<84><STEAM_1:1:33284838><CT>" [81 2066 -124] killed "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [645 2068 -37] with "ak47"
+L 05/31/2023 - 22:29:39: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite A
+L 05/31/2023 - 22:29:42: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Planted_The_Bomb" at bombsite A
+L 05/31/2023 - 22:29:42: "Deaglán<86><STEAM_1:0:190979385><CT>" [1761 1896 1] killed "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [488 2573 160] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:29:47: "Deaglán<86><STEAM_1:0:190979385><CT>" [1784 2085 2] killed "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" [1002 2578 160] with "m4a1_silencer" (headshot penetrated)
+L 05/31/2023 - 22:29:52: "Deaglán<86><STEAM_1:0:190979385><CT>" triggered "Begin_Bomb_Defuse_Without_Kit"
+L 05/31/2023 - 22:30:02: "Deaglán<86><STEAM_1:0:190979385><CT>" triggered "Defused_The_Bomb"
+L 05/31/2023 - 22:30:02: Team "CT" triggered "SFUI_Notice_Bomb_Defused" (CT "5") (T "6")
+L 05/31/2023 - 22:30:02: Team "CT" scored "5" with "3" players
+L 05/31/2023 - 22:30:02: Team "TERRORIST" scored "6" with "3" players
+L 05/31/2023 - 22:30:02: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:30:02: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:30:02: MatchStatus: Score: 5:6 on map "de_dust2" RoundsPlayed: 11
+L 05/31/2023 - 22:30:02: World triggered "Round_End"
+L 05/31/2023 - 22:30:09: Starting Freeze period
+L 05/31/2023 - 22:30:09: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:30:09: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:30:09: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:30:09: MatchStatus: Score: 5:6 on map "de_dust2" RoundsPlayed: 11
+L 05/31/2023 - 22:30:10: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:30:12: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:30:12: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:30:12: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "flashbang"
+L 05/31/2023 - 22:30:12: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:30:13: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:30:13: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:30:13: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:30:13: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:30:13: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:30:14: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "flashbang"
+L 05/31/2023 - 22:30:14: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:30:14: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:30:14: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:30:15: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:30:15: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:30:15: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:30:15: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "taser"
+L 05/31/2023 - 22:30:15: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:30:16: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:30:16: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:30:24: World triggered "Round_Start"
+L 05/31/2023 - 22:30:33: "MARSHY<84><STEAM_1:1:33284838><CT>" threw flashbang [-297 1015 -54] flashbang entindex 395)
+L 05/31/2023 - 22:30:33: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" blinded for 0.13 by "MARSHY<84><STEAM_1:1:33284838><CT>" from flashbang entindex 395 
+L 05/31/2023 - 22:30:34: Molotov projectile spawned at -1901.258301 1950.906128 67.309219, velocity -199.353821 -725.472412 209.333099
+L 05/31/2023 - 22:30:35: "Deaglán<86><STEAM_1:0:190979385><CT>" threw molotov [-1967 1691 34]
+L 05/31/2023 - 22:30:40: "MARSHY<84><STEAM_1:1:33284838><CT>" threw smokegrenade [-383 1378 -124]
+L 05/31/2023 - 22:30:40: "Deaglán<86><STEAM_1:0:190979385><CT>" threw hegrenade [-1854 1052 52]
+L 05/31/2023 - 22:30:52: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-492 1696 -121] killed "MARSHY<84><STEAM_1:1:33284838><CT>" [-304 2073 -82] with "ak47" (headshot)
+L 05/31/2023 - 22:30:58: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" threw hegrenade [-1416 2676 139]
+L 05/31/2023 - 22:31:00: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-1179 2482 41] killed "Griggs<95><STEAM_1:1:447979011><CT>" [-1539 1827 46] with "ak47" (headshot)
+L 05/31/2023 - 22:31:03: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-1478 2123 0] killed "Deaglán<86><STEAM_1:0:190979385><CT>" [-1398 2682 171] with "ak47" (headshot)
+L 05/31/2023 - 22:31:03: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" assisted killing "Deaglán<86><STEAM_1:0:190979385><CT>"
+L 05/31/2023 - 22:31:03: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "5") (T "7")
+L 05/31/2023 - 22:31:03: Team "CT" scored "5" with "3" players
+L 05/31/2023 - 22:31:03: Team "TERRORIST" scored "7" with "3" players
+L 05/31/2023 - 22:31:03: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:31:03: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:31:03: MatchStatus: Score: 5:7 on map "de_dust2" RoundsPlayed: 12
+L 05/31/2023 - 22:31:03: World triggered "Round_End"
+L 05/31/2023 - 22:31:10: Starting Freeze period
+L 05/31/2023 - 22:31:10: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:31:10: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:31:10: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:31:10: MatchStatus: Score: 5:7 on map "de_dust2" RoundsPlayed: 12
+L 05/31/2023 - 22:31:13: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:31:13: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:31:13: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:31:13: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:31:14: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "m4a1_silencer"
+L 05/31/2023 - 22:31:16: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "awp"
+L 05/31/2023 - 22:31:19: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "flashbang"
+L 05/31/2023 - 22:31:19: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "molotov"
+L 05/31/2023 - 22:31:21: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "p250"
+L 05/31/2023 - 22:31:22: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:31:24: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:31:24: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:31:25: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:31:25: World triggered "Round_Start"
+L 05/31/2023 - 22:31:30: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:31:31: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:31:32: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "m4a1"
+L 05/31/2023 - 22:31:36: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:31:36: "MARSHY<84><STEAM_1:1:33284838><CT>" [-502 2285 -115] killed "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" [-260 568 65] with "awp"
+L 05/31/2023 - 22:31:39: Molotov projectile spawned at 655.318176 2529.234619 163.051392, velocity -250.882507 -694.421875 145.457718
+L 05/31/2023 - 22:31:41: "Deaglán<86><STEAM_1:0:190979385><CT>" threw molotov [265 1448 2]
+L 05/31/2023 - 22:31:41: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-426 1673 -126] killed "MARSHY<84><STEAM_1:1:33284838><CT>" [-670 2266 -25] with "ak47" (headshot)
+L 05/31/2023 - 22:31:42: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [295 1769 96] killed "Deaglán<86><STEAM_1:0:190979385><CT>" [549 2503 160] with "ak47"
+L 05/31/2023 - 22:31:43: "Griggs<95><STEAM_1:1:447979011><CT>" [754 2603 95] killed "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [273 1817 160] with "m4a1"
+L 05/31/2023 - 22:31:43: "Deaglán<86><STEAM_1:0:190979385><CT>" assisted killing "Draccer<94><STEAM_1:0:46253715><TERRORIST>"
+L 05/31/2023 - 22:31:56: "Griggs<95><STEAM_1:1:447979011><CT>" [944 2454 97] killed "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [767 2103 12] with "m4a1" (headshot)
+L 05/31/2023 - 22:31:56: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "6") (T "7")
+L 05/31/2023 - 22:31:56: Team "CT" scored "6" with "3" players
+L 05/31/2023 - 22:31:56: Team "TERRORIST" scored "7" with "3" players
+L 05/31/2023 - 22:31:56: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:31:56: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:31:56: MatchStatus: Score: 6:7 on map "de_dust2" RoundsPlayed: 13
+L 05/31/2023 - 22:31:56: World triggered "Round_End"
+L 05/31/2023 - 22:32:03: Starting Freeze period
+L 05/31/2023 - 22:32:03: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:32:03: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:32:03: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:32:03: MatchStatus: Score: 6:7 on map "de_dust2" RoundsPlayed: 13
+L 05/31/2023 - 22:32:05: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:32:06: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:32:06: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:32:07: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:32:07: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:32:07: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:32:07: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:32:08: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:32:08: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:32:08: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_defuser"
+L 05/31/2023 - 22:32:08: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:32:09: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:32:09: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:32:09: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "molotov"
+L 05/31/2023 - 22:32:09: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "flashbang"
+L 05/31/2023 - 22:32:09: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:32:09: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "negev"
+L 05/31/2023 - 22:32:09: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "awp"
+L 05/31/2023 - 22:32:10: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "smokegrenade"
+L 05/31/2023 - 22:32:10: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:32:11: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "incgrenade"
+L 05/31/2023 - 22:32:15: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:32:18: World triggered "Round_Start"
+L 05/31/2023 - 22:32:18: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:32:18: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:32:19: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:32:19: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:32:19: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:32:29: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-1991 1154 33] killed "Deaglán<86><STEAM_1:0:190979385><CT>" [-1980 2093 62] with "ak47" (headshot)
+L 05/31/2023 - 22:32:29: "Deaglán<86><STEAM_1:0:190979385><CT>" threw hegrenade [-1975 1191 54]
+L 05/31/2023 - 22:32:37: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" threw flashbang [-1878 2081 8] flashbang entindex 382)
+L 05/31/2023 - 22:32:37: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" blinded for 0.68 by "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" from flashbang entindex 382 
+L 05/31/2023 - 22:32:37: "Griggs<95><STEAM_1:1:447979011><CT>" blinded for 4.60 by "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" from flashbang entindex 382 
+L 05/31/2023 - 22:32:41: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" triggered "Dropped_The_Bomb"
+L 05/31/2023 - 22:32:41: "Griggs<95><STEAM_1:1:447979011><CT>" [-1559 1750 1] killed "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" [-2006 2112 63] with "m4a1_silencer" (headshot)
+L 05/31/2023 - 22:32:49: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" threw smokegrenade [-1909 1624 326]
+L 05/31/2023 - 22:32:51: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" threw flashbang [-1932 2126 26] flashbang entindex 360)
+L 05/31/2023 - 22:32:51: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" blinded for 0.96 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:32:51: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" blinded for 0.95 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:32:51: "Deaglán<86><STEAM_1:0:190979385><CT>" blinded for 4.68 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:32:51: "Griggs<95><STEAM_1:1:447979011><CT>" blinded for 4.68 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 360 
+L 05/31/2023 - 22:32:53: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [-1934 2029 -3] killed "Griggs<95><STEAM_1:1:447979011><CT>" [-1681 1784 67] with "ak47"
+L 05/31/2023 - 22:32:53: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:33:00: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [-689 2155 -119] killed "MARSHY<84><STEAM_1:1:33284838><CT>" [-1186 2278 104] with "ak47"
+L 05/31/2023 - 22:33:00: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" assisted killing "MARSHY<84><STEAM_1:1:33284838><CT>"
+L 05/31/2023 - 22:33:00: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "6") (T "8")
+L 05/31/2023 - 22:33:00: Team "CT" scored "6" with "3" players
+L 05/31/2023 - 22:33:00: Team "TERRORIST" scored "8" with "3" players
+L 05/31/2023 - 22:33:00: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:33:00: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:33:00: MatchStatus: Score: 6:8 on map "de_dust2" RoundsPlayed: 14
+L 05/31/2023 - 22:33:00: World triggered "Round_End"
+L 05/31/2023 - 22:33:03: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite B
+L 05/31/2023 - 22:33:06: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" triggered "Planted_The_Bomb" at bombsite B
+L 05/31/2023 - 22:33:07: Starting Freeze period
+L 05/31/2023 - 22:33:07: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" triggered "Got_The_Bomb"
+L 05/31/2023 - 22:33:07: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:33:07: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:33:07: MatchStatus: Score: 6:8 on map "de_dust2" RoundsPlayed: 14
+L 05/31/2023 - 22:33:10: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "aug"
+L 05/31/2023 - 22:33:10: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:33:11: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:33:11: "Griggs<95><STEAM_1:1:447979011><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:33:13: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" purchased "p250"
+L 05/31/2023 - 22:33:13: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:33:18: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "ssg08"
+L 05/31/2023 - 22:33:19: "MARSHY<84><STEAM_1:1:33284838><CT>" purchased "item_kevlar"
+L 05/31/2023 - 22:33:22: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:33:22: World triggered "Round_Start"
+L 05/31/2023 - 22:33:23: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "ak47"
+L 05/31/2023 - 22:33:23: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "smokegrenade"
+L 05/31/2023 - 22:33:23: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:33:24: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "flashbang"
+L 05/31/2023 - 22:33:24: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" purchased "hegrenade"
+L 05/31/2023 - 22:33:24: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "item_assaultsuit"
+L 05/31/2023 - 22:33:28: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "famas"
+L 05/31/2023 - 22:33:29: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" threw flashbang [932 488 419] flashbang entindex 372)
+L 05/31/2023 - 22:33:29: "Deaglán<86><STEAM_1:0:190979385><CT>" purchased "hegrenade"
+L 05/31/2023 - 22:33:32: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" threw flashbang [833 644 702] flashbang entindex 372)
+L 05/31/2023 - 22:33:32: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" blinded for 1.66 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 372 
+L 05/31/2023 - 22:33:32: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" blinded for 0.48 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 372 
+L 05/31/2023 - 22:33:32: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" blinded for 0.47 by "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" from flashbang entindex 372 
+L 05/31/2023 - 22:33:38: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" [1086 831 1] killed "Deaglán<86><STEAM_1:0:190979385><CT>" [1564 1603 65] with "ak47" (headshot)
+L 05/31/2023 - 22:33:40: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" threw hegrenade [1368 1880 1]
+L 05/31/2023 - 22:33:47: "Paul Bohill<74><STEAM_1:1:25555325><TERRORIST>" [1508 1207 -7] killed "MARSHY<84><STEAM_1:1:33284838><CT>" [1051 3019 194] with "ak47" (headshot)
+L 05/31/2023 - 22:33:47: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" assisted killing "MARSHY<84><STEAM_1:1:33284838><CT>"
+L 05/31/2023 - 22:33:47: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" threw smokegrenade [1219 2019 4]
+L 05/31/2023 - 22:33:48: Molotov projectile spawned at 1390.428955 1612.837891 64.420883, velocity -208.089050 801.011963 291.898254
+L 05/31/2023 - 22:33:50: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" threw molotov [1065 2867 129]
+L 05/31/2023 - 22:33:53: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" [1580 2273 3] killed "Griggs<95><STEAM_1:1:447979011><CT>" [389 2037 160] with "ak47"
+L 05/31/2023 - 22:33:53: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "6") (T "9")
+L 05/31/2023 - 22:33:53: Team "CT" scored "6" with "3" players
+L 05/31/2023 - 22:33:53: Team "TERRORIST" scored "9" with "3" players
+L 05/31/2023 - 22:33:53: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:33:53: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:33:53: MatchStatus: Score: 6:9 on map "de_dust2" RoundsPlayed: 15
+L 05/31/2023 - 22:33:53: World triggered "Round_End"
+L 05/31/2023 - 22:33:53: ACCOLADE, FINAL: {quietest},	MARSHY<3>,	VALUE: 622.000000,	POS: 1,	SCORE: 11.946666
+L 05/31/2023 - 22:33:53: ACCOLADE, FINAL: {pistolkills},	Griggs<4>,	VALUE: 3.000000,	POS: 1,	SCORE: 4.285714
+L 05/31/2023 - 22:33:53: ACCOLADE, FINAL: {hsp},	Deaglán<5>,	VALUE: 70.000000,	POS: 1,	SCORE: 46.666668
+L 05/31/2023 - 22:33:53: ACCOLADE, FINAL: {3k},	Supermarket Sushi<1>,	VALUE: 2.000000,	POS: 1,	SCORE: 53.333336
+L 05/31/2023 - 22:33:53: ACCOLADE, FINAL: {cashspent},	Paul Bohill<2>,	VALUE: 38200.000000,	POS: 1,	SCORE: 8.838096
+L 05/31/2023 - 22:33:53: ACCOLADE, FINAL: {hsp},	Draccer<6>,	VALUE: 50.000000,	POS: 2,	SCORE: 22.222223
+L 05/31/2023 - 22:33:53: MatchStatus: Team playing "CT": Losers
+L 05/31/2023 - 22:33:53: MatchStatus: Team playing "TERRORIST": Fucking Legends
+L 05/31/2023 - 22:33:53: MatchStatus: Score: 6:9 on map "de_dust2" RoundsPlayed: 15
+L 05/31/2023 - 22:33:53: Game Over: competitive @workshop/973742785/aim_theorem de_dust2 score 6:9 after 20 min
+L 05/31/2023 - 22:33:53: World triggered "Round_Start"
+L 05/31/2023 - 22:33:55: "Draccer<94><STEAM_1:0:46253715><TERRORIST>" threw hegrenade [789 2200 -49]
+L 05/31/2023 - 22:34:35: STEAMAUTH: Client Deaglán received failure code 6
+L 05/31/2023 - 22:34:35: "Deaglán<86><STEAM_1:0:190979385><CT>" disconnected (reason "No user logon")
+L 05/31/2023 - 22:34:46: "Supermarket Sushi<73><STEAM_1:1:16333471><TERRORIST>" say "asd"
+L 05/31/2023 - 22:35:24: Log file closed

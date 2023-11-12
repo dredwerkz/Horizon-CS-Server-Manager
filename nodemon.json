@@ -1,0 +1,3 @@
+{
+    "ignore": ["path/to/ignored/files/*", "another/path/*"]
+}
