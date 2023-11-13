@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Server from "./Server.jsx";
+import Server from "../Server/Server.jsx";
+import "./ServerContainer.css"
 
 function ServerContainer() {
     const [serverData, setServerData] = useState({}); // State to store serverContainer data
@@ -23,7 +24,7 @@ function ServerContainer() {
 
     if (Object.keys(serverData).length > 0) {
         return (
-            <div className="serversContainer">
+            <div className="serverContainer">
             <h1>Active Servers:</h1>
                 {serverData.map((server) => {
                     return (
@@ -34,6 +35,7 @@ function ServerContainer() {
                             team1={server.TERRORIST}
                             team2={server.CT}
                             rounds={server.rounds}
+                            admin={server?.admin}
                         />
                     );
                 })}
@@ -41,7 +43,7 @@ function ServerContainer() {
         );
     } else {
         return (
-            <div className="serversContainer">
+            <div className="serverContainer">
                 <h1 style={{color: `white`}}>Loading your server data...</h1>
             </div>
         );

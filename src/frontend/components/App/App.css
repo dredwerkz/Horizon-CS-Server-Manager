@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 0.5fr 4fr 4fr 0.5fr;
+  grid-template-rows: 5rem 5fr 1fr;
+  gap: 1rem;
+}
+
+

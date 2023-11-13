@@ -1,27 +1,27 @@
 [
     {
-      "server": "127.0.0.1_50000",
+      "server": "127.0.0.1:50000",
       "CT": "6",
       "TERRORIST": "7",
       "map": "de_dust2",
       "rounds": "13"
     },
     {
-      "server": "127.0.0.1_50001",
+      "server": "127.0.0.1:50001",
       "CT": "2",
       "TERRORIST": "8",
       "map": "de_inferno",
       "rounds": "13"
     },
     {
-      "server": "127.0.0.1_50002",
+      "server": "127.0.0.1:50002",
       "CT": "5",
       "TERRORIST": "5",
       "map": "de_vertigo",
       "rounds": "13"
     },
     {
-      "server": "127.0.0.1_50003",
+      "server": "127.0.0.1:50003",
       "CT": "9",
       "TERRORIST": "10",
       "map": "de_ancient",

@@ -2,14 +2,11 @@ import dgram from "dgram";
 import path from "node:path";
 import fs from "node:fs/promises";
 
-const filePath = path.resolve(
-    process.cwd(),
-    "./public/serverContainer.json"
-);
+const filePath = path.resolve(process.cwd(), "./public/serverContainer.json");
 
 const server = dgram.createSocket("udp4");
 
-const serverContainer = await readServerContainerFile()
+const serverContainer = await readServerContainerFile();
 
 server.on("error", (err) => {
     console.log(`Server error:\n${err.stack}`);
@@ -53,7 +50,9 @@ async function readServerContainerFile() {
 function updateServerContainer(msg, addr, port) {
     const serverKey = `${addr}:${port}`;
 
-    let serverIndex = serverContainer.findIndex(server => server.server === serverKey);
+    let serverIndex = serverContainer.findIndex(
+        (server) => server.server === serverKey
+    );
 
     if (serverIndex === -1) {
         serverIndex = serverContainer.length;
@@ -68,6 +67,14 @@ function updateServerContainer(msg, addr, port) {
         {
             regex: /on map \"(.*?)\" RoundsPlayed: (\d+)/,
             handler: (match) => updateMap(serverIndex, match[1], match[2]),
+        },
+        {
+            regex: /say\s*"[^"]*\badmin\b/,
+            handler: (_match) => updateAdminReq(serverIndex, _match),
+        },
+        {
+            regex: /\badmin_issue_solved\b/,
+            handler: (_match) => cancelAdminReq(serverIndex, _match),
         },
     ];
 
@@ -94,7 +101,6 @@ I need to write a function that handles the teams swapping sides
 
 function updateScore(serverIndex, team, score) {
     serverContainer[serverIndex][team] = score;
-
     writeServerContainerToFile(serverContainer);
 }
 
@@ -102,5 +108,17 @@ function updateMap(serverIndex, map, rounds) {
     serverContainer[serverIndex]["map"] = map;
     serverContainer[serverIndex]["rounds"] = rounds;
     writeServerContainerToFile(serverContainer);
+}
 
+function updateAdminReq(serverIndex, _match) {
+    // console.log(`${serverIndex} called for an admin`);
+    serverContainer[serverIndex]["admin"] = true;
+    writeServerContainerToFile(serverContainer);
+}
+
+function cancelAdminReq(serverIndex, _match) {
+    // Need to send { rcon echo admin_issue_solved } via front-end to cancel alert.
+    // console.log(`${serverIndex} no longer needs an admin`);
+    serverContainer[serverIndex]["admin"] = false;
+    writeServerContainerToFile(serverContainer);
 }
