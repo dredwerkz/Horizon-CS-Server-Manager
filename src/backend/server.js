@@ -59,6 +59,12 @@ function updateServerContainer(msg, addr, port) {
         serverContainer.push({ server: serverKey });
     }
 
+    /*
+    L 05/31/2023 - 22:33:00: Team "CT" scored "6" with "3" players
+    L 05/31/2023 - 22:33:00: Team "TERRORIST" scored "8" with "3" players
+    */
+
+
     const messageHandlers = [
         {
             regex: /Team \"(.*?)\" scored \"(\d+)\"/,

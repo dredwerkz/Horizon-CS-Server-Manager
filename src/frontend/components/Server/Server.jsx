@@ -14,7 +14,13 @@ function Server(props) {
     }
 
     return (
-        <div className={`individualServer ${props.admin ? "adminAlert" : ""}`} onClick={toggleDropDown}>
+        <div className={`individualServer ${props.admin ? "adminAlert" : ""}`}>
+            <span
+                className="dropDownButton unselectable"
+                onClick={toggleDropDown}
+            >
+                🔽
+            </span>
             <span
                 className="serverIP"
                 onClick={copyAddress}
@@ -26,15 +32,11 @@ function Server(props) {
             <span className="teamDivider">:</span>
             <span className="team2Score">{props.team2}</span>
             <span className="serverMap">{props.map}</span>
-            {props.admin ? (
-                <span className="notification">❗</span>
-            ) : (
-                <span className="notification">🆗</span>
-            )}
+            <span className="notification">{props.admin ? "❗" : "🆗"}</span>
             <div className="dropDown" hidden={!dropDown}>
-                <span>Asd</span><br />
-                <span>Asd</span><br />
-                <span>Asd</span>
+                <p>Asd</p>
+                <p>Asd</p>
+                <p>Asd</p>
             </div>
         </div>
     );

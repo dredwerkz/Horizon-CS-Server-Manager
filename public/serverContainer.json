@@ -2,10 +2,10 @@
   {
     "server": "127.0.0.1:50000",
     "CT": "1",
-    "TERRORIST": "2",
+    "TERRORIST": "3",
     "map": "de_season",
     "rounds": "3",
-    "admin": true
+    "admin": false
   },
   {
     "server": "127.0.0.1:50001",
@@ -43,6 +43,14 @@
     "TERRORIST": "2",
     "map": "de_season",
     "rounds": "3",
+    "admin": false
+  },
+  {
+    "server": "127.0.0.1:50099",
+    "CT": "15",
+    "TERRORIST": "13",
+    "map": "de_anubis",
+    "rounds": "28",
     "admin": false
   }
 ]
