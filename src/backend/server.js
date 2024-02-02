@@ -1,10 +1,38 @@
 import dgram from "dgram";
 import path from "node:path";
 import fs from "node:fs/promises";
+import WebSocket from 'ws'
+import http from 'http'
+
+const PORT = 8080
+
+const CLIENT = {
+    MESSAGE: {
+      NEW_USER: 'NEW_USER',
+      NEW_MESSAGE: 'NEW_MESSAGE'
+    }
+  };
 
 const filePath = path.resolve(process.cwd(), "./public/serverContainer.json");
 
+const httpServer = http.createServer((req, res) => {
+    // get the file path from req.url, or '/public/index.html' if req.url is '/'
+    const httpFilePath = ( req.url === '/' ) ? '/public/index.html' : req.url;
+  
+    // determine the contentType by the file extension
+    const extname = path.extname(httpFilePath);
+    let contentType = 'text/html';
+    if (extname === '.js') contentType = 'text/javascript';
+    else if (extname === '.css') contentType = 'text/css';
+  
+    // pipe the proper file to the res object
+    res.writeHead(200, { 'Content-Type': contentType });
+    fs.createReadStream(`${__dirname}/${httpFilePath}`, 'utf8').pipe(res);
+  });
+
 const server = dgram.createSocket("udp4");
+
+const wsServer = new WebSocket.Server({ httpServer });
 
 const serverContainer = await readServerContainerFile();
 
@@ -13,12 +41,33 @@ server.on("error", (err) => {
     server.close();
 });
 
+/** /////////////////////////////////////////////////////////////////
+ * HTTP */
+
+// Start the server listening on localhost:8080
+httpServer.listen(PORT, () => {
+    console.log(`Listening on: http://localhost:${httpServer.address().port}`);
+  });
+
 /*
 
 WebSocket was here, then I decided to make life easy and read/write to and from a json file instead for building out the front-end
 Will re-introduce WebSocket now I have the front-end pulling properly
 
 */
+
+/** /////////////////////////////////////////////////////////////////
+ * WebSocket */
+
+wsServer.on('connection', (socket) => {
+    socket.on('message', (message) => {
+        broadcast(message, socket)
+    })
+})
+
+
+/** /////////////////////////////////////////////////////////////////
+ * UDP Listener */
 
 server.on("message", (msg, rinfo) => {
     // console.log(`Consumer heard: ${msg} from ${rinfo.address}:${rinfo.port}`);
@@ -102,7 +151,6 @@ Creating a server's default values should be in a function of its own, as it'll 
 
 When serverContainer[serverKey][rounds] = 12
 I need to write a function that handles the teams swapping sides
-
 
 */
 
