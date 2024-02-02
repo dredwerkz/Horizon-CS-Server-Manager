@@ -15,7 +15,8 @@ server.on("error", (err) => {
 
 /*
 
-WebSocket was here, then I decided to make life easy and read/write to and from a json file instead lol
+WebSocket was here, then I decided to make life easy and read/write to and from a json file instead for building out the front-end
+Will re-introduce WebSocket now I have the front-end pulling properly
 
 */
 
