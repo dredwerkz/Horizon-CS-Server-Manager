@@ -114,7 +114,7 @@ function updateServerContainer(msg, addr, port) {
     L 05/31/2023 - 22:33:00: Team "TERRORIST" scored "8" with "3" players
     */
 
-
+    // Array of objects containing regex for specific server logs we want to act on and the appropriate function to run on match
     const messageHandlers = [
         {
             regex: /Team \"(.*?)\" scored \"(\d+)\"/,
@@ -172,7 +172,7 @@ function updateAdminReq(serverIndex, _match) {
 }
 
 function cancelAdminReq(serverIndex, _match) {
-    // Need to send { rcon echo admin_issue_solved } via front-end to cancel alert.
+    // Need to send { rcon echo admin_issue_solved } via front-end to cancel alert. -- Why?? Just do it on the front end and write to file. The server doesn't care
     // console.log(`${serverIndex} no longer needs an admin`);
     serverContainer[serverIndex]["admin"] = false;
     writeServerContainerToFile(serverContainer);

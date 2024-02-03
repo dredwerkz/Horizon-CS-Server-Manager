@@ -7,7 +7,7 @@ class ServerContainerManager {
     // Method to update the server container with new data
     updateServerData(serverKey, newData) {
         // Implement logic to update the server container
-        // For example, adding or updating a server's data
+        // Adding or updating a server's data
         if (!this.serverContainer[serverKey]) {
             this.serverContainer[serverKey] = {};
         }
@@ -19,12 +19,12 @@ class ServerContainerManager {
         };
     }
 
-    // Method to retrieve data from the server container
+    // Method to retrieve data from a specific server
     getServerData(serverKey) {
         return this.serverContainer[serverKey] || null;
     }
 
-    // Method to get all data (if needed)
+    // Method to get all data
     getAllData() {
         return this.serverContainer;
     }

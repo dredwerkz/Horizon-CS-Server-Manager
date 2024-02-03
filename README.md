@@ -82,6 +82,8 @@ Learning how to manage such a huge influx of information over the internet, and 
 
 * Dynamic server management - being able to input Steam IDs and have the admin panel auto-manage servers based on which players are in server would open up a number of possibilities, such as automatic team naming or automatic score submissions.
 
+* DatHost api integration for automatic server tracking
+
 ## License
 
 [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/)

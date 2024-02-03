@@ -27,7 +27,7 @@ function createWebSocketServer(httpServer, serverContainerManager, eventEmitter)
 
     // Listen for updates from the UDP server
     eventEmitter.on('update', (data) => {
-        /**console.log('Received update from UDP server:', data); */
+        // console.log('Received update from UDP server:', data);
         broadcast(data);
     });
 

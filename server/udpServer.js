@@ -9,7 +9,7 @@ function createUdpServer(serverContainerManager, eventEmitter) {
     });
 
     server.on('message', (msg, rinfo) => {
-        /**console.log(`UDP Server received: ${msg} from ${rinfo.address}:${rinfo.port}`); */
+        //console.log(`UDP Server received: ${msg} from ${rinfo.address}:${rinfo.port}`);
 
         // Process the message and update shared state
         const updatedData = processUdpMessage(msg, rinfo, serverContainerManager);
