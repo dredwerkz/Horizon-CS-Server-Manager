@@ -36,7 +36,7 @@ function ServerContainer() {
         }
   
         // TODO:
-        // Exercise 7: Respond to messages from the servery by defining the .onmessage event handler
+        // Exercise 7: Respond to messages from the server by defining the .onmessage event handler
   
         wsClient.onmessage = (e) => {
           const { type, payload } = JSON.parse(e.data)
@@ -50,8 +50,8 @@ function ServerContainer() {
         }
   
         // .onerror is executed when error event occurs on the WebSocket connection
-        wsClient.onerror = (event) => {
-          console.error("WebSocket error observed:", event);
+        wsClient.onerror = (e) => {
+          console.error("WebSocket error observed:", e);
           wsClient = null;
         }
       }
