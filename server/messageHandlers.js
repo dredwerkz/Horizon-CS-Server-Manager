@@ -1,3 +1,5 @@
+import * as dbHandlers from "./dbHandlers/dbHandlers.js"
+
 /** Regex //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 const messageHandlers = [
@@ -30,6 +32,8 @@ function testUpdaters({ serverKey, match }) {
     const newData = {
         [match[1]]: [match[2]],
     };
+
+    dbHandlers.updateScore(serverKey, match[1], match[2])
 
     return { serverKey, newData };
 }
