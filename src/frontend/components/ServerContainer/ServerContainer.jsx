@@ -37,7 +37,7 @@ function ServerContainer() {
             const { type, payload } = JSON.parse(e.data);
             /* if (type === "SERVER") { */
             showMessageReceived(payload);
-            setServerData([...serverData, ...payload]);
+            setServerData((serverData) => [...serverData, ...payload]);
             /*             } else {
             showMessageReceived("ws Message was not SERVER")
             } */
