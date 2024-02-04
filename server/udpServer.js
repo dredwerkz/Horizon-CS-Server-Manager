@@ -10,9 +10,7 @@ function createUdpServer(serverContainerManager, eventEmitter) {
     });
 
     server.on("message", (msg, rinfo) => {
-        //console.log(`UDP Server received: ${msg} from ${rinfo.address}:${rinfo.port}`);
-
-        // Process the message and update shared state
+        // Process incoming UDP string and update shared state
         const updatedData = processUdpMessage(
             msg,
             rinfo,
@@ -38,13 +36,10 @@ function createUdpServer(serverContainerManager, eventEmitter) {
 function processUdpMessage(msg, rinfo, serverContainerManager) {
     // UDP Incoming is processed here
     // This function should update the serverContainerManager with new data
-    // and return the data that needs to be broadcasted to WebSocket clients.
+    // AND return the data that needs to be broadcasted to WebSocket clients.
     const messageData = msg.toString();
-     console.log(
-        `WebSocket heard and sent for processing: ${messageData} - ${rinfo.address}:${rinfo.port}`
-    );
 
-    // udpServer.js -> processServerOutput.js -> messageHandlers.js -> updaterFunctions.js
+    // udpServer.js -> processServerOutput.js -> messageHandlers.js
     const response = processServerOutput(
         messageData,
         rinfo.address,
@@ -52,18 +47,14 @@ function processUdpMessage(msg, rinfo, serverContainerManager) {
     );
 
     if (response) {
-        console.log(`Relevant message detected:`)
-        console.log(response)
         serverContainerManager.updateServerData(
             response.serverKey,
             response.newData
         );
-        return JSON.stringify(serverContainerManager.getAllData());
+
+        return serverContainerManager.getAllData();
     }
 
-    // Update the serverContainerManager accordingly
-
-    // Return the data to be emitted
     return null;
 }
 

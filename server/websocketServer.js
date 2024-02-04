@@ -11,7 +11,15 @@ function createWebSocketServer(
         console.log("WebSocket client connected");
 
         ws.on("message", (message) => {
-            console.log("Received message from client:", message);
+            try {
+                const decodedMessage = JSON.parse(message);
+                console.log(
+                    "Received message from client:",
+                    decodedMessage.type
+                );
+            } catch (e) {
+                console.error(`Error parsing message: `, e);
+            }
             // Handle incoming messages from WebSocket clients
         });
 
@@ -23,19 +31,12 @@ function createWebSocketServer(
     // Broadcasting the data to all connected clients
     function broadcast(data) {
         const wsPayload = JSON.stringify({ type: "SERVERS", payload: data });
-        console.log(`Sending updated data to clients via ws: ${wsPayload}`)
         wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(wsPayload);
             }
         });
     }
-
-    /*     // Listen for updates from the UDP server --- BUT this is covered in server.js so no need for it here.
-    eventEmitter.on("update", (data) => {
-        console.log(`websocketServer received an update event and called broadcast()`)
-        broadcast(data);
-    }); */
 
     return {
         wss,
