@@ -41,17 +41,14 @@ function processUdpMessage(msg, rinfo, serverContainerManager) {
     const serverKey = rinfo.address.toString() + ":" + rinfo.port.toString();
 
     // udpServer.js -> processServerOutput.js -> messageHandlers.js
-    const response = processServerOutput(
-        messageData,
-        serverKey
-    );
+    const response = processServerOutput(messageData, serverKey);
 
     if (response) {
         serverContainerManager.updateServerData(
             response.serverKey,
             response.newData
         );
-        
+
         return serverContainerManager.getServerData(serverKey);
     }
 

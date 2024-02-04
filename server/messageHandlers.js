@@ -1,3 +1,5 @@
+/** Regex //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 const messageHandlers = [
     {
         regex: /Team \"(.*?)\" scored \"(\d+)\"/,
@@ -19,20 +21,16 @@ const messageHandlers = [
 
 export default messageHandlers;
 
+/** Handlers //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 // Temp
 
-const serverContainer = {};
-
 function testUpdaters({ serverKey, match }) {
-/*     console.log(
-        `testUpdaters was called with ${match[1]} and ${match[2]} from ${serverKey}`
-    ); */
-
     const newData = {
-        [match[1]]: [match[2]]
-    }
+        [match[1]]: [match[2]],
+    };
 
-    return {serverKey, newData}
+    return { serverKey, newData };
 }
 
 // OK so doing it this way I need to bundle and deconstruct the regex match and serverKey like above
