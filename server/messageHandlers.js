@@ -26,14 +26,13 @@ export default messageHandlers;
 // Temp
 
 function testUpdaters({ serverKey, match }) {
+    // match[1] is the team side (T/CT), match[2] is the score
     const newData = {
         [match[1]]: [match[2]],
     };
 
     return { serverKey, newData };
 }
-
-// OK so doing it this way I need to bundle and deconstruct the regex match and serverKey like above
 
 // End Temp
 
