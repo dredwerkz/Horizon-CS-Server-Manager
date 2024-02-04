@@ -38,12 +38,12 @@ function processUdpMessage(msg, rinfo, serverContainerManager) {
     // This function should update the serverContainerManager with new data
     // AND return the data that needs to be broadcasted to WebSocket clients.
     const messageData = msg.toString();
+    const serverKey = rinfo.address.toString() + ":" + rinfo.port.toString();
 
     // udpServer.js -> processServerOutput.js -> messageHandlers.js
     const response = processServerOutput(
         messageData,
-        rinfo.address,
-        rinfo.port
+        serverKey
     );
 
     if (response) {
@@ -51,8 +51,8 @@ function processUdpMessage(msg, rinfo, serverContainerManager) {
             response.serverKey,
             response.newData
         );
-
-        return serverContainerManager.getAllData();
+        
+        return serverContainerManager.getServerData(serverKey);
     }
 
     return null;

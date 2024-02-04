@@ -1,7 +1,7 @@
 import messageHandlers from "./messageHandlers.js";
 
-function processServerOutput(messageData, address, port) {
-    const serverKey = address.toString() + ":" + port.toString();
+function processServerOutput(messageData, serverKey) {
+
 
     // Loop through handlers to find a match..
     for (let { regex, handler } of messageHandlers) {
