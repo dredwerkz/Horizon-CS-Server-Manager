@@ -26,18 +26,24 @@ class ServerContainerManager {
     }
 
     // Method to retrieve data from a specific server
+    // Method to retrieve data from a specific server
     getServerData(serverKey) {
-        const responseObject = [
-            {
-                serverkey: [serverKey],
-                ct: this.serverContainer[serverKey]["CT"],
-                terrorist: this.serverContainer[serverKey]["TERRORIST"],
-                map: this.serverContainer[serverKey]["map"],
-                rounds: this.serverContainer[serverKey]["rounds"],
-                admin: this.serverContainer[serverKey]["admin"]
-            },
-        ];
-        return responseObject || null;
+        // Ensure the server data exists
+        if (!this.serverContainer[serverKey]) {
+            return null; // or some default object structure if you prefer
+        }
+
+        const serverData = this.serverContainer[serverKey];
+        const responseObject = {
+            serverkey: serverKey,
+            ct: serverData.CT,
+            terrorist: serverData.TERRORIST,
+            map: serverData.map,
+            rounds: serverData.rounds,
+            admin: serverData.admin,
+        };
+
+        return responseObject;
     }
 
     // Method to get all data
