@@ -1,7 +1,13 @@
+import { getAllServerData } from "./dbHandlers/dbHandlers.js";
+
 class ServerContainerManager {
     constructor() {
         // Initialize your container with default values
-        this.serverContainer = {};
+        /* this.serverContainer = {}; */
+        getAllServerData().then((data) => {
+            this.serverContainer = data;
+            console.log("DB data loaded into serverContainer");
+        });
     }
 
     // Method to update the server container with new data
@@ -15,13 +21,23 @@ class ServerContainerManager {
         // Merge new data into the existing server data
         this.serverContainer[serverKey] = {
             ...this.serverContainer[serverKey],
-            ...newData
+            ...newData,
         };
     }
 
     // Method to retrieve data from a specific server
     getServerData(serverKey) {
-        return this.serverContainer[serverKey] || null;
+        const responseObject = [
+            {
+                serverkey: [serverKey],
+                ct: this.serverContainer[serverKey]["CT"],
+                terrorist: this.serverContainer[serverKey]["TERRORIST"],
+                map: this.serverContainer[serverKey]["map"],
+                rounds: this.serverContainer[serverKey]["rounds"],
+                admin: this.serverContainer[serverKey]["admin"]
+            },
+        ];
+        return responseObject || null;
     }
 
     // Method to get all data

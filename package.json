@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "nodemon ./server.js",
+    "dev": "node ./server.js",
     "send": "node ./sender.js",
     "reset": "node ./db/scripts/reset-database.js"
   },

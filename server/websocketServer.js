@@ -1,4 +1,5 @@
 import WebSocket, { WebSocketServer } from "ws";
+import { getAllServerData } from "./dbHandlers/dbHandlers.js";
 
 function createWebSocketServer(
     httpServer,
@@ -17,6 +18,11 @@ function createWebSocketServer(
                     "Received message from client:",
                     decodedMessage.type
                 );
+
+                if (decodedMessage.type === "NEW_USER") {
+                    // When a user establishes connection, grab the latest db data and send it over
+                    getAllServerData().then((data) => broadcast(data));
+                }
             } catch (e) {
                 console.error(`Error parsing message: `, e);
             }

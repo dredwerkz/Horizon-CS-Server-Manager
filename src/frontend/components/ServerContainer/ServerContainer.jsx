@@ -3,7 +3,7 @@ import Server from "../Server/Server.jsx";
 import "./ServerContainer.css";
 
 function ServerContainer() {
-    const [serverData, setServerData] = useState({}); // State to store serverContainer data
+    const [serverData, setServerData] = useState([]); // State to store serverContainer data
     const [refreshMsg, setRefreshMsg] = useState(false);
     const wsClient = useRef(null); // persistent WebSocket client between re-renders
 
@@ -35,11 +35,12 @@ function ServerContainer() {
 
         wsClient.current.onmessage = (e) => {
             const { type, payload } = JSON.parse(e.data);
-            if (type === "SERVER") {
+            /* if (type === "SERVER") { */
             showMessageReceived(payload);
-            } else {
+            setServerData([...serverData, ...payload]);
+            /*             } else {
             showMessageReceived("ws Message was not SERVER")
-            }
+            } */
         };
 
         wsClient.current.onclose = (_e) => {
@@ -57,7 +58,7 @@ function ServerContainer() {
         console.log(message);
     }
 
-    useEffect(() => {
+    /*     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await fetch("/serverContainer.json");
@@ -72,7 +73,7 @@ function ServerContainer() {
         }
 
         fetchData();
-    }, []);
+    }, []); */
 
     if (Object.keys(serverData).length > 0) {
         return (
@@ -81,11 +82,11 @@ function ServerContainer() {
                 {serverData.map((server) => {
                     return (
                         <Server
-                            key={server.server}
-                            server={server.server}
+                            key={server.serverkey}
+                            server={server.serverkey}
                             map={server.map}
-                            team1={server.TERRORIST}
-                            team2={server.CT}
+                            team1={server.terrorist}
+                            team2={server.ct}
                             rounds={server.rounds}
                             admin={server?.admin}
                         />
