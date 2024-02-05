@@ -11,6 +11,7 @@ function createUdpServer(serverContainerManager, eventEmitter) {
     });
 
     server.on("message", (msg, rinfo) => {
+        /* console.log(`Got message from ${rinfo} - ${msg}`) */
         // Process incoming UDP string and update shared state
         const updatedData = processUdpMessage(
             msg,

@@ -38,10 +38,31 @@ export async function updateScore(serverKey, team, score) {
     }
 }
 
+export async function updateMap(serverKey, {map, rounds}) {
+    rounds = Number(rounds)
+
+    if (await checkForNewServer(serverKey)) {
+        const query = `
+        UPDATE servers
+        SET map = $1,
+        rounds = $2
+        WHERE serverKey = $3
+        `;
+
+
+        try { 
+            await pool.query(query, [map, rounds, serverKey]);
+        } catch (e) {
+            console.error("Error updating map/rounds: ", e)
+        }
+    }
+}
+
 export async function getAllServerData() {
     try {
         const query = `
-    SELECT * FROM servers`;
+    SELECT * FROM servers
+    ORDER BY serverkey ASC`;
         const res = await pool.query(query);
         const serverData = res.rows;
         return serverData || {};

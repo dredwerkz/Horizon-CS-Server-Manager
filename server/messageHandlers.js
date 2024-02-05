@@ -1,17 +1,17 @@
-import * as dbHandlers from "./dbHandlers/dbHandlers.js"
+import * as dbHandlers from "./dbHandlers/dbHandlers.js";
 
 /** Regex //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 const messageHandlers = [
     {
         regex: /Team \"(.*?)\" scored \"(\d+)\"/,
-        handler: (bundle) => testUpdaters(bundle),
-    },
-    /*     {
-        regex: /on map \"(.*?)\" RoundsPlayed: (\d+)/,
-        handler: (match) => updateMap(serverIndex, match[1], match[2]),
+        handler: (bundle) => updateScore(bundle),
     },
     {
+        regex: /on map \"(.*?)\" RoundsPlayed: (\d+)/,
+        handler: (bundle) => updateMap(bundle),
+    },
+    /*{
         regex: /say\s*"[^"]*\badmin\b/,
         handler: (_match) => updateAdminReq(serverIndex, _match),
     },
@@ -25,30 +25,27 @@ export default messageHandlers;
 
 /** Handlers //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-// Temp
-
-function testUpdaters({ serverKey, match }) {
+function updateScore({ serverKey, match }) {
     // match[1] is the team side (T/CT), match[2] is the score
     const newData = {
         [match[1]]: [match[2]],
     };
 
-    dbHandlers.updateScore(serverKey, match[1], match[2])
+    dbHandlers.updateScore(serverKey, match[1], match[2]);
 
     return { serverKey, newData };
 }
 
-// End Temp
+function updateMap({ serverKey, match }) {
+    /* match[1] = map match[2] = rounds */
+    const newData = {
+        map: match[1],
+        rounds: match[2],
+    };
 
-function updateScore(serverIndex, team, score) {
-    serverContainer[serverIndex][team] = score;
-    writeServerContainerToFile(serverContainer);
-}
+    dbHandlers.updateMap(serverKey, newData);
 
-function updateMap(serverIndex, map, rounds) {
-    serverContainer[serverIndex]["map"] = map;
-    serverContainer[serverIndex]["rounds"] = rounds;
-    writeServerContainerToFile(serverContainer);
+    return { serverKey, newData };
 }
 
 function updateAdminReq(serverIndex, _match) {
