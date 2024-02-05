@@ -49,45 +49,9 @@ const randomiser = {
     },
 };
 
-
-
 const sourcePort = 50000; // Source port
 const destinationPort = 12345; // Destination port
 const destinationHost = "localhost";
-
-/*
-client.bind(sourcePort, () => {
-    sendMessages(0); // Start sending messages
-});
-
-function sendMessages(index) {
-    if (index < arrayOfServerMessages.length) {
-        let message = Buffer.from(newArrayOfServerMessages[index]);
-
-        client.send(
-            message,
-            0,
-            message.length,
-            destinationPort,
-            destinationHost,
-            (err) => {
-                if (err) {
-                    console.error(err);
-                    client.close();
-                    return;
-                }
-                console.log("Message sent from port " + sourcePort);
-
-                // Send the next message
-                sendMessages(index + 1);
-            }
-        );
-    } else {
-        // Close the client after all messages are sent
-        client.close();
-    }
-}
- */
 
 function generateMessages() {
     const newArrayOfServerMessages = [
@@ -99,7 +63,7 @@ function generateMessages() {
         `L 05/31/2023 - 22:26:43: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" say "hey we need an ${randomiser.admin()}"`,
         //`admin_issue_solved`
     ];
-    return newArrayOfServerMessages
+    return newArrayOfServerMessages;
 }
 
 async function sendMessages(client, messages, index) {
@@ -132,7 +96,7 @@ async function sendMessages(client, messages, index) {
 
 async function bindAndSend(startPort, numPorts) {
     for (let i = 0; i < numPorts; i++) {
-        let client = dgram.createSocket('udp4');
+        let client = dgram.createSocket("udp4");
         let messages = generateMessages(); // Generate a unique set of messages for each client
         await new Promise((resolve, reject) => {
             client.bind(startPort + i, () => {
