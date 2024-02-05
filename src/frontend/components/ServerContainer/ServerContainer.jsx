@@ -9,6 +9,40 @@ function ServerContainer() {
 
     const PORT = 8080;
 
+    const updateOrAddServerData = (currentServerData, payload) => {
+        // Check if the serverkey exists in the current data
+        const exists = currentServerData.some(
+            (server) => server.serverkey === payload.serverkey
+        );
+
+        if (!exists) {
+            // If not, add a new object with the serverkey and placeholder data
+            return [
+                ...currentServerData,
+                {
+                    serverkey: payload.serverkey,
+                    ...placeholderData,
+                },
+            ];
+        } else {
+            // If it exists, update the data
+            return currentServerData.map((server) => {
+                if (server.serverkey === payload.serverkey) {
+                    return { ...server, ...payload };
+                }
+                return server;
+            });
+        }
+    };
+
+    const placeholderData = {
+        ct: 0,
+        terrorist: 0,
+        map: "de_unknown",
+        score: 0,
+        admin: false,
+    };
+
     useEffect(() => {
         initWebSocket();
 
@@ -35,12 +69,18 @@ function ServerContainer() {
 
         wsClient.current.onmessage = (e) => {
             const { type, payload } = JSON.parse(e.data);
-            /* if (type === "SERVER") { */
-            showMessageReceived(payload);
-            setServerData(payload);
-            /*             } else {
-            showMessageReceived("ws Message was not SERVER")
-            } */
+            if (type === "SERVERS") {
+                showMessageReceived(payload);
+                setServerData(payload);
+            } else if (type === "UPDATE") {
+                showMessageReceived(payload);
+
+                setServerData((currentServerData) =>
+                    updateOrAddServerData(currentServerData, payload)
+                );
+            } else {
+                console.log("ws Message was... weird?");
+            }
         };
 
         wsClient.current.onclose = (_e) => {

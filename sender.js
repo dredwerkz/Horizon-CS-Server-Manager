@@ -1,5 +1,5 @@
 import dgram from "dgram";
-const client = dgram.createSocket("udp4");
+/* const client = dgram.createSocket("udp4"); */
 
 const arrayOfServerMessages = [
     `L 05/31/2023 - 22:31:56: Team "CT" scored "1" with "3" players`,
@@ -61,7 +61,6 @@ function generateMessages() {
         `L 05/31/2023 - 22:31:56: MatchStatus: Team playing "TERRORIST": Legends`,
         `L 05/31/2023 - 22:31:56: MatchStatus: Score: 6:7 on map "${randomiser.map()}" RoundsPlayed: 3`,
         `L 05/31/2023 - 22:26:43: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" say "hey we need an ${randomiser.admin()}"`,
-        //`admin_issue_solved`
     ];
     return newArrayOfServerMessages;
 }

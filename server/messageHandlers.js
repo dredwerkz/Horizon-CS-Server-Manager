@@ -28,12 +28,12 @@ export default messageHandlers;
 function updateScore({ serverKey, match }) {
     // match[1] is the team side (T/CT), match[2] is the score
     const newData = {
-        [match[1]]: [match[2]],
+        [match[1].toString().toLowerCase()]: match[2].toString(),
     };
 
     dbHandlers.updateScore(serverKey, match[1], match[2]);
 
-    return { serverKey, newData };
+    return { serverkey: serverKey, ...newData };
 }
 
 function updateMap({ serverKey, match }) {
@@ -45,7 +45,7 @@ function updateMap({ serverKey, match }) {
 
     dbHandlers.updateMap(serverKey, newData);
 
-    return { serverKey, newData };
+    return { serverkey: serverKey, ...newData };
 }
 
 function updateAdminReq(serverIndex, _match) {

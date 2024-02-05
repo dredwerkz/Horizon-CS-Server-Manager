@@ -21,10 +21,10 @@ function createUdpServer(serverContainerManager, eventEmitter) {
 
         // Emit an event for WebSocket server
         if (updatedData) {
-            getAllServerData().then((payload) =>
+            /*             getAllServerData().then((payload) =>
                 eventEmitter.emit("update", payload)
-            );
-            /* eventEmitter.emit("update", updatedData); */
+            ); */
+            eventEmitter.emit("update", updatedData);
         }
     });
 
@@ -55,7 +55,7 @@ function processUdpMessage(msg, rinfo, serverContainerManager) {
         );
         // Not gonna send the updated data via WebSocket anymore so we can just return true to tell the emitter to go ahead and pull the full server table
         /* return serverContainerManager.getServerData(serverKey); */
-        return true
+        return response;
     }
 
     return null;

@@ -21,7 +21,7 @@ function createWebSocketServer(
 
                 if (decodedMessage.type === "NEW_USER") {
                     // When a user establishes connection, grab the latest db data and send it over
-                    getAllServerData().then((data) => broadcast(data));
+                    getAllServerData().then((data) => broadcast(data, true));
                 }
             } catch (e) {
                 console.error(`Error parsing message: `, e);
@@ -35,8 +35,8 @@ function createWebSocketServer(
     });
 
     // Broadcasting the data to all connected clients
-    function broadcast(data) {
-        const wsPayload = JSON.stringify({ type: "SERVERS", payload: data });
+    function broadcast(data, full = false) {
+        const wsPayload = JSON.stringify({ type: full ? "SERVERS" : "UPDATE" , payload: data });
         wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(wsPayload);
