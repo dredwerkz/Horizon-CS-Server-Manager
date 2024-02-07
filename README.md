@@ -94,6 +94,8 @@ Learning how to manage such a huge influx of information over the internet, and 
 
 ## Future Scope and Enhancements
 
+* Convert project to Vite over CRA - the quick and easy methods didn't work so I'll have to do this by hand at some point soon...
+
 * Security features - currently there's no sanitisation of output to the servers
 
 * Dynamic server management - being able to input Steam IDs and have the admin panel auto-manage servers based on which players are in server would open up a number of possibilities, such as automatic team naming or automatic score submissions.
