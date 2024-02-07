@@ -21,6 +21,7 @@ Process for booting booting the project in its current state --
 Install npm packages, and build the project.
 
 npm dev script will boot the HTTP and UDP servers, and load the WebSocket and Emitters at the same time - front-end is served via http port 8080, UDP traffic is being listened to on port 12345.
+
 The project is currently using a local postgres instance to store data 'permanently' between sessions, which the front-end pulls from when the pages are loaded. Haven't containerised this yet, sorry!
 
 "npm run send" will send simulated dummy-data from real CS matches from a series of ports between 50000-50019 (customisable) which will update the database and also sends the partial updates to all connected WebSocket clients.
