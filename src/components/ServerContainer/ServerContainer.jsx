@@ -52,7 +52,7 @@ function ServerContainer() {
                 wsClient.current.close();
             }
         };
-    }, []); // Empty dependency array to run only on mount and unmount
+    }, []);
 
     function initWebSocket() {
         if (wsClient.current) {
