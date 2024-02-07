@@ -39,7 +39,7 @@ function ServerContainer() {
         ct: 0,
         terrorist: 0,
         map: "de_unknown",
-        score: 0,
+        rounds: 0,
         admin: false,
     };
 
