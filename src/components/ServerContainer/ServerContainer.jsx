@@ -9,7 +9,7 @@ function ServerContainer() {
 
     const PORT = 8080;
 
-    const updateOrAddServerData = (currentServerData, payload) => {
+    function updateOrAddServerData(currentServerData, payload) {
         // Check if the serverkey exists in the current data
         const exists = currentServerData.some(
             (server) => server.serverkey === payload.serverkey
@@ -79,7 +79,7 @@ function ServerContainer() {
                     updateOrAddServerData(currentServerData, payload)
                 );
             } else {
-                console.log("ws Message was... weird?");
+                console.log("ws Message is unhandled, check server!");
             }
         };
 
