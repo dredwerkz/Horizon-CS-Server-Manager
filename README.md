@@ -14,6 +14,19 @@ eBot and other similar platforms are incredibly heavy-duty and often only suppor
 
 Horizon Server Manager is lightweight, integrating with gameservers entirely via UDP communication rather than adding overheads. A comprehensive toolbox for making large-scale tournaments manageable, designed and written by one of the most experienced CS admins in the industry, featuring all the tools you'll ever need - and some you never knew you did.
 
+## Getting it up and running
+
+Process for booting booting the project in its current state --
+
+Install npm packages, and build the project.
+
+npm dev script will boot the HTTP and UDP servers, and load the WebSocket and Emitters at the same time - front-end is served via http port 8080, UDP traffic is being listened to on port 12345.
+The project is currently using a local postgres instance to store data 'permanently' between sessions, which the front-end pulls from when the pages are loaded. Haven't containerised this yet, sorry!
+
+"npm run send" will send simulated dummy-data from real CS matches from a series of ports between 50000-50019 (customisable) which will update the database and also sends the partial updates to all connected WebSocket clients.
+
+Front end listens for the WebSocket message type to determine whether to update the whole server list or to find which specific gameserver just sent an update, and apply that!
+
 ## Table of Contents
 
 -   [What is it?](#what-is-it)
