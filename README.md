@@ -27,7 +27,7 @@ The project is currently using a local postgres instance to store data 'permanen
 
 Front end listens for the WebSocket message type to determine whether to update the whole server list or to find which specific gameserver just sent an update, and apply that!
 
-Front-end catches all the server info from [here](https://github.com/dredwerkz/Horizon-CS-Server-Manager/blob/ddd8eb6d0c485859f181fcf8b3b9c8df5a508821/src/components/ServerContainer/ServerContainer.jsx#L12) at the moment! I probably need to elevate this once I start working on the control panel, though.
+Front-end catches all the server info from [here](https://github.com/dredwerkz/Horizon-CS-Server-Manager/blob/dbccf38c4fa0c8f03be0cb08440c61ee25951c27/src/components/ServerContainer/ServerContainer.jsx#L12) at the moment! I probably need to elevate this once I start working on the control panel, though.
 
 ## Table of Contents
 
