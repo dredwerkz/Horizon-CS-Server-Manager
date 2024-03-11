@@ -20,7 +20,7 @@ public class Startup
         // Database context probably needs setting up here
         services.AddDbContext<MyDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString(
-                "postgres://tapqrcla:OPTxCicHPKkndkckdVRySbbKlvyUnjab@trumpet.db.elephantsql.com/tapqrcla")));
+                "MyPostgresDbConnection")));
 
         services.AddControllersWithViews(); // MVCs
         //services.AddRazorPages(); // ReactJS 4 lyf
