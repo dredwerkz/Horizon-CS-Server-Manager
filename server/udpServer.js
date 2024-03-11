@@ -24,7 +24,7 @@ function createUdpServer(serverContainerManager, eventEmitter) {
             /*             getAllServerData().then((payload) =>
                 eventEmitter.emit("update", payload)
             ); */
-            eventEmitter.emit("update", updatedData);
+            eventEmitter.emit("update", updatedData); // This shoots the result of processUdpMessage off to server.js
         }
     });
 
