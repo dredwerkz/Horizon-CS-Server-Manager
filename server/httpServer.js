@@ -8,7 +8,6 @@ const __dirname = fileURLToPath(import.meta.url);
 
 function createHttpServer() {
     const server = http.createServer((req, res) => {
-        // Adjust the file serving logic here as per your directory structure
         let filePath = path.join(
             __dirname,
             "..",
@@ -29,7 +28,7 @@ function createHttpServer() {
             case ".json":
                 contentType = "application/json";
                 break;
-            // Add more cases for other file types as needed
+            // Add more cases for other file types if needed
         }
 
         fs.readFile(filePath, (error, content) => {

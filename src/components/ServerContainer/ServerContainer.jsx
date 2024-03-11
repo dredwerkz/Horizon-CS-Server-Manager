@@ -59,7 +59,8 @@ function ServerContainer() {
             wsClient.current.close();
         }
 
-        const URL = "ws://localhost:" + PORT;
+        //const URL = "ws://localhost:" + PORT;
+        const URL = "ws://localhost:5000/ws"
         wsClient.current = new WebSocket(URL);
 
         wsClient.current.onopen = (_e) => {
@@ -83,7 +84,8 @@ function ServerContainer() {
             }
         };
 
-        wsClient.current.onclose = (_e) => {
+        wsClient.current.onclose = (e) => {
+            console.log(`WebSocket Closed: code=${e.code} reason=${e.reason}`)
             showMessageReceived("No WebSocket connection :(");
         };
 
