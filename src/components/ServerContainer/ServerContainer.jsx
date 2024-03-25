@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Server from "../Server/Server.jsx";
 import "./ServerContainer.css";
 
 function ServerContainer() {
     const [serverData, setServerData] = useState([]); // State to store serverContainer data
-    const [refreshMsg, setRefreshMsg] = useState(false);
     const wsClient = useRef(null); // persistent WebSocket client between re-renders
 
-    const PORT = 8080;
+    // const PORT = 8080;
 
     function updateOrAddServerData(currentServerData, payload) {
         // Check if the serverkey exists in the current data
         const exists = currentServerData.some(
-            (server) => server.serverkey === payload.serverkey
+            (server) => server.ServerKey === payload.ServerKey
         );
 
         if (!exists) {
@@ -20,27 +19,40 @@ function ServerContainer() {
             return [
                 ...currentServerData,
                 {
-                    serverkey: payload.serverkey,
+                    ServerKey: payload.ServerKey,
                     ...placeholderData,
+                    ...payload
                 },
             ];
         } else {
             // If it exists, update the data
             return currentServerData.map((server) => {
-                if (server.serverkey === payload.serverkey) {
-                    return { ...server, ...payload };
+                if (server.ServerKey === payload.ServerKey) {
+                    let updatedServer = {
+                        ...server,
+                        ...payload,
+                        PlayersCt: [...new Set([...(server.PlayersCt || []), ...(payload.PlayersCt || [])])],
+                        PlayersT: [...new Set([...(server.PlayersT || []), ...(payload.PlayersT || [])])]
+                    };
+                    
+                    
+                    let {PlayersCt, PlayersT, ...restPayload} = payload;
+                    
+                    return {...updatedServer, ...restPayload};
                 }
                 return server;
             });
         }
-    };
+    }
 
     const placeholderData = {
-        ct: 0,
-        terrorist: 0,
-        map: "de_unknown",
-        rounds: 0,
-        admin: false,
+        ScoreCt: 0,
+        ScoreT: 0,
+        Map: "de_unknown",
+        Rounds: 0,
+        Admin: false,
+        PlayersCt: [],
+        PlayersT: [],
     };
 
     useEffect(() => {
@@ -64,21 +76,25 @@ function ServerContainer() {
         wsClient.current = new WebSocket(URL);
 
         wsClient.current.onopen = (_e) => {
-            wsClient.current.send(JSON.stringify({ type: "NEW_USER" }));
+            wsClient.current.send(JSON.stringify({type: "NEW_USER"}));
             showMessageReceived("WebSocket connection established");
         };
 
         wsClient.current.onmessage = (e) => {
-            const { type, payload } = JSON.parse(e.data);
+            const {type, payload} = JSON.parse(e.data); // Destructure the ws event data, pull the type and payload
             if (type === "SERVERS") {
                 showMessageReceived(payload);
                 setServerData(payload);
             } else if (type === "UPDATE") {
-                showMessageReceived(payload);
+                // showMessageReceived(payload);
+                console.log("Received wS object is: ")
+                console.log(payload)
 
                 setServerData((currentServerData) =>
                     updateOrAddServerData(currentServerData, payload)
                 );
+            } else if (type === "NEW_USER") {
+                console.log("New User acknowledged by server!")
             } else {
                 console.log("ws Message is unhandled, check server!");
             }
@@ -91,7 +107,6 @@ function ServerContainer() {
 
         wsClient.current.onerror = (e) => {
             console.error("WebSocket error observed:", e);
-            setRefreshMsg(true);
         };
     }
 
@@ -107,13 +122,15 @@ function ServerContainer() {
                 {serverData.map((server) => {
                     return (
                         <Server
-                            key={server.serverkey}
-                            server={server.serverkey}
-                            map={server.map}
-                            team1={server.terrorist}
-                            team2={server.ct}
-                            rounds={server.rounds}
-                            admin={server?.admin}
+                            key={server.ServerKey}
+                            server={server.ServerKey}
+                            map={server.Map}
+                            team1={server.ScoreCt}
+                            team2={server.ScoreT}
+                            rounds={server.Rounds}
+                            admin={server?.Admin}
+                            players1={server?.PlayersCt}
+                            players2={server?.PlayersT}
                         />
                     );
                 })}
@@ -122,7 +139,7 @@ function ServerContainer() {
     } else {
         return (
             <div className="serverContainer">
-                <h1 style={{ color: `white` }}>Loading your server data...</h1>
+                <h1 style={{color: `white`}}>Waiting for server data...</h1>
             </div>
         );
     }

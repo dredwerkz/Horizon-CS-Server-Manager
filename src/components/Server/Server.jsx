@@ -1,8 +1,20 @@
 import "./Server.css";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 function Server(props) {
     const [dropDown, setDropDown] = useState(false);
+    const [adminState, setAdminState] = useState();
+
+    useEffect(() => {
+            if (props.admin) {
+                setAdminState(props.admin)
+            }
+        }, [props.admin]
+    )
+
+    function toggleAdminFlag() {
+        setAdminState(!adminState)
+    }
 
     function copyAddress() {
         const copyText = props.server;
@@ -14,32 +26,42 @@ function Server(props) {
     }
 
     return (
-        <div className={`individualServer ${props.admin ? "adminAlert" : ""}`}>
+        <div className={`individualServer ${adminState ? "adminAlert" : ""}`}>
             <span
-                className="dropDownButton unselectable"
+                className="dropDownButton unselectable expander"
                 onClick={toggleDropDown}
             >
-                🔽
+                {dropDown ? "🔼" : "🔽"}
             </span>
             <span
-                className="serverIP"
+                className="serverIP pointer"
                 onClick={copyAddress}
-                style={{ cursor: "pointer" }}
             >
                 🔗 {props.server}
             </span>
-            <span className="team1Score">{props.team1}</span>
-            <span className="teamDivider">:</span>
-            <span className="team2Score">{props.team2}</span>
-            <span className="serverMap">{props.map}</span>
-            <span className="notification">{props.admin ? "❗" : "🆗"}</span>
+            <span onClick={toggleDropDown} className="team1Score expander">{props.team1}</span>
+            <span onClick={toggleDropDown} className="teamDivider expander">:</span>
+            <span onClick={toggleDropDown} className="team2Score expander">{props.team2}</span>
+            <span onClick={toggleDropDown} className="serverMap expander">{props.map}</span>
+            <span className="notification pointer"
+                  onClick={toggleAdminFlag}>{adminState ? "❗" : "🆗"}</span>
             <div className="dropDown" hidden={!dropDown}>
-                <p>Asd</p>
-                <p>Asd</p>
-                <p>Asd</p>
+                <div className="team1Players" hidden={!dropDown}>
+                    <h4>Counter-Terrorists</h4>
+                    {props.players1.map((player) => {
+                        return <p>{player}</p>
+                    })}
+                </div>
+                <div className="team2Players" hidden={!dropDown}>
+                    <h4>Terrorists</h4>
+                    {props.players2.map((player) => {
+                        return <p>{player}</p>
+                    })}
+                </div>
             </div>
         </div>
-    );
+
+    )
 }
 
 export default Server;

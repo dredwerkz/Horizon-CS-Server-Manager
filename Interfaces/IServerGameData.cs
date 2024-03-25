@@ -1,3 +1,4 @@
+#nullable enable
 namespace horizon.Interfaces;
 
 interface IServerGameData

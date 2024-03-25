@@ -1,6 +1,6 @@
 .individualServer {
 
-    display:grid;
+    display: grid;
     background-color: rgb(0, 0, 0, 0.5);
     grid-template-columns: 0.5fr 3fr 1fr 0.3fr 1fr 2.5fr 0.5fr;
     border: 1px solid rgb(52, 77, 94);
@@ -11,16 +11,32 @@
 }
 
 .adminAlert {
-    animation : blinkingAlert 1.5s infinite;
+    animation: blinkingAlert 1.5s infinite;
     box-shadow: 0px 0px 10px 3px rgb(251, 236, 77, 0.5);
 }
 
 @keyframes blinkingAlert {
-    0% { background-color: rgb(0, 0, 0, 0.5); color: white;}
-    50% {background-color: rgb(251, 236, 77); color: black;}
-    100% { background-color: rgb(0, 0, 0, 0.5); color: white;}
+    0% {
+        background-color: rgb(0, 0, 0, 0.5);
+        color: white;
+    }
+    50% {
+        background-color: rgb(251, 236, 77);
+        color: black;
+    }
+    100% {
+        background-color: rgb(0, 0, 0, 0.5);
+        color: white;
+    }
 }
 
+.expander {
+    cursor: ns-resize;
+}
+
+.pointer {
+    cursor: pointer;
+}
 
 .individualServer:first-of-type {
     border-top-left-radius: 1rem;
@@ -34,7 +50,7 @@
 }
 
 .serverIP {
- padding-right: 0.2rem;
+    padding-right: 0.2rem;
 }
 
 .team1Score {
@@ -60,4 +76,24 @@
 
 .dropDown {
     grid-column: 1 / 7;
+    justify-content: center;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dropDown p, h4 {
+    margin: 0;
+    padding: 0.3em;
+}
+
+.team1Players {
+    border-right: 1px solid rgb(52, 77, 94);
+
+    margin: 0.5rem;
+}
+
+.team2Players {
+
+    margin: 0.5rem;
 }
