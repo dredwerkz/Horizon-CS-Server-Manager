@@ -1,9 +1,7 @@
 # nullable enable
 using System.Net;
-using horizon.Interfaces;
 using System.Text.RegularExpressions;
-using horizon.Classes;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 namespace horizon.Processors;
 
@@ -21,11 +19,7 @@ public class UdpDataProcessor
     private readonly Regex _scoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""");
     private readonly Regex _mapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
     private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
-    private readonly Regex _playerRegex = new Regex(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
-    
-    
-    
-
+    private readonly Regex _playerRegex = new (@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
 
     public UdpDataProcessor(IPEndPoint serverKey, string receivedData)
     {
@@ -82,23 +76,11 @@ public class UdpDataProcessor
             
             if (playerTeam == "CT")
             {
-                Console.WriteLine("Player is CT, adding to PlayersCt list");
-                Console.WriteLine();
                 PlayersCt.Add(playerName);
             }
             else
             {
                 PlayersT.Add(playerName);
-            }
-
-            foreach (var thing in PlayersCt)
-            {
-                Console.WriteLine(thing);
-            }
-
-            foreach (var thing in PlayersT)
-            {
-                Console.WriteLine(thing);
             }
         }
         // TODO: Create arrays for team members for CT and T for React to iterate through,

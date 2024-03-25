@@ -1,10 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization;
 using System.Text;
 using horizon.Processors;
-using Newtonsoft.Json;
-using NuGet.Protocol;
 
 namespace horizon;
 
@@ -24,7 +21,7 @@ public class UdpServer
 
                 var processedUpdateData = new UdpDataProcessor(serverKey, receivedData);
 
-                await Startup.BroadcastNewDataViaWebSocketAsync(processedUpdateData);
+                await Startup.BroadcastNewDataViaWebSocketAsync(processedUpdateData, true);
             }
         }
         catch (SocketException e)

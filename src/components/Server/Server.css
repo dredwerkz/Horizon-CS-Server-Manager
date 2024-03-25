@@ -30,6 +30,13 @@
     }
 }
 
+.expander {
+    cursor: ns-resize;
+}
+
+.pointer {
+    cursor: pointer;
+}
 
 .individualServer:first-of-type {
     border-top-left-radius: 1rem;

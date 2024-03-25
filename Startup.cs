@@ -81,11 +81,12 @@ public class Startup
         });
     }
 
-    public static async Task BroadcastNewDataViaWebSocketAsync(object update)
+    public static async Task BroadcastNewDataViaWebSocketAsync(object update, bool messageType) // Send server data via ws
     {
+        // TODO: This is really sloppy, no real type enforcement on update - should probably be an interface :)
         var structuredMessage = new
         {
-            type = "UPDATE",
+            type = messageType ? "UPDATE" : "SERVERS",
             payload = update
         };
 

@@ -28,34 +28,33 @@ function Server(props) {
     return (
         <div className={`individualServer ${adminState ? "adminAlert" : ""}`}>
             <span
-                className="dropDownButton unselectable"
+                className="dropDownButton unselectable expander"
                 onClick={toggleDropDown}
             >
-                🔽
+                {dropDown ? "🔼" : "🔽"}
             </span>
             <span
-                className="serverIP"
+                className="serverIP pointer"
                 onClick={copyAddress}
-                style={{cursor: "pointer"}}
             >
                 🔗 {props.server}
             </span>
-            <span className="team1Score">{props.team1}</span>
-            <span className="teamDivider">:</span>
-            <span className="team2Score">{props.team2}</span>
-            <span className="serverMap">{props.map}</span>
-            <span className="notification" style={{cursor: "pointer"}}
+            <span onClick={toggleDropDown} className="team1Score expander">{props.team1}</span>
+            <span onClick={toggleDropDown} className="teamDivider expander">:</span>
+            <span onClick={toggleDropDown} className="team2Score expander">{props.team2}</span>
+            <span onClick={toggleDropDown} className="serverMap expander">{props.map}</span>
+            <span className="notification pointer"
                   onClick={toggleAdminFlag}>{adminState ? "❗" : "🆗"}</span>
             <div className="dropDown" hidden={!dropDown}>
                 <div className="team1Players" hidden={!dropDown}>
                     <h4>Counter-Terrorists</h4>
-                    {props.playersCt.map((player) => {
+                    {props.players1.map((player) => {
                         return <p>{player}</p>
                     })}
                 </div>
                 <div className="team2Players" hidden={!dropDown}>
                     <h4>Terrorists</h4>
-                    {props.playersT.map((player) => {
+                    {props.players2.map((player) => {
                         return <p>{player}</p>
                     })}
                 </div>

@@ -4,10 +4,9 @@ import "./ServerContainer.css";
 
 function ServerContainer() {
     const [serverData, setServerData] = useState([]); // State to store serverContainer data
-    const [refreshMsg, setRefreshMsg] = useState(false);
     const wsClient = useRef(null); // persistent WebSocket client between re-renders
 
-    const PORT = 8080;
+    // const PORT = 8080;
 
     function updateOrAddServerData(currentServerData, payload) {
         // Check if the serverkey exists in the current data
@@ -29,12 +28,22 @@ function ServerContainer() {
             // If it exists, update the data
             return currentServerData.map((server) => {
                 if (server.ServerKey === payload.ServerKey) {
-                    return {...server, ...payload};
+                    let updatedServer = {
+                        ...server,
+                        ...payload,
+                        PlayersCt: [...new Set([...(server.PlayersCt || []), ...(payload.PlayersCt || [])])],
+                        PlayersT: [...new Set([...(server.PlayersT || []), ...(payload.PlayersT || [])])]
+                    };
+                    
+                    
+                    let {PlayersCt, PlayersT, ...restPayload} = payload;
+                    
+                    return {...updatedServer, ...restPayload};
                 }
                 return server;
             });
         }
-    };
+    }
 
     const placeholderData = {
         ScoreCt: 0,
@@ -84,6 +93,8 @@ function ServerContainer() {
                 setServerData((currentServerData) =>
                     updateOrAddServerData(currentServerData, payload)
                 );
+            } else if (type === "NEW_USER") {
+                console.log("New User acknowledged by server!")
             } else {
                 console.log("ws Message is unhandled, check server!");
             }
@@ -96,7 +107,6 @@ function ServerContainer() {
 
         wsClient.current.onerror = (e) => {
             console.error("WebSocket error observed:", e);
-            setRefreshMsg(true);
         };
     }
 
@@ -115,12 +125,12 @@ function ServerContainer() {
                             key={server.ServerKey}
                             server={server.ServerKey}
                             map={server.Map}
-                            team1={server.ScoreT}
-                            team2={server.ScoreCt}
+                            team1={server.ScoreCt}
+                            team2={server.ScoreT}
                             rounds={server.Rounds}
                             admin={server?.Admin}
-                            playersCt={server?.PlayersCt}
-                            playersT={server?.PlayersT}
+                            players1={server?.PlayersCt}
+                            players2={server?.PlayersT}
                         />
                     );
                 })}
@@ -129,7 +139,7 @@ function ServerContainer() {
     } else {
         return (
             <div className="serverContainer">
-                <h1 style={{color: `white`}}>Loading your server data...</h1>
+                <h1 style={{color: `white`}}>Waiting for server data...</h1>
             </div>
         );
     }
