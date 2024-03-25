@@ -18,9 +18,9 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContext<MyDbContext>(options =>
+        services.AddDbContext<HorizonDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString(
-                "MyPostgresDbConnection")));
+                "DefaultConnection")));
 
         services.AddControllersWithViews(); // MVCs
     }

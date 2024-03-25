@@ -23,6 +23,7 @@ node_modules
 # production
 /build
 /.idea
+/Migrations
 
 # Build results
 
