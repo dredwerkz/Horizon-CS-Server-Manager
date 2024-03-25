@@ -2,12 +2,14 @@ using System.Net.WebSockets;
 using horizon.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using NuGet.Protocol;
 
 namespace horizon;
 
 public class Startup
 {
     private IConfiguration Configuration { get; }
+    private static readonly List<WebSocket> ConnectedClients = new();
 
     public Startup(IConfiguration configuration)
     {
@@ -16,14 +18,11 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        // Dependency Injection (DI) container services established here
-        // Database context probably needs setting up here
         services.AddDbContext<MyDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString(
                 "MyPostgresDbConnection")));
 
         services.AddControllersWithViews(); // MVCs
-        //services.AddRazorPages(); // ReactJS 4 lyf
     }
 
     private static async Task Echo(WebSocket webSocket)
@@ -33,7 +32,7 @@ public class Startup
         var result =
             await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
 
-        while (!result.CloseStatus.HasValue)
+        while (result.CloseStatus.HasValue == false)
         {
             await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType,
                 result.EndOfMessage, CancellationToken.None);
@@ -42,6 +41,8 @@ public class Startup
 
         await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription,
             CancellationToken.None);
+
+        ConnectedClients.Remove(webSocket);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -53,6 +54,7 @@ public class Startup
             if (context.WebSockets.IsWebSocketRequest)
             {
                 var webSocket = await context.WebSockets.AcceptWebSocketAsync();
+                ConnectedClients.Add(webSocket);
                 // Handling ws reqs goes in this block
                 // I think for file management, I should create a separate class for handling ws and pass the message in from here 
                 await Echo(webSocket);
@@ -70,7 +72,6 @@ public class Startup
             RequestPath = ""
         });
 
-        //app.Run(async (context) => { await context.Response.WriteAsync("HTTP Server is running!"); }); // This would override serving static files via http
         app.UseRouting();
 
         app.UseEndpoints(endpoints =>
@@ -78,5 +79,25 @@ public class Startup
             endpoints.MapControllers(); // MVC
             endpoints.MapFallbackToFile("index.html");
         });
+    }
+
+    public static async Task BroadcastNewDataViaWebSocketAsync(object update)
+    {
+        var structuredMessage = new
+        {
+            type = "UPDATE",
+            payload = update
+        };
+
+        var jsonString = structuredMessage.ToJson();
+        Console.WriteLine(jsonString);
+        
+        var buffer = System.Text.Encoding.UTF8.GetBytes(jsonString);
+
+        foreach (var webSocket in ConnectedClients.ToList().Where(webSocket => webSocket.State == WebSocketState.Open))
+        {
+            await webSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true,
+                CancellationToken.None);
+        }
     }
 }

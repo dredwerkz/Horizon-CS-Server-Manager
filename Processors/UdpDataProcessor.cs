@@ -10,23 +10,37 @@ namespace horizon.Processors;
 public class UdpDataProcessor
 {
     public string ServerKey { get; private set; }
-    public string ReceivedData { get; private set; }
     public string? Map { get; private set; }
     public int? ScoreCt { get; private set; }
     public int? ScoreT { get; private set; }
     public int? Rounds { get; private set; }
     public bool? Admin { get; private set; }
+    public List<string> PlayersCt { get; set; }
+    public List<string> PlayersT { get; set; }
+
+    private readonly Regex _scoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""");
+    private readonly Regex _mapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
+    private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
+    private readonly Regex _playerRegex = new Regex(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
+    
+    
+    
+
 
     public UdpDataProcessor(IPEndPoint serverKey, string receivedData)
     {
         ServerKey = serverKey.ToString();
-        ReceivedData = receivedData;
+        PlayersCt = new List<string>();
+        PlayersT = new List<string>();
+        ProcessRawData(receivedData);
+    }
 
-        var scoreRegex = new Regex(@"Team ""(.*?)"" scored ""(\d+)""");
-        var mapRegex = new Regex(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
-
-        var scoreMatch = scoreRegex.Match(receivedData);
-        var mapMatch = mapRegex.Match(receivedData);
+    private void ProcessRawData(string receivedData)
+    {
+        var scoreMatch = _scoreRegex.Match(receivedData);
+        var mapMatch = _mapRegex.Match(receivedData);
+        var adminMatch = _adminRegex.Match(receivedData);
+        var playerMatch = _playerRegex.Match(receivedData);
 
         if (scoreMatch.Success)
         {
@@ -54,6 +68,41 @@ public class UdpDataProcessor
             Map = mapName;
             Rounds = int.Parse(roundsPlayed);
         }
+        else if (adminMatch.Success)
+        {
+            Admin = true;
+        }
+        else if (playerMatch.Success)
+        {
+            var playerName = playerMatch.Groups[1].ToString();
+            var playerTeam = playerMatch.Groups[2].ToString();
+            
+            Console.WriteLine(playerName);
+            Console.WriteLine(playerTeam);
+            
+            if (playerTeam == "CT")
+            {
+                Console.WriteLine("Player is CT, adding to PlayersCt list");
+                Console.WriteLine();
+                PlayersCt.Add(playerName);
+            }
+            else
+            {
+                PlayersT.Add(playerName);
+            }
+
+            foreach (var thing in PlayersCt)
+            {
+                Console.WriteLine(thing);
+            }
+
+            foreach (var thing in PlayersT)
+            {
+                Console.WriteLine(thing);
+            }
+        }
+        // TODO: Create arrays for team members for CT and T for React to iterate through,
+        // TODO: .Add() player names to that array and gogo
     }
 
 

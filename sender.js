@@ -61,6 +61,17 @@ function generateMessages() {
         `L 05/31/2023 - 22:31:56: MatchStatus: Team playing "TERRORIST": Legends`,
         `L 05/31/2023 - 22:31:56: MatchStatus: Score: 6:7 on map "${randomiser.map()}" RoundsPlayed: 3`,
         `L 05/31/2023 - 22:26:43: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" say "hey we need an ${randomiser.admin()}"`,
+        `L 05/31/2023 - 22:26:43: "CharlieTizard<73><STEAM_1:1:16333472><T>" exists`,
+        `L 05/31/2023 - 22:26:43: "Blanks<73><STEAM_1:1:16333473><T>" exists`,
+        `L 05/31/2023 - 22:26:43: "Duck<73><STEAM_1:1:16333474><T>" exists`,
+        `L 05/31/2023 - 22:26:43: "Maru<73><STEAM_1:1:16333475><T>" exists`,
+        `L 05/31/2023 - 22:26:43: "TheKenwyne<73><STEAM_1:1:16333476><T>" exists`,
+        `L 05/31/2023 - 22:26:43: "Hosselote<73><STEAM_1:1:16333477><CT>" exists`,
+        `L 05/31/2023 - 22:26:43: "Messioso<73><STEAM_1:1:16333478><CT>" exists`,
+        `L 05/31/2023 - 22:26:43: "Supermarket Sushi<73><STEAM_1:1:16333471><CT>" exists`,
+        `L 05/31/2023 - 22:26:43: "Veracity<73><STEAM_1:1:16333479><CT>" exists`,
+        `L 05/31/2023 - 22:26:43: "Valgar<73><STEAM_1:1:16333470><CT>" exists`,
+
     ];
     return newArrayOfServerMessages;
 }
