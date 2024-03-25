@@ -14,7 +14,8 @@ public class HorizonDbContext : DbContext
         // Need to build out some real context for this eventually, to match my postgres schema!
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // Uncomment to generate database seeded info as/when needed
+    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Servers>().HasData(
             new Servers
@@ -26,5 +27,5 @@ public class HorizonDbContext : DbContext
                 Rounds = 0,
                 Admin = false,
             });
-    }
+    }*/
 }

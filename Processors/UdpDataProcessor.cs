@@ -1,6 +1,10 @@
 # nullable enable
 using System.Net;
 using System.Text.RegularExpressions;
+using horizon.Data;
+using horizon.Data.Models;
+using Newtonsoft.Json;
+using Npgsql;
 
 
 namespace horizon.Processors;
@@ -19,14 +23,18 @@ public class UdpDataProcessor
     private readonly Regex _scoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""");
     private readonly Regex _mapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
     private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
-    private readonly Regex _playerRegex = new (@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
+    private readonly Regex _playerRegex = new(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
 
-    public UdpDataProcessor(IPEndPoint serverKey, string receivedData)
+    private readonly HorizonDbContext _context;
+
+    public UdpDataProcessor( /*HorizonDbContext context, */ IPEndPoint serverKey, string receivedData)
     {
         ServerKey = serverKey.ToString();
         PlayersCt = new List<string>();
         PlayersT = new List<string>();
         ProcessRawData(receivedData);
+        var serversTable = UpdateDatabase();
+        Console.WriteLine(serversTable);
     }
 
     private void ProcessRawData(string receivedData)
@@ -70,10 +78,10 @@ public class UdpDataProcessor
         {
             var playerName = playerMatch.Groups[1].ToString();
             var playerTeam = playerMatch.Groups[2].ToString();
-            
-            Console.WriteLine(playerName);
-            Console.WriteLine(playerTeam);
-            
+
+            //Console.WriteLine(playerName);
+            //Console.WriteLine(playerTeam);
+
             if (playerTeam == "CT")
             {
                 PlayersCt.Add(playerName);
@@ -85,6 +93,35 @@ public class UdpDataProcessor
         }
         // TODO: Create arrays for team members for CT and T for React to iterate through,
         // TODO: .Add() player names to that array and gogo
+    }
+
+    private string UpdateDatabase()
+    {
+        // Default values for a new row
+        const int defaultScoreCt = 0;
+        const int defaultScoreT = 0;
+        const string defaultMap = "de_unknown";
+        const int defaultRounds = 0;
+        const bool defaultAdmin = false;
+
+        // SQL command for upserting data
+        var upsertCommand =
+            @"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\", \"ScoreT\", \"Map\", \"Rounds\", \"Admin\")
+        VALUES(@ServerKey, @ScoreCt, @ScoreT, @Map, @Rounds, @Admin)
+        ON CONFLICT(\
+        "ServerKey\") 
+        DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\", \"ScoreT\" = EXCLUDED.\"ScoreT\", 
+            \"Map\" = EXCLUDED.\"Map\", \"Rounds\" = EXCLUDED.\"Rounds\", \"Admin\" = EXCLUDED.\"Admin\";";
+
+        using var connection =
+            new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
+        connection.Open();
+
+        using var cmd = new NpgsqlCommand(upsertCommand, connection);
+
+        cmd.ExecuteNonQuery(); // Execute the command
+
+        return "Data upserted successfully";
     }
 
 

@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using horizon.Data;
 using horizon.Processors;
 
 namespace horizon;
@@ -14,7 +15,7 @@ public class UdpServer
         try
         {
             while
-                (true) // Is this not gonna just blow out the console?? - No, cause this only runs once a serverKey is instanced.
+                (true)
             {
                 var bytes = listener.Receive(ref serverKey);
                 var receivedData = Encoding.UTF8.GetString(bytes);

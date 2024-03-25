@@ -7,6 +7,9 @@ function ServerContainer() {
     const wsClient = useRef(null); // persistent WebSocket client between re-renders
 
     // const PORT = 8080;
+    function testIncomingWSData(payload) {
+        console.log(typeof payload)
+    }
 
     function updateOrAddServerData(currentServerData, payload) {
         // Check if the serverkey exists in the current data
@@ -84,7 +87,8 @@ function ServerContainer() {
             const {type, payload} = JSON.parse(e.data); // Destructure the ws event data, pull the type and payload
             if (type === "SERVERS") {
                 showMessageReceived(payload);
-                setServerData(payload);
+                //payload.forEach((server) => updateOrAddServerData(server))
+                setServerData(payload)
             } else if (type === "UPDATE") {
                 // showMessageReceived(payload);
                 console.log("Received wS object is: ")
