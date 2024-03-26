@@ -37,10 +37,10 @@ function ServerContainer() {
                         PlayersCt: [...new Set([...(server.PlayersCt || []), ...(payload.PlayersCt || [])])],
                         PlayersT: [...new Set([...(server.PlayersT || []), ...(payload.PlayersT || [])])]
                     };
-                    
-                    
+
+
                     let {PlayersCt, PlayersT, ...restPayload} = payload;
-                    
+
                     return {...updatedServer, ...restPayload};
                 }
                 return server;
@@ -123,18 +123,18 @@ function ServerContainer() {
         return (
             <div className="serverContainer">
                 <h1>Active Servers:</h1>
-                {serverData.map((server) => {
+                {serverData.map((server, i) => {
                     return (
                         <Server
-                            key={server.ServerKey}
+                            key={"ServerInList_" + i}
                             server={server.ServerKey}
-                            map={server.Map}
-                            team1={server.ScoreCt}
-                            team2={server.ScoreT}
-                            rounds={server.Rounds}
-                            admin={server?.Admin}
-                            players1={server?.PlayersCt}
-                            players2={server?.PlayersT}
+                            map={server.Map != null ? server.Map : "de_unknown"}
+                            team1={server.ScoreCt != null ? server.ScoreCt : "0"}
+                            team2={server.ScoreT != null ? server.ScoreT : "0"}
+                            rounds={server.Rounds != null ? server.Rounds : "?"}
+                            admin={server?.Admin != null ? server.Admin : false}
+                            players1={server.PlayersCt != null ? server?.PlayersCt : ["Unknown"]}
+                            players2={server.PlayersT != null ? server?.PlayersT : ["Unknown"]}
                         />
                     );
                 })}

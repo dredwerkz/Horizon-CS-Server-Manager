@@ -1,9 +1,6 @@
 # nullable enable
 using System.Net;
 using System.Text.RegularExpressions;
-using horizon.Data;
-using horizon.Data.Models;
-using Newtonsoft.Json;
 using Npgsql;
 
 
@@ -25,16 +22,13 @@ public class UdpDataProcessor
     private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
     private readonly Regex _playerRegex = new(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
 
-    private readonly HorizonDbContext _context;
-
-    public UdpDataProcessor( /*HorizonDbContext context, */ IPEndPoint serverKey, string receivedData)
+    public UdpDataProcessor(IPEndPoint serverKey, string receivedData)
     {
         ServerKey = serverKey.ToString();
         PlayersCt = new List<string>();
         PlayersT = new List<string>();
         ProcessRawData(receivedData);
-        var serversTable = UpdateDatabase();
-        Console.WriteLine(serversTable);
+        UpdateDatabase();
     }
 
     private void ProcessRawData(string receivedData)
@@ -95,40 +89,42 @@ public class UdpDataProcessor
         // TODO: .Add() player names to that array and gogo
     }
 
-    private string UpdateDatabase()
+    private void UpdateDatabase()
     {
-        // Default values for a new row
-        const int defaultScoreCt = 0;
-        const int defaultScoreT = 0;
-        const string defaultMap = "de_unknown";
-        const int defaultRounds = 0;
-        const bool defaultAdmin = false;
-
-        // SQL command for upserting data
-        var upsertCommand =
-            @"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\", \"ScoreT\", \"Map\", \"Rounds\", \"Admin\")
-        VALUES(@ServerKey, @ScoreCt, @ScoreT, @Map, @Rounds, @Admin)
-        ON CONFLICT(\
-        "ServerKey\") 
-        DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\", \"ScoreT\" = EXCLUDED.\"ScoreT\", 
-            \"Map\" = EXCLUDED.\"Map\", \"Rounds\" = EXCLUDED.\"Rounds\", \"Admin\" = EXCLUDED.\"Admin\";";
-
+        
         using var connection =
             new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
         connection.Open();
 
-        using var cmd = new NpgsqlCommand(upsertCommand, connection);
+        if (ScoreCt != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\") VALUES ('{ServerKey}', {ScoreCt}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\";", connection);
+            cmd.ExecuteNonQuery();
+        }
 
-        cmd.ExecuteNonQuery(); // Execute the command
-
-        return "Data upserted successfully";
+        if (ScoreT != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreT\") VALUES ('{ServerKey}', {ScoreT}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreT\" = EXCLUDED.\"ScoreT\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        if (Map != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Map\") VALUES ('{ServerKey}', '{Map}') ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Map\" = EXCLUDED.\"Map\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        if (Rounds != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Rounds\") VALUES ('{ServerKey}', '{Rounds}') ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Rounds\" = EXCLUDED.\"Rounds\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        if (Admin != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES ('{ServerKey}', {Admin}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
     }
-
-
-    // TODO: I need to determine the type of message being received, and send it to a controller to extract the data I want from it
-    // So original js path was udpServer -> processServerOutput -> messageHandlers which then gets pulled all the way back.
-    // I want to run messageHandlers in this processor directly, and update the props accordingly.
-    // In the old JS system how much data did I pass through?
-    // We pass through incomplete data to the front end, which just updates each serverKey entry with the data that *is* there.
-    // TODO: Check if I can just null out stuff I don't want to update
 }
