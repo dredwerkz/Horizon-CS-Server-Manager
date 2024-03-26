@@ -48,14 +48,14 @@ function Server(props) {
             <div className="dropDown" hidden={!dropDown}>
                 <div className="team1Players" hidden={!dropDown}>
                     <h4>Counter-Terrorists</h4>
-                    {props.players1.map((player) => {
-                        return <p>{player}</p>
+                    {props.players1.map((player, i) => {
+                        return <p key={"player1_" + i}>{player}</p>
                     })}
                 </div>
                 <div className="team2Players" hidden={!dropDown}>
                     <h4>Terrorists</h4>
-                    {props.players2.map((player) => {
-                        return <p>{player}</p>
+                    {props.players2.map((player, i) => {
+                        return <p key={"player2_" + i}>{player}</p>
                     })}
                 </div>
             </div>

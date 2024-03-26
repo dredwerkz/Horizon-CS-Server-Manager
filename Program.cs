@@ -5,6 +5,14 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        /*var host = CreateWebHostBuilder(args).Build();
+
+        var udpServer = host.Services.GetRequiredService<UdpServer>();
+
+        udpServer.Start();
+
+        host.Run();*/
+
         var udpServer = new UdpServer();
         var udpThread = new Thread(udpServer.Start);
 

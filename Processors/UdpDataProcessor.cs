@@ -1,6 +1,7 @@
 # nullable enable
 using System.Net;
 using System.Text.RegularExpressions;
+using Npgsql;
 
 
 namespace horizon.Processors;
@@ -19,7 +20,7 @@ public class UdpDataProcessor
     private readonly Regex _scoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""");
     private readonly Regex _mapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
     private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
-    private readonly Regex _playerRegex = new (@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
+    private readonly Regex _playerRegex = new(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
 
     public UdpDataProcessor(IPEndPoint serverKey, string receivedData)
     {
@@ -27,6 +28,7 @@ public class UdpDataProcessor
         PlayersCt = new List<string>();
         PlayersT = new List<string>();
         ProcessRawData(receivedData);
+        UpdateDatabase();
     }
 
     private void ProcessRawData(string receivedData)
@@ -70,10 +72,10 @@ public class UdpDataProcessor
         {
             var playerName = playerMatch.Groups[1].ToString();
             var playerTeam = playerMatch.Groups[2].ToString();
-            
-            Console.WriteLine(playerName);
-            Console.WriteLine(playerTeam);
-            
+
+            //Console.WriteLine(playerName);
+            //Console.WriteLine(playerTeam);
+
             if (playerTeam == "CT")
             {
                 PlayersCt.Add(playerName);
@@ -87,11 +89,42 @@ public class UdpDataProcessor
         // TODO: .Add() player names to that array and gogo
     }
 
+    private void UpdateDatabase()
+    {
+        
+        using var connection =
+            new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
+        connection.Open();
 
-    // TODO: I need to determine the type of message being received, and send it to a controller to extract the data I want from it
-    // So original js path was udpServer -> processServerOutput -> messageHandlers which then gets pulled all the way back.
-    // I want to run messageHandlers in this processor directly, and update the props accordingly.
-    // In the old JS system how much data did I pass through?
-    // We pass through incomplete data to the front end, which just updates each serverKey entry with the data that *is* there.
-    // TODO: Check if I can just null out stuff I don't want to update
+        if (ScoreCt != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\") VALUES ('{ServerKey}', {ScoreCt}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        if (ScoreT != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreT\") VALUES ('{ServerKey}', {ScoreT}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreT\" = EXCLUDED.\"ScoreT\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        if (Map != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Map\") VALUES ('{ServerKey}', '{Map}') ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Map\" = EXCLUDED.\"Map\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        if (Rounds != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Rounds\") VALUES ('{ServerKey}', '{Rounds}') ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Rounds\" = EXCLUDED.\"Rounds\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        if (Admin != null)
+        {
+            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES ('{ServerKey}', {Admin}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";", connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+    }
 }
