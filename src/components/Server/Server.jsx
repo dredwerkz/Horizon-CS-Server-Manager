@@ -21,8 +21,8 @@ function Server(props) {
             if (props.admin != null) {
                 setAdminState(props.admin)
             }
-            console.log("Admin flag is:")
-            console.log(props.admin)
+            //console.log("Admin flag is:")
+           // console.log(props.admin)
         }, [props]
     )
 

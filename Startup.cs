@@ -72,7 +72,6 @@ public class Startup
                 var flagString = (string)messageObject["payload"]["flag"];
                 var flagToLower = flagString.ToLower();
                 var adminUpdate = "{\"type\": \"ADMIN_UPDATE\", \"payload\":" + $"{{\"ServerKey\": \"{messageObject["payload"]["ServerKey"]}\", \"Admin\": {flagToLower}}}" + "}";
-                //Console.WriteLine(adminUpdate);
 
                 // Convert the JSON string to a byte array
                 byte[] adminUpdateBytes = System.Text.Encoding.UTF8.GetBytes(adminUpdate);
@@ -84,9 +83,6 @@ public class Startup
                         CancellationToken.None);
                 }
                 
-                
-
-
             }
             else
             {

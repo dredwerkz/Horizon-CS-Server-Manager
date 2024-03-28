@@ -86,28 +86,28 @@ function ServerContainer() {
         wsClient.current.onmessage = (e) => {
             const {type, payload} = JSON.parse(e.data); // Destructure the ws event data, pull the type and payload
             if (type === "SERVERS") {
-                showMessageReceived(payload);
+                //showMessageReceived(payload);
                 //payload.forEach((server) => updateOrAddServerData(server))
                 setServerData(payload)
             } else if (type === "UPDATE") {
                 // showMessageReceived(payload);
-                console.log("Received wS object is: ")
-                console.log(payload)
+                //console.log("Received wS object is: ")
+                //console.log(payload)
 
                 setServerData((currentServerData) =>
                     updateOrAddServerData(currentServerData, payload)
                 );
-                
+
             } else if (type === "NEW_USER") {
                 console.log("New User acknowledged by server!")
-                
+
             } else if (type === "ADMIN_UPDATE") {
-                console.log("Admin flag switched.")
-                console.log(payload)
+                //console.log("Admin flag switched.")
+                //  console.log(payload)
                 setServerData((currentServerData) =>
                     updateOrAddServerData(currentServerData, payload)
                 )
-                
+
             } else {
                 console.log("ws Message is unhandled, check server!");
             }
