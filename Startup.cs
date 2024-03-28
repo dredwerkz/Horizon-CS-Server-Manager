@@ -27,7 +27,7 @@ public class Startup
         services.AddControllersWithViews(); // MVCs
     }
 
-    private static async Task Echo(WebSocket webSocket)
+    private static async Task Echo(WebSocket webSocket, List<WebSocket> allClients)
     {
         var buffer = new byte[1024 * 4];
         WebSocketReceiveResult result =
@@ -52,6 +52,37 @@ public class Startup
                 // Send the JSON response
                 await webSocket.SendAsync(new ArraySegment<byte>(jsonResponseBytes), WebSocketMessageType.Text, true,
                     CancellationToken.None);
+            }
+            else if (messageObject.ContainsKey("type") && messageObject["type"].ToString() == "ADMIN_SWITCH")
+            {
+                // Create a predefined JSON result. Replace this with your actual JSON content.
+                // Need to send messageObject["flag"] to db
+                //Console.WriteLine("User swapped an admin flag!");
+
+                await using var connection =
+                    new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
+                connection.Open();
+
+                await using var cmd =
+                    new NpgsqlCommand(
+                        $"INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES ('{messageObject["payload"]["ServerKey"]}', {messageObject["payload"]["flag"]}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";",
+                        connection);
+                cmd.ExecuteNonQuery();
+
+                var flagString = (string)messageObject["payload"]["flag"];
+                var flagToLower = flagString.ToLower();
+                var adminUpdate = "{\"type\": \"ADMIN_UPDATE\", \"payload\":" + $"{{\"ServerKey\": \"{messageObject["payload"]["ServerKey"]}\", \"Admin\": {flagToLower}}}" + "}";
+
+                // Convert the JSON string to a byte array
+                byte[] adminUpdateBytes = System.Text.Encoding.UTF8.GetBytes(adminUpdate);
+
+                foreach (var conClient in allClients)
+                {
+                    // Send the JSON response
+                    await conClient.SendAsync(new ArraySegment<byte>(adminUpdateBytes), WebSocketMessageType.Text, true,
+                        CancellationToken.None);
+                }
+                
             }
             else
             {
@@ -83,7 +114,7 @@ public class Startup
                 ConnectedClients.Add(webSocket);
                 // Handling ws reqs goes in this block
                 // I think for file management, I should create a separate class for handling ws and pass the message in from here 
-                await Echo(webSocket);
+                await Echo(webSocket, ConnectedClients);
             }
             else
             {
