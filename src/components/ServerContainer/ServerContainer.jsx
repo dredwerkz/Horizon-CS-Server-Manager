@@ -97,8 +97,17 @@ function ServerContainer() {
                 setServerData((currentServerData) =>
                     updateOrAddServerData(currentServerData, payload)
                 );
+                
             } else if (type === "NEW_USER") {
                 console.log("New User acknowledged by server!")
+                
+            } else if (type === "ADMIN_UPDATE") {
+                console.log("Admin flag switched.")
+                console.log(payload)
+                setServerData((currentServerData) =>
+                    updateOrAddServerData(currentServerData, payload)
+                )
+                
             } else {
                 console.log("ws Message is unhandled, check server!");
             }
@@ -135,6 +144,7 @@ function ServerContainer() {
                             admin={server?.Admin != null ? server.Admin : false}
                             players1={server.PlayersCt != null ? server?.PlayersCt : ["Unknown"]}
                             players2={server.PlayersT != null ? server?.PlayersT : ["Unknown"]}
+                            wsClient={wsClient}
                         />
                     );
                 })}

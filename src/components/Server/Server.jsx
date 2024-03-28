@@ -3,18 +3,40 @@ import {useEffect, useState} from "react";
 
 function Server(props) {
     const [dropDown, setDropDown] = useState(false);
-    const [adminState, setAdminState] = useState();
+    const [adminState, setAdminState] = useState(false);
+    const [adminFlasher, setAdminFlasher] = useState("adminFlasher");
+    const wsClient = props.wsClient;
 
     useEffect(() => {
-            if (props.admin) {
+        if (adminState) {
+            setAdminFlasher("individualServer adminAlert");
+        } 
+        else {
+            setAdminFlasher("individualServer")
+        }
+    }, [adminState])
+
+
+    useEffect(() => {
+            if (props.admin != null) {
                 setAdminState(props.admin)
             }
-        }, [props.admin]
+            console.log("Admin flag is:")
+            console.log(props.admin)
+        }, [props]
     )
 
     function toggleAdminFlag() {
+        console.log(wsClient)
+        wsClient.current.send(JSON.stringify({
+            type: "ADMIN_SWITCH",
+            payload: {ServerKey: props.server, flag: !adminState}
+        }));
+
         setAdminState(!adminState)
+
     }
+
 
     function copyAddress() {
         const copyText = props.server;
@@ -25,8 +47,9 @@ function Server(props) {
         setDropDown(!dropDown);
     }
 
+
     return (
-        <div className={`individualServer ${adminState ? "adminAlert" : ""}`}>
+        <div className={adminFlasher}>
             <span
                 className="dropDownButton unselectable expander"
                 onClick={toggleDropDown}
