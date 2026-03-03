@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:14-alpine
+    container_name: horizon-postgres
+    environment:
+      POSTGRES_DB: horizon
+      POSTGRES_USER: horizonuser
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      # Named volume for data persistence
+      - postgres-data:/var/lib/postgresql/data
+      # Initialize database schema on first startup
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - horizon-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U horizonuser -d horizon"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Horizon CS Server Manager Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: horizon-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # ASP.NET Core configuration (double-underscore notation for nested config)
+      ConnectionStrings__DefaultConnection: "Host=postgres;Database=horizon;Username=horizonuser;Password=${POSTGRES_PASSWORD}"
+      Server__Urls: "http://0.0.0.0:5000"
+      ASPNETCORE_ENVIRONMENT: "Production"
+    ports:
+      # HTTP/WebSocket port
+      - "5000:5000"
+      # UDP listener for CS server logs
+      - "12345:12345/udp"
+    networks:
+      - horizon-network
+    restart: unless-stopped
+    # Optional: Uncomment to persist logs
+    # volumes:
+    #   - ./logs:/app/logs
+
+  # pgAdmin - Database Management Tool (Development Only)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: horizon-pgadmin
+    profiles:
+      - dev
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@horizon.local}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "5050:80"
+    networks:
+      - horizon-network
+    restart: unless-stopped
+
+networks:
+  horizon-network:
+    driver: bridge
+    name: horizon-network
+
+volumes:
+  postgres-data:
+    name: horizon-postgres-data

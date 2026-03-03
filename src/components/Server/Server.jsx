@@ -27,14 +27,12 @@ function Server(props) {
     )
 
     function toggleAdminFlag() {
-        console.log(wsClient)
+        if (!props.isConnected) return;
         wsClient.current.send(JSON.stringify({
             type: "ADMIN_SWITCH",
             payload: {ServerKey: props.server, flag: !adminState}
         }));
-
-        setAdminState(!adminState)
-
+        setAdminState(!adminState);
     }
 
 
@@ -66,8 +64,11 @@ function Server(props) {
             <span onClick={toggleDropDown} className="teamDivider expander">:</span>
             <span onClick={toggleDropDown} className="team2Score expander">{props.team2}</span>
             <span onClick={toggleDropDown} className="serverMap expander">{props.map}</span>
-            <span className="notification pointer"
-                  onClick={toggleAdminFlag}>{adminState ? "❗" : "🆗"}</span>
+            <span
+                className={`notification ${props.isConnected ? 'pointer' : ''}`}
+                onClick={toggleAdminFlag}
+                style={!props.isConnected ? {opacity: 0.4, cursor: 'not-allowed'} : {}}
+            >{adminState ? "❗" : "🆗"}</span>
             <div className="dropDown" hidden={!dropDown}>
                 <div className="team1Players" hidden={!dropDown}>
                     <h4>Counter-Terrorists</h4>
