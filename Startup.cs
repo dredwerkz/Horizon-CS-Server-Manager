@@ -1,5 +1,6 @@
 using System.Net.WebSockets;
 using horizon.Data;
+using horizon.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Newtonsoft.Json;
@@ -24,10 +25,22 @@ public class Startup
             options.UseNpgsql(Configuration.GetConnectionString(
                 "DefaultConnection")));
 
+        // Add CORS support for LAN access from other machines
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+        });
+
         services.AddControllersWithViews(); // MVCs
     }
 
-    private static async Task Echo(WebSocket webSocket, List<WebSocket> allClients)
+    private static async Task Echo(WebSocket webSocket, List<WebSocket> allClients, string connectionString)
     {
         var buffer = new byte[1024 * 4];
         WebSocketReceiveResult result =
@@ -43,7 +56,7 @@ public class Startup
             if (messageObject.ContainsKey("type") && messageObject["type"].ToString() == "NEW_USER")
             {
                 // Create a predefined JSON result. Replace this with your actual JSON content.
-                var jsonServerData = await GetAllServerData();
+                var jsonServerData = await GetAllServerData(connectionString);
                 var jsonResult = "{\"type\": \"SERVERS\", \"payload\":" + jsonServerData + "}";
 
                 // Convert the JSON string to a byte array
@@ -60,13 +73,15 @@ public class Startup
                 //Console.WriteLine("User swapped an admin flag!");
 
                 await using var connection =
-                    new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
+                    new NpgsqlConnection(connectionString);
                 connection.Open();
 
                 await using var cmd =
                     new NpgsqlCommand(
-                        $"INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES ('{messageObject["payload"]["ServerKey"]}', {messageObject["payload"]["flag"]}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";",
+                        "INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES (@ServerKey, @Admin) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";",
                         connection);
+                cmd.Parameters.AddWithValue("@ServerKey", messageObject["payload"]["ServerKey"].ToString());
+                cmd.Parameters.AddWithValue("@Admin", bool.Parse(messageObject["payload"]["flag"].ToString()));
                 cmd.ExecuteNonQuery();
 
                 var flagString = (string)messageObject["payload"]["flag"];
@@ -104,6 +119,9 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
+        // Enable CORS before other middleware
+        app.UseCors("AllowAll");
+
         app.UseWebSockets();
 
         app.Use(async (context, next) =>
@@ -113,8 +131,8 @@ public class Startup
                 var webSocket = await context.WebSockets.AcceptWebSocketAsync();
                 ConnectedClients.Add(webSocket);
                 // Handling ws reqs goes in this block
-                // I think for file management, I should create a separate class for handling ws and pass the message in from here 
-                await Echo(webSocket, ConnectedClients);
+                // I think for file management, I should create a separate class for handling ws and pass the message in from here
+                await Echo(webSocket, ConnectedClients, Configuration.GetConnectionString("DefaultConnection"));
             }
             else
             {
@@ -141,14 +159,13 @@ public class Startup
     public static async Task
         BroadcastNewDataViaWebSocketAsync(object update, bool messageType) // Send server data via ws
     {
-        // TODO: This is really sloppy, no real type enforcement on update - should probably be an interface :)
-        var structuredMessage = new
+        var structuredMessage = new WebSocketMessage
         {
-            type = messageType ? "UPDATE" : "SERVERS",
-            payload = update
+            Type = messageType ? "UPDATE" : "SERVERS",
+            Payload = update
         };
 
-        var jsonString = structuredMessage.ToJson();
+        var jsonString = JsonConvert.SerializeObject(structuredMessage);
 
         var buffer = System.Text.Encoding.UTF8.GetBytes(jsonString);
 
@@ -159,13 +176,13 @@ public class Startup
         }
     }
 
-    private static async Task<string> GetAllServerData()
+    private static async Task<string> GetAllServerData(string connectionString)
     {
         Console.WriteLine("GetAllServerData() called");
         var resultList = new List<Dictionary<string, object>>();
 
         await using var connection =
-            new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
+            new NpgsqlConnection(connectionString);
         await connection.OpenAsync();
 
         await using var cmd = new NpgsqlCommand("SELECT * FROM \"Servers\"", connection);

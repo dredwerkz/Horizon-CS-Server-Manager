@@ -23,9 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "node ./server.js",
-    "send": "node ./sender.js",
-    "reset": "node ./db/scripts/reset-database.js"
+    "send": "node ./sender.js"
   },
   "eslintConfig": {
     "extends": [

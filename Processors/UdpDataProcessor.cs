@@ -17,13 +17,15 @@ public class UdpDataProcessor
     public List<string> PlayersCt { get; set; }
     public List<string> PlayersT { get; set; }
 
+    private readonly string _connectionString;
     private readonly Regex _scoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""");
     private readonly Regex _mapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
     private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
     private readonly Regex _playerRegex = new(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
 
-    public UdpDataProcessor(IPEndPoint serverKey, string receivedData)
+    public UdpDataProcessor(IPEndPoint serverKey, string receivedData, string connectionString)
     {
+        _connectionString = connectionString;
         ServerKey = serverKey.ToString();
         PlayersCt = new List<string>();
         PlayersT = new List<string>();
@@ -85,46 +87,54 @@ public class UdpDataProcessor
                 PlayersT.Add(playerName);
             }
         }
-        // TODO: Create arrays for team members for CT and T for React to iterate through,
-        // TODO: .Add() player names to that array and gogo
     }
 
     private void UpdateDatabase()
     {
-        
+
         using var connection =
-            new NpgsqlConnection("Host=localhost;Database=postgres;Username=postgres;Password=asd123;");
+            new NpgsqlConnection(_connectionString);
         connection.Open();
 
         if (ScoreCt != null)
         {
-            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\") VALUES ('{ServerKey}', {ScoreCt}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\";", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\") VALUES (@ServerKey, @ScoreCt) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\";", connection);
+            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
+            cmd.Parameters.AddWithValue("@ScoreCt", ScoreCt.Value);
             cmd.ExecuteNonQuery();
         }
 
         if (ScoreT != null)
         {
-            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreT\") VALUES ('{ServerKey}', {ScoreT}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreT\" = EXCLUDED.\"ScoreT\";", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreT\") VALUES (@ServerKey, @ScoreT) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreT\" = EXCLUDED.\"ScoreT\";", connection);
+            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
+            cmd.Parameters.AddWithValue("@ScoreT", ScoreT.Value);
             cmd.ExecuteNonQuery();
         }
-        
+
         if (Map != null)
         {
-            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Map\") VALUES ('{ServerKey}', '{Map}') ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Map\" = EXCLUDED.\"Map\";", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"Map\") VALUES (@ServerKey, @Map) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Map\" = EXCLUDED.\"Map\";", connection);
+            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
+            cmd.Parameters.AddWithValue("@Map", Map);
             cmd.ExecuteNonQuery();
         }
-        
+
         if (Rounds != null)
         {
-            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Rounds\") VALUES ('{ServerKey}', '{Rounds}') ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Rounds\" = EXCLUDED.\"Rounds\";", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"Rounds\") VALUES (@ServerKey, @Rounds) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Rounds\" = EXCLUDED.\"Rounds\";", connection);
+            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
+            cmd.Parameters.AddWithValue("@Rounds", Rounds.Value);
             cmd.ExecuteNonQuery();
         }
-        
+
         if (Admin != null)
         {
-            using var cmd = new NpgsqlCommand($"INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES ('{ServerKey}', {Admin}) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES (@ServerKey, @Admin) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";", connection);
+            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
+            cmd.Parameters.AddWithValue("@Admin", Admin.Value);
             cmd.ExecuteNonQuery();
         }
-        
+
     }
 }

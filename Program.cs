@@ -13,15 +13,30 @@ public class Program
 
         host.Run();*/
 
-        var udpServer = new UdpServer();
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        var serverUrls = configuration["Server:Urls"] ?? "http://0.0.0.0:5000";
+
+        var udpServer = new UdpServer(connectionString);
         var udpThread = new Thread(udpServer.Start);
 
         udpThread.Start();
 
-        CreateWebHostBuilder(args).Build().Run();
+        CreateWebHostBuilder(args, serverUrls).Build().Run();
     }
 
-    private static IHostBuilder CreateWebHostBuilder(string[] args) =>
+    private static IHostBuilder CreateWebHostBuilder(string[] args, string urls) =>
         Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+                // Listen on all network interfaces to allow LAN access
+                // Configured via appsettings.json -> Server:Urls
+                // Default: http://0.0.0.0:5000 (binds to all interfaces)
+                webBuilder.UseUrls(urls);
+            });
 }
