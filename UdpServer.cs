@@ -7,6 +7,13 @@ namespace horizon;
 
 public class UdpServer
 {
+    private readonly string _connectionString;
+
+    public UdpServer(string connectionString)
+    {
+        _connectionString = connectionString;
+    }
+
     public async void Start()
     {
         using var listener = new UdpClient(12345);
@@ -19,7 +26,7 @@ public class UdpServer
                 var bytes = listener.Receive(ref serverKey);
                 var receivedData = Encoding.UTF8.GetString(bytes);
 
-                var processedUpdateData = new UdpDataProcessor(serverKey, receivedData);
+                var processedUpdateData = new UdpDataProcessor(serverKey, receivedData, _connectionString);
 
                 await Startup.BroadcastNewDataViaWebSocketAsync(processedUpdateData, true);
             }

@@ -1,111 +1,282 @@
-# Horizon Server Manager
+# Horizon CS Server Manager
 
-
-
-## What is it?
-
-Horizon CS Server Manager is an all-in-one solution for running multiple Source-based tournament servers - especially at LAN events.
-
-Source servers' out-the-box functionality is straight-forward and efficient. Great for getting games played, but when you're overseeings 80 teams playing on 40 seperate servers life gets a little tricky; no way to see how far along games are, reliance on players asking for assistance through communication platforms or in-person, having to remember and double-check dozens of cvars and rcon commands to fix problems or execute round-backups -- all of these are huge barriers to entry for new admin talent and even just the efficient running of a tournament.
-
-In the past there have been tools to assist in a similar manner - HLSW has been a mainstay for decades however it hasn't received an update since 2011 and is nearly impossible to find from trusted sources. It was also incredibly difficult to use and was designed for managing a handful of public servers, rather than supporting a micro-managed tournament environment.
-
-eBot and other similar platforms are incredibly heavy-duty and often only support pre-determined matchups, with little support for dynamic server assignment, additionally they often require physical installation onto server boxes or deep integration into the server itself.
-
-Horizon Server Manager is lightweight, integrating with gameservers entirely via UDP communication rather than adding overheads. A comprehensive toolbox for making large-scale tournaments manageable, designed and written by one of the most experienced CS admins in the industry, featuring all the tools you'll ever need - and some you never knew you did.
-
-## Getting it up and running
-
-Process for booting booting the project in its current state --
-
-Install npm packages, and build the project.
-
-npm dev script will boot the HTTP and UDP servers, and load the WebSocket and Emitters at the same time - front-end is served via http port 8080, UDP traffic is being listened to on port 12345.
-
-The project is currently using a local postgres instance to store data 'permanently' between sessions, which the front-end pulls from when the pages are loaded. Haven't containerised this yet, sorry!
-
-"npm run send" will send simulated dummy-data from real CS matches from a series of ports between 50000-50019 (customisable) which will update the database and also sends the partial updates to all connected WebSocket clients.
-
-Front end listens for the WebSocket message type to determine whether to update the whole server list or to find which specific gameserver just sent an update, and apply that!
-
-Front-end catches all the server info from [here](https://github.com/dredwerkz/Horizon-CS-Server-Manager/blob/dbccf38c4fa0c8f03be0cb08440c61ee25951c27/src/components/ServerContainer/ServerContainer.jsx#L12) at the moment! I probably need to elevate this once I start working on the control panel, though.
-
-## Table of Contents
-
--   [What is it?](#what-is-it)
--   [Technologies Used](#technologies-used)
--   [Features](#features)
--   [Screenshots](#screenshots)
--   [Development Process](#development-process)
--   [Challenges and Learnings](#challenges-and-learnings)
--   [Future Scope and Enhancements](#future-scope-and-enhancements)
--   [License](#license)
--   [Contact](#contact)
-
-## Technologies Used
-
--   React: The web-panel is written entirely in React with accompanying CSS files for each individual component for maximum versatility. React allows for efficient re-rendering of components based on live updates from servers, and streamlined management of state & data flow between the web-panel and the live game-servers.
-
--   JavaScript: Keeping front and back consistent in terms of language just makes sense - JS supports most of the tools needed for this app out of the box and makes setting up an accessible, easy-to-deploy front-end a cinch at events.
-
--   WebSocket: Establishing connections via WebSocket is an obvious choice for updating admin panels as soon as updates come through, triggering relevant fetch requests for the latest up-to-date info in an efficient and responsive manner.
-
--   PostgreSQL: Storing server data in a SQL database makes persistent server data easy and reliable, especially in an environment handling rapid fire requests where constant read/writing of JSON storage may become a failure point.
-
--   Express: A minimal and flexible Node.js web application framework that provides a robust set of features for an application like this. In this project, Express is used to set up the server and API, facilitating the communication between the front-end, the database, and the gameservers - handling UDP consumption and sending RCON traffic back to the gameservers.
+A real-time Counter-Strike server monitoring and management system that receives UDP log data from CS servers, stores it in a PostgreSQL database, and displays live server information through a React-based web interface.
 
 ## Features
 
-* Automatic serverlist tracking
+- **Real-time Server Monitoring**: Receives and processes UDP log data from Counter-Strike servers
+- **Live Score Tracking**: Monitors CT and Terrorist team scores in real-time
+- **Player Activity**: Tracks active players and their team assignments
+- **Admin Request Detection**: Automatically detects when players request admin assistance
+- **WebSocket Communication**: Pushes live updates to all connected clients
+- **Multi-Server Support**: Track and manage multiple CS servers simultaneously
+- **PostgreSQL Database**: Persistent storage of server states and game data
 
-* Live gamestate updates - teams, maps, scores
+## Tech Stack
 
-* Live help request notifications
+### Backend
+- **ASP.NET Core 6.0** - Web host and API framework
+- **Entity Framework Core** - ORM for database operations
+- **PostgreSQL** (via Npgsql) - Database
+- **WebSockets** - Real-time bidirectional communication
+- **UDP Server** - Receives game server log data
 
-* Quick IP;Password info to clipboard
+### Frontend
+- **React 18** - UI framework
+- **React Scripts** - Build tooling
+- **WebSockets** - Real-time data updates
 
-* Common server command hotkeys (one-click pause, restart, sourcemod commands)
+## Prerequisites
 
-* Round backup system integration AKA 'Match Medic' (full-proof round selection based on live match status)
+- .NET 6.0 SDK or later
+- Node.js 14+ and npm
+- PostgreSQL database
 
-* Optional server chat-log backups
+## Installation
 
-* In-built Source RCON Protocol terminal
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Horizon-CS-Server-Manager
+   ```
 
-* RCON Broadcasting
+2. **Configure the database connection**
 
-* PugSetup mode (Server listens for PugSetup specific events for better info management)
+   Copy the template and configure your database credentials:
+   ```bash
+   cp appsettings_Template.json appsettings.json
+   ```
 
-## Screenshots
+   Edit `appsettings.json` with your PostgreSQL credentials:
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Host=localhost;Database=postgres;Username=your_username;Password=your_password;"
+     }
+   }
+   ```
 
-![Screenshot of the server status panel, with several servers listed, IPs, game scores, and maps included. One server is flashing yellow to indicate that a player has requested admin support.](https://i.imgur.com/6Sv7nKS.png)
+3. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
 
-## Development Process
+4. **Build the React frontend**
+   ```bash
+   npm run build
+   ```
 
-With this project scheduled for deployment at Insomnia72 there's a solid deadline for features and testing in a ready-to-deploy state, making an agile development cycle perfect for this project.
+5. **Run the application**
+   ```bash
+   dotnet run
+   ```
 
-Consistent sprints with clear goals in mind to deliver a functional MVP each deployment, with refinements and new features added over time to ensure that the app is stable, reliable, and ready for action whenever the need arises.
+## Usage
 
-## Challenges and Learnings
+### Running the Application
 
-A big challenge with a project like this is always going to be managing things out of your control - the nature of working with 3rd party systems like gameservers, and networking elements like UDP means documentation and rigorous testing is incredibly important.
+The application runs on two concurrent threads:
+- **UDP Server**: Listens on port 12345 for incoming CS server log data
+- **Web Server**: Hosts the React application and WebSocket endpoint
 
-Learning how to manage such a huge influx of information over the internet, and efficiently categorise, route and manage that data has been a challenge, and there's always room for improvement. As this app is deployed in environments with greater and greater numbers of servers, efficient and reliable code becomes more and more important. 
+### Connecting CS Servers
 
-## Future Scope and Enhancements
+Configure your Counter-Strike servers to send UDP log data to the machine running Horizon CS Server Manager on port 12345.
 
-* Convert project to Vite over CRA - the quick and easy methods didn't work so I'll have to do this by hand at some point soon...
+### Accessing the Web Interface
 
-* Security features - currently there's no sanitisation of output to the servers
+Once running, navigate to `http://localhost:5000` (or the configured port) to view the server dashboard.
 
-* Dynamic server management - being able to input Steam IDs and have the admin panel auto-manage servers based on which players are in server would open up a number of possibilities, such as automatic team naming or automatic score submissions.
+### LAN Deployment (Multiple Clients)
 
-* DatHost api integration for automatic server tracking
+The application is configured to work on a Local Area Network out of the box.
 
-## License
+#### Server Setup:
 
-[MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
+1. **Find your server's IP address:**
+   ```bash
+   # On macOS/Linux:
+   ifconfig | grep "inet "
 
-## Contact
+   # On Windows:
+   ipconfig
+   ```
+   Look for your local IP (usually 192.168.x.x or 10.0.x.x)
 
-Feel free to contact me on here, or if LinkedIn's your thing, [find me here!](https://www.linkedin.com/in/jon-kelly-esports/)
+2. **Configure the server (optional):**
+   Edit `appsettings.json` if you need a different port:
+   ```json
+   {
+     "Server": {
+       "Urls": "http://0.0.0.0:5000"
+     }
+   }
+   ```
+
+3. **Allow firewall access:**
+   - **macOS:** System Preferences → Security & Privacy → Firewall → Firewall Options → Allow incoming connections for "horizon"
+   - **Windows:** Windows Defender Firewall → Allow an app → Add dotnet.exe
+   - **Linux:** `sudo ufw allow 5000/tcp`
+
+4. **Run the application:**
+   ```bash
+   dotnet run
+   ```
+
+#### Client Access:
+
+Clients on the same network can access the dashboard at:
+```
+http://YOUR_SERVER_IP:5000
+```
+
+For example: `http://192.168.1.100:5000`
+
+#### WebSocket Configuration (Advanced):
+
+If you need to override the WebSocket connection settings, create a `.env` file:
+```bash
+cp .env.example .env
+```
+
+Then edit `.env`:
+```env
+REACT_APP_WS_HOST=192.168.1.100
+REACT_APP_WS_PORT=5000
+```
+
+Rebuild the frontend after changes:
+```bash
+npm run build
+```
+
+#### Troubleshooting LAN Connections:
+
+1. **Can't connect from other machines:**
+   - Verify server IP with `ipconfig` or `ifconfig`
+   - Check firewall settings on server machine
+   - Ensure clients and server are on the same network
+   - Try accessing from another device: `http://SERVER_IP:5000`
+
+2. **WebSocket connection fails:**
+   - Check browser console for connection errors
+   - Verify WebSocket URL in console log on connection attempt
+   - Ensure port 5000 is not blocked by firewall
+
+3. **Connection works but no data:**
+   - Verify UDP port 12345 is open for CS server logs
+   - Check CS server is configured to send logs to correct IP
+
+### Testing with Mock Data
+
+Use the included sender script to simulate server data:
+```bash
+npm run send
+```
+
+## Project Structure
+
+```
+├── Classes/              # Business logic classes
+├── Data/                 # Database context and models
+│   └── Models/          # Entity models (Servers, Teams, Players)
+├── Interfaces/           # Interface definitions
+├── Processors/           # Data processing logic (UDP message parsing)
+├── public/              # Static assets for React app
+├── src/                 # React frontend source
+│   └── components/      # React components
+├── Program.cs           # Application entry point
+├── Startup.cs           # Service configuration and middleware
+├── UdpServer.cs         # UDP listener implementation
+└── sender.js            # Test utility for simulating server data
+```
+
+## Configuration Files
+
+- `appsettings.json` - Database connection string (gitignored)
+- `.env` - Environment variables (gitignored)
+- `nodemon.json` - Development server configuration
+- `horizon.csproj` - .NET project configuration
+
+## Development
+
+### Frontend Development
+```bash
+npm start           # Start React development server
+npm run build       # Build production bundle
+npm test            # Run tests
+```
+
+### Backend Development
+```bash
+dotnet run          # Run the application
+dotnet build        # Build the project
+```
+
+## Changes
+
+### 2026-03-03 - LAN Support & Network Configuration
+
+#### LAN Deployment Features
+- **Dynamic WebSocket URLs**: Frontend now automatically connects to the correct server
+  - Uses `window.location.hostname` to detect server IP dynamically
+  - Supports environment variable override via `.env` file
+  - Eliminates hardcoded `localhost` references
+- **Network Binding**: Backend configured to listen on all network interfaces
+  - Server binds to `0.0.0.0:5000` by default (configurable via `appsettings.json`)
+  - Allows connections from any machine on the LAN
+- **CORS Support**: Added Cross-Origin Resource Sharing configuration
+  - Enables browser requests from different origins
+  - Required for LAN access from other machines
+- **Documentation**: Added comprehensive LAN deployment guide
+  - Step-by-step server setup instructions
+  - Client access configuration
+  - Firewall setup for macOS, Windows, and Linux
+  - Troubleshooting guide for common connection issues
+
+#### Files Updated
+- `src/components/ServerContainer/ServerContainer.jsx`: Dynamic WebSocket URL generation
+- `Program.cs`: Network binding configuration with `UseUrls`
+- `Startup.cs`: CORS middleware and policy configuration
+- `appsettings.json` & `appsettings_Template.json`: Server URL configuration
+- `.env.example`: WebSocket configuration template
+- `README.md`: LAN deployment section with troubleshooting
+
+**Network Impact**: Application now works seamlessly across LAN for multi-client deployments at events
+
+---
+
+### 2026-03-03 - Security & Code Quality Improvements
+
+#### Security Fixes
+- **SQL Injection Prevention**: Converted all database queries to use parameterized queries
+  - `Startup.cs`: Updated admin flag update query to use parameters
+  - `UdpDataProcessor.cs`: Converted all 5 database update queries to parameterized format
+- **Configuration Security**: Removed hardcoded database credentials from source code
+  - Centralized database connection string in `appsettings.json` (gitignored)
+  - Updated all files to use configuration-based connection strings
+
+#### Code Quality Improvements
+- **Type Safety**: Added `IWebSocketMessage` interface for WebSocket message handling
+  - Created `Interfaces/IWebSocketMessage.cs` with typed message structure
+  - Updated `Startup.cs` to use `WebSocketMessage` class instead of anonymous objects
+  - Removed TODO comment about type enforcement
+- **Code Cleanup**: Removed outdated TODO comments in `UdpDataProcessor.cs`
+  - Player array implementation was already complete
+
+#### Project Maintenance
+- **Package.json**: Removed references to non-existent scripts (`dev`, `reset`)
+- **File Cleanup**: Deleted empty test file (`newtest`)
+- **Documentation**: Created comprehensive README.md and CLAUDE.md
+
+#### Files Updated
+- `Startup.cs`: Parameterized queries, interface usage, configuration injection
+- `UdpDataProcessor.cs`: Parameterized queries, removed TODOs
+- `UdpServer.cs`: Connection string injection
+- `Program.cs`: Configuration builder implementation
+- `package.json`: Cleaned up script references
+- `Interfaces/IWebSocketMessage.cs`: New interface for type safety
+- `CLAUDE.md`: Created project documentation for AI assistance
+- `README.md`: Added comprehensive project documentation
+
+**Security Impact**: Eliminated SQL injection vulnerabilities and ensured credentials are never committed to version control

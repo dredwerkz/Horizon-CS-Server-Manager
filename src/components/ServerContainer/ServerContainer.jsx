@@ -74,8 +74,14 @@ function ServerContainer() {
             wsClient.current.close();
         }
 
-        //const URL = "ws://localhost:" + PORT;
-        const URL = "ws://localhost:5000/ws"
+        // Dynamically determine WebSocket URL based on current host
+        // Use environment variable if available, otherwise use current hostname
+        const hostname = process.env.REACT_APP_WS_HOST || window.location.hostname;
+        const port = process.env.REACT_APP_WS_PORT || '5000';
+        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const URL = `${protocol}//${hostname}:${port}/ws`;
+
+        console.log(`Connecting to WebSocket: ${URL}`);
         wsClient.current = new WebSocket(URL);
 
         wsClient.current.onopen = (_e) => {
