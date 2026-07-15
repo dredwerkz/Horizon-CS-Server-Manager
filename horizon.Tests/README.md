@@ -130,30 +130,54 @@ public const string MyNewMockData = @"L 03/03/2026 - 12:00:00: Custom log messag
 
 ## Integration Tests (Future)
 
-To add integration tests with a real database:
+All database operations now go through `ServerRepository` using EF Core's `IDbContextFactory<HorizonDbContext>`. This makes integration testing straightforward with an in-memory database.
 
-1. Create `IntegrationTests/` directory
-2. Use `WebApplicationFactory<Program>` for testing
-3. Use Testcontainers for PostgreSQL
-4. Set up database fixtures
-
-Example structure:
+### Option 1: In-Memory Database (fast, no external dependencies)
 
 ```csharp
-public class UdpDataProcessorIntegrationTests : IClassFixture<DatabaseFixture>
+public class ServerRepositoryTests
 {
-    private readonly DatabaseFixture _fixture;
-
-    public UdpDataProcessorIntegrationTests(DatabaseFixture fixture)
+    private IDbContextFactory<HorizonDbContext> CreateFactory()
     {
-        _fixture = fixture;
+        var options = new DbContextOptionsBuilder<HorizonDbContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+            .Options;
+        // Use a factory that returns contexts with these options
+        return new PooledDbContextFactory<HorizonDbContext>(options);
     }
 
     [Fact]
-    public void Should_SaveToDatabase_When_ValidDataReceived()
+    public async Task UpsertServerData_ShouldCreateNewServer()
     {
-        // Test with actual database
+        var factory = CreateFactory();
+        var logger = NullLogger<ServerRepository>.Instance;
+        var repo = new ServerRepository(factory, logger);
+
+        var endpoint = new IPEndPoint(IPAddress.Loopback, 12345);
+        var data = new UdpDataProcessor(endpoint, MockUdpData.CtScoreUpdate);
+
+        await repo.UpsertServerDataAsync(data);
+
+        var servers = await repo.GetAllServersAsync();
+        servers.Should().HaveCount(1);
     }
+}
+```
+
+### Option 2: Testcontainers (real PostgreSQL)
+
+```csharp
+public class ServerRepositoryIntegrationTests : IAsyncLifetime
+{
+    private PostgreSqlContainer _postgres;
+
+    public async Task InitializeAsync()
+    {
+        _postgres = new PostgreSqlBuilder().Build();
+        await _postgres.StartAsync();
+    }
+
+    public async Task DisposeAsync() => await _postgres.DisposeAsync();
 }
 ```
 
@@ -173,7 +197,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0.x'
       - name: Restore dependencies
         run: dotnet restore
       - name: Run tests
@@ -234,9 +258,10 @@ dotnet build horizon.Tests/horizon.Tests.csproj
 
 ## Future Enhancements
 
-- [ ] Integration tests with Testcontainers
+- [ ] `ServerRepository` unit tests with in-memory EF Core database
+- [ ] `WebSocketHandler` unit tests with mock WebSocket
+- [ ] Integration tests with Testcontainers (real PostgreSQL)
 - [ ] Performance benchmarks
 - [ ] Load testing for UDP receiver
-- [ ] WebSocket connection tests
 - [ ] End-to-end tests with Playwright
 - [ ] Mutation testing

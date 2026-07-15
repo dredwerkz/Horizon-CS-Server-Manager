@@ -3,18 +3,23 @@
 ## Project Overview
 
 This is a real-time Counter-Strike server monitoring system with:
-- **Backend**: ASP.NET Core 6.0 with UDP listener for game server logs
+- **Backend**: ASP.NET Core 8.0 with UDP listener for game server logs
 - **Frontend**: React 18 application with WebSocket integration
-- **Database**: PostgreSQL with Entity Framework Core
-- **Architecture**: Multi-threaded (UDP listener + web host) with real-time WebSocket broadcasting
+- **Database**: PostgreSQL with Entity Framework Core (all DB operations via EF Core)
+- **Architecture**: BackgroundService-based (UDP listener as hosted service + web host) with DI, structured logging, and real-time WebSocket broadcasting
 
 ## Critical Security Rules
 
 1. **NEVER hardcode database credentials** - Always use `appsettings.json` with `Configuration.GetConnectionString("DefaultConnection")`
-2. **Always use parameterized queries** - All database operations use parameterized queries to prevent SQL injection. When adding new database code, follow this pattern:
+2. **Always use EF Core for database operations** - All database operations go through `ServerRepository` using `IDbContextFactory<HorizonDbContext>`. Never write raw SQL or use `NpgsqlCommand` directly:
    ```csharp
-   using var cmd = new NpgsqlCommand("INSERT INTO \"Table\" (\"Column\") VALUES (@Param)", connection);
-   cmd.Parameters.AddWithValue("@Param", value);
+   // Correct: Use ServerRepository methods
+   await _repository.UpsertServerDataAsync(data);
+   await _repository.UpdateAdminFlagAsync(serverKey, flag);
+   var servers = await _repository.GetAllServersAsync();
+
+   // NEVER: Raw SQL or NpgsqlCommand
+   // new NpgsqlCommand("INSERT INTO ...", connection); ❌
    ```
 3. **Configuration files** - `appsettings.json` and `.env` are gitignored. Always use templates (`appsettings_Template.json`, `.env_TEMPLATE`) as reference
 
@@ -23,9 +28,11 @@ This is a real-time Counter-Strike server monitoring system with:
 ### C# Backend
 - Use nullable reference types (`# nullable enable` is used in some files)
 - Follow async/await patterns for I/O operations
-- Use dependency injection where possible
-- RegEx patterns are pre-compiled as readonly fields
-- Database operations should use the injected connection string
+- Use dependency injection throughout (services registered in `Startup.ConfigureServices()`)
+- RegEx patterns are `static readonly` with `RegexOptions.Compiled`
+- Database operations go through `ServerRepository` using EF Core (never raw SQL)
+- Use `ILogger<T>` for structured logging (never `Console.WriteLine`)
+- Use `TryParse` over `Parse` for defensive parsing
 
 ### React Frontend
 - Functional components with hooks
@@ -61,14 +68,14 @@ This allows:
 
 ### UDP Data Flow
 1. CS servers send UDP logs to port 12345
-2. `UdpServer.cs` receives and passes to `UdpDataProcessor.cs`
-3. `UdpDataProcessor.cs` parses log data using regex patterns:
+2. `UdpServer.cs` (BackgroundService) receives packets asynchronously with cancellation support
+3. `UdpDataProcessor.cs` parses log data using compiled regex patterns (parse-only, no DB):
    - Team scores (CT/TERRORIST)
    - Map and rounds played
    - Player names and team assignments
-   - Admin request detection
-4. Data is saved to PostgreSQL
-5. Updates are broadcast via WebSocket to all connected clients
+   - Admin request detection (case-insensitive)
+4. If `HasParsedData` is true, `ServerRepository.UpsertServerDataAsync()` saves to PostgreSQL via EF Core
+5. `WebSocketHandler.BroadcastUpdateAsync()` sends updates to all connected clients
 
 ### WebSocket Flow
 1. Clients connect to WebSocket endpoint
@@ -76,14 +83,20 @@ This allows:
 3. Receive real-time updates with `{"type": "UPDATE", "payload": {...}}`
 4. Admin control with `{"type": "ADMIN_SWITCH", "payload": {...}}`
 
-### Current Threading Model
+### Service Architecture
 ```csharp
-// Program.cs creates two concurrent operations:
-var udpServer = new UdpServer(connectionString);
-var udpThread = new Thread(udpServer.Start);  // Background UDP listener
-udpThread.Start();
-CreateWebHostBuilder(args).Build().Run();      // Main web host
+// UdpServer runs as a BackgroundService managed by the host:
+services.AddHostedService<UdpServer>();       // Registered in Startup.cs
+// The host manages lifecycle automatically:
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder => { ... })
+    .Build().Run();                            // Both web host and UDP service run together
 ```
+
+Key DI registrations in `Startup.ConfigureServices()`:
+- `IDbContextFactory<HorizonDbContext>` — Thread-safe DB context creation
+- `ServerRepository` (Singleton) — All EF Core database operations
+- `UdpServer` (HostedService) — Background UDP listener with graceful shutdown
 
 ## Docker Architecture
 
@@ -126,7 +139,7 @@ RUN npm run build
 
 **Stage 2 - Backend Build:**
 ```dockerfile
-FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS backend-build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS backend-build
 # Layer caching: csproj → restore → source → publish
 COPY *.csproj ./
 RUN dotnet restore
@@ -138,7 +151,7 @@ RUN dotnet publish -c Release -o out
 
 **Stage 3 - Runtime:**
 ```dockerfile
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 # Security: Non-root user
 RUN adduser -D -u 1000 appuser
 COPY --from=backend-build /app/out .
@@ -208,11 +221,13 @@ This eliminates manual database setup or EF Core migrations in Docker environmen
 ## File Structure
 
 ### Backend Core Files
-- `Program.cs` - Entry point, configuration setup, thread management
-- `Startup.cs` - Service configuration, middleware, WebSocket handling
-- `UdpServer.cs` - UDP listener on port 12345
-- `Processors/UdpDataProcessor.cs` - Log parsing and database updates
-- `Data/HorizonDbContext.cs` - EF Core database context
+- `Program.cs` - Entry point, host configuration
+- `Startup.cs` - DI service registration, middleware pipeline, WebSocket routing
+- `UdpServer.cs` - BackgroundService UDP listener on port 12345
+- `Processors/UdpDataProcessor.cs` - Log parsing only (no DB dependency)
+- `Services/ServerRepository.cs` - All EF Core database operations (upsert, admin flag, get all)
+- `Services/WebSocketHandler.cs` - WebSocket connection handling, message routing, broadcasting
+- `Data/HorizonDbContext.cs` - EF Core database context with model configuration
 - `Data/Models/` - Entity models (Servers, Teams, Players)
 
 ### Frontend
@@ -246,47 +261,47 @@ This eliminates manual database setup or EF Core migrations in Docker environmen
 
 ## Known Issues & TODOs
 
-Currently no known critical issues. All SQL injection vulnerabilities have been fixed and code quality improvements have been implemented.
+Currently no known critical issues. All database operations use EF Core, structured logging is in place via `ILogger`, and error handling covers UDP packets, WebSocket messages, and database operations.
 
 ### Potential Future Enhancements
-- Consider implementing Entity Framework queries instead of raw SQL for better maintainability
-- Add more comprehensive error handling and logging
+- Add integration tests for `ServerRepository` using an in-memory database or Testcontainers
+- Add structured log correlation IDs for tracing UDP packets through to WebSocket broadcasts
 
 ## Development Workflows
 
 ### Adding New Database Fields
 1. Update model in `Data/Models/`
-2. Update regex/parsing in `UdpDataProcessor.cs` if needed
-3. Add database update logic in `UpdateDatabase()`
-4. Ensure connection string is passed through (don't hardcode!)
+2. Update `OnModelCreating()` in `Data/HorizonDbContext.cs` if new constraints/defaults are needed
+3. Update regex/parsing in `UdpDataProcessor.cs` if needed (add property + match logic in `ProcessRawData()`)
+4. Update `ServerRepository.UpsertServerDataAsync()` to map the new field
 5. Update WebSocket broadcast payload if needed
 
 ### Modifying WebSocket Messages
-1. Update parsing in `Startup.cs` `Echo()` method
+1. Add message handling in `Services/WebSocketHandler.cs` `HandleConnectionAsync()` method
 2. Match message type structure: `{"type": "TYPE_NAME", "payload": {...}}`
-3. Update React components to handle new message types
-4. Test with `sender.js` for mock data
+3. Use `ServerRepository` for any database operations needed
+4. Update React components to handle new message types
+5. Test with `sender.js` for mock data
 
-### Database Connection Pattern
+### Database Access Pattern
 ```csharp
-// Always use this pattern:
-await using var connection = new NpgsqlConnection(_connectionString);
-await connection.OpenAsync();
+// Always use ServerRepository with IDbContextFactory (thread-safe, short-lived contexts):
+public class ServerRepository
+{
+    private readonly IDbContextFactory<HorizonDbContext> _contextFactory;
 
-// NEVER hardcode:
-// new NpgsqlConnection("Host=localhost;Database=postgres;..."); ❌
-```
+    public async Task ExampleAsync()
+    {
+        await using var context = await _contextFactory.CreateDbContextAsync();
+        var server = await context.Servers.FindAsync(key);
+        // ... modify entity ...
+        await context.SaveChangesAsync();
+    }
+}
 
-### Parameterized Query Pattern
-```csharp
-// Always use parameterized queries:
-using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\") VALUES (@ServerKey, @ScoreCt)", connection);
-cmd.Parameters.AddWithValue("@ServerKey", serverKey);
-cmd.Parameters.AddWithValue("@ScoreCt", score);
-cmd.ExecuteNonQuery();
-
-// NEVER use string interpolation:
-// new NpgsqlCommand($"INSERT INTO \"Servers\" VALUES ('{serverKey}', {score})", connection); ❌
+// NEVER use raw NpgsqlCommand or connection strings directly:
+// new NpgsqlConnection(_connectionString); ❌
+// new NpgsqlCommand("INSERT INTO ...", connection); ❌
 ```
 
 ### WebSocket Message Pattern
@@ -394,7 +409,7 @@ When modifying the database schema:
    # Restore data (will fail on conflicting schema, adjust backup.sql as needed)
    docker-compose exec -T postgres psql -U horizonuser horizon < backup.sql
    ```
-4. Update parsing/logic in `UdpDataProcessor.cs`
+4. Update parsing in `UdpDataProcessor.cs` and upsert logic in `Services/ServerRepository.cs`
 5. Rebuild application:
    ```bash
    docker-compose build app
@@ -555,8 +570,8 @@ CI=true npm test
 
 Ensure all tests pass and consider adding new tests for:
 - New regex patterns in `UdpDataProcessor.cs`
-- New WebSocket message types in `Startup.cs`
-- New data processing logic
+- New WebSocket message types in `Services/WebSocketHandler.cs`
+- New database operations in `Services/ServerRepository.cs`
 - New React component behavior or WebSocket interactions
 
 ## Common Tasks
@@ -598,24 +613,25 @@ Edit `appsettings.json` (create from template if missing):
 ```
 
 ### Add New Log Pattern
-1. Add regex pattern in `UdpDataProcessor.cs` as readonly field
-2. Add property to store parsed value
-3. Add match logic in `ProcessRawData()`
-4. Add database update in `UpdateDatabase()`
+1. Add `static readonly` regex pattern in `UdpDataProcessor.cs` with `RegexOptions.Compiled`
+2. Add nullable property to store parsed value
+3. Add match logic in `ProcessRawData()` (use `TryParse` for numeric values)
+4. Update `ServerRepository.UpsertServerDataAsync()` to map the new field to the entity
 
 ### Add New WebSocket Event
-1. Handle message type in `Startup.cs` `Echo()` method
-2. Add corresponding database operations if needed
-3. Broadcast to clients via `BroadcastNewDataViaWebSocketAsync()`
+1. Add message type handler in `Services/WebSocketHandler.cs` `HandleConnectionAsync()` method
+2. Use `ServerRepository` for any database operations needed
+3. Broadcast to clients via `WebSocketHandler.BroadcastUpdateAsync()`
 4. Update React components to handle the event
 
 ## Dependencies
 
 ### Backend NuGet Packages
-- Microsoft.EntityFrameworkCore 6.0.0
-- Npgsql.EntityFrameworkCore.PostgreSQL 6.0.0
-- Npgsql 8.0.2
+- Microsoft.EntityFrameworkCore 8.0.0
+- Npgsql.EntityFrameworkCore.PostgreSQL 8.0.0
+- Npgsql 8.0.5
 - Microsoft.AspNetCore.StaticFiles 2.2.0
+- Newtonsoft.Json 13.0.3
 
 ### Frontend npm Packages
 - react 18.2.0

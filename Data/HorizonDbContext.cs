@@ -11,21 +11,34 @@ public class HorizonDbContext : DbContext
 
     public HorizonDbContext(DbContextOptions<HorizonDbContext> options) : base(options)
     {
-        // Need to build out some real context for this eventually, to match my postgres schema!
     }
 
-    // Uncomment to generate database seeded info as/when needed
-    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Servers>().HasData(
-            new Servers
-            {
-                ServerKey = "127.0.0.1:99999",
-                CT = 0,
-                TERRORIST = 0,
-                Map = "de_unknown",
-                Rounds = 0,
-                Admin = false,
-            });
-    }*/
+        modelBuilder.Entity<Servers>(entity =>
+        {
+            entity.HasKey(s => s.ServerKey);
+            entity.Property(s => s.ServerKey).HasMaxLength(50);
+            entity.Property(s => s.Map).HasMaxLength(100);
+            entity.Property(s => s.ScoreCt).HasDefaultValue(0);
+            entity.Property(s => s.ScoreT).HasDefaultValue(0);
+            entity.Property(s => s.Rounds).HasDefaultValue(0);
+            entity.Property(s => s.Admin).HasDefaultValue(false);
+        });
+
+        modelBuilder.Entity<Teams>(entity =>
+        {
+            entity.Property(t => t.Name).HasMaxLength(100).IsRequired();
+        });
+
+        modelBuilder.Entity<Players>(entity =>
+        {
+            entity.Property(p => p.Name).HasMaxLength(100).IsRequired();
+            entity.HasOne(p => p.Teams)
+                .WithMany(t => t.Players)
+                .HasForeignKey(p => p.TeamId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(p => p.TeamId);
+        });
+    }
 }

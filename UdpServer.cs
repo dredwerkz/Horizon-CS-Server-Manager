@@ -1,40 +1,57 @@
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using horizon.Processors;
+using horizon.Services;
 
 namespace horizon;
 
-public class UdpServer
+public class UdpServer : BackgroundService
 {
-    private readonly string _connectionString;
+    private readonly ServerRepository _repository;
+    private readonly ILogger<UdpServer> _logger;
 
-    public UdpServer(string connectionString)
+    public UdpServer(ServerRepository repository, ILogger<UdpServer> logger)
     {
-        _connectionString = connectionString;
+        _repository = repository;
+        _logger = logger;
     }
 
-    public async void Start()
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        _logger.LogInformation("UDP server starting on port 12345");
+
         using var listener = new UdpClient(12345);
-        var serverKey = new IPEndPoint(IPAddress.Any, 12345);
-        try
+
+        while (!stoppingToken.IsCancellationRequested)
         {
-            while
-                (true)
+            try
             {
-                var bytes = listener.Receive(ref serverKey);
-                var receivedData = Encoding.UTF8.GetString(bytes);
+                var result = await listener.ReceiveAsync(stoppingToken);
+                var receivedData = Encoding.UTF8.GetString(result.Buffer);
 
-                var processedUpdateData = new UdpDataProcessor(serverKey, receivedData, _connectionString);
+                var processedData = new UdpDataProcessor(result.RemoteEndPoint, receivedData, _logger);
 
-                await Startup.BroadcastNewDataViaWebSocketAsync(processedUpdateData, true);
+                if (processedData.HasParsedData)
+                {
+                    await _repository.UpsertServerDataAsync(processedData);
+                    await WebSocketHandler.BroadcastUpdateAsync(processedData, _logger);
+                }
+            }
+            catch (SocketException ex) when (!stoppingToken.IsCancellationRequested)
+            {
+                _logger.LogError(ex, "Socket error in UDP listener, retrying in 1 second");
+                await Task.Delay(1000, stoppingToken);
+            }
+            catch (OperationCanceledException)
+            {
+                break;
+            }
+            catch (Exception ex) when (!stoppingToken.IsCancellationRequested)
+            {
+                _logger.LogError(ex, "Unexpected error processing UDP packet");
             }
         }
-        catch (SocketException e)
-        {
-            Console.WriteLine(e.ToString());
-            throw;
-        }
+
+        _logger.LogInformation("UDP server stopped");
     }
 }

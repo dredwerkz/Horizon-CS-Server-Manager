@@ -1,8 +1,7 @@
 # nullable enable
 using System.Net;
 using System.Text.RegularExpressions;
-using Npgsql;
-
+using Microsoft.Extensions.Logging;
 
 namespace horizon.Processors;
 
@@ -17,33 +16,43 @@ public class UdpDataProcessor
     public List<string> PlayersCt { get; set; }
     public List<string> PlayersT { get; set; }
 
-    private readonly string _connectionString;
-    private readonly Regex _scoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""");
-    private readonly Regex _mapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)");
-    private readonly Regex _adminRegex = new(@"say\s*""([^""]*\badmin\b)""");
-    private readonly Regex _playerRegex = new(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""");
+    public bool HasParsedData =>
+        ScoreCt != null || ScoreT != null || Map != null ||
+        Rounds != null || Admin != null ||
+        PlayersCt.Count > 0 || PlayersT.Count > 0;
 
-    public UdpDataProcessor(IPEndPoint serverKey, string receivedData, string connectionString)
+    private static readonly Regex ScoreRegex = new(@"Team ""(.*?)"" scored ""(\d+)""", RegexOptions.Compiled);
+    private static readonly Regex MapRegex = new(@"on map ""(.*?)"" RoundsPlayed: (\d+)", RegexOptions.Compiled);
+    private static readonly Regex AdminRegex = new(@"say\s*""([^""]*\badmin\b)""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex PlayerRegex = new(@"""([^""]+)<\d+><STEAM_\d+:\d+:\d+><(T|CT)>""", RegexOptions.Compiled);
+
+    private readonly ILogger? _logger;
+
+    public UdpDataProcessor(IPEndPoint serverKey, string receivedData, ILogger? logger = null)
     {
-        _connectionString = connectionString;
+        _logger = logger;
         ServerKey = serverKey.ToString();
         PlayersCt = new List<string>();
         PlayersT = new List<string>();
         ProcessRawData(receivedData);
-        UpdateDatabase();
     }
 
     private void ProcessRawData(string receivedData)
     {
-        var scoreMatch = _scoreRegex.Match(receivedData);
-        var mapMatch = _mapRegex.Match(receivedData);
-        var adminMatch = _adminRegex.Match(receivedData);
-        var playerMatch = _playerRegex.Match(receivedData);
+        var scoreMatch = ScoreRegex.Match(receivedData);
+        var mapMatch = MapRegex.Match(receivedData);
+        var adminMatch = AdminRegex.Match(receivedData);
+        var playerMatch = PlayerRegex.Match(receivedData);
 
         if (scoreMatch.Success)
         {
             var teamName = scoreMatch.Groups[1].Value;
-            var teamScore = int.Parse(scoreMatch.Groups[2].Value);
+
+            if (!int.TryParse(scoreMatch.Groups[2].Value, out var teamScore))
+            {
+                _logger?.LogWarning("Failed to parse score value: {Value}", scoreMatch.Groups[2].Value);
+                return;
+            }
 
             switch (teamName)
             {
@@ -54,17 +63,21 @@ public class UdpDataProcessor
                     ScoreT = teamScore;
                     break;
                 default:
-                    Console.WriteLine("Team Name isn't CT or TERRORIST, ignoring match.");
+                    _logger?.LogWarning("Unknown team name: {TeamName}", teamName);
                     break;
             }
         }
         else if (mapMatch.Success)
         {
-            var mapName = mapMatch.Groups[1].Value;
-            var roundsPlayed = mapMatch.Groups[2].Value;
+            Map = mapMatch.Groups[1].Value;
 
-            Map = mapName;
-            Rounds = int.Parse(roundsPlayed);
+            if (!int.TryParse(mapMatch.Groups[2].Value, out var roundsPlayed))
+            {
+                _logger?.LogWarning("Failed to parse rounds value: {Value}", mapMatch.Groups[2].Value);
+                return;
+            }
+
+            Rounds = roundsPlayed;
         }
         else if (adminMatch.Success)
         {
@@ -72,11 +85,8 @@ public class UdpDataProcessor
         }
         else if (playerMatch.Success)
         {
-            var playerName = playerMatch.Groups[1].ToString();
-            var playerTeam = playerMatch.Groups[2].ToString();
-
-            //Console.WriteLine(playerName);
-            //Console.WriteLine(playerTeam);
+            var playerName = playerMatch.Groups[1].Value;
+            var playerTeam = playerMatch.Groups[2].Value;
 
             if (playerTeam == "CT")
             {
@@ -87,54 +97,5 @@ public class UdpDataProcessor
                 PlayersT.Add(playerName);
             }
         }
-    }
-
-    private void UpdateDatabase()
-    {
-
-        using var connection =
-            new NpgsqlConnection(_connectionString);
-        connection.Open();
-
-        if (ScoreCt != null)
-        {
-            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreCt\") VALUES (@ServerKey, @ScoreCt) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreCt\" = EXCLUDED.\"ScoreCt\";", connection);
-            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
-            cmd.Parameters.AddWithValue("@ScoreCt", ScoreCt.Value);
-            cmd.ExecuteNonQuery();
-        }
-
-        if (ScoreT != null)
-        {
-            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"ScoreT\") VALUES (@ServerKey, @ScoreT) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"ScoreT\" = EXCLUDED.\"ScoreT\";", connection);
-            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
-            cmd.Parameters.AddWithValue("@ScoreT", ScoreT.Value);
-            cmd.ExecuteNonQuery();
-        }
-
-        if (Map != null)
-        {
-            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"Map\") VALUES (@ServerKey, @Map) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Map\" = EXCLUDED.\"Map\";", connection);
-            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
-            cmd.Parameters.AddWithValue("@Map", Map);
-            cmd.ExecuteNonQuery();
-        }
-
-        if (Rounds != null)
-        {
-            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"Rounds\") VALUES (@ServerKey, @Rounds) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Rounds\" = EXCLUDED.\"Rounds\";", connection);
-            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
-            cmd.Parameters.AddWithValue("@Rounds", Rounds.Value);
-            cmd.ExecuteNonQuery();
-        }
-
-        if (Admin != null)
-        {
-            using var cmd = new NpgsqlCommand("INSERT INTO \"Servers\" (\"ServerKey\", \"Admin\") VALUES (@ServerKey, @Admin) ON CONFLICT (\"ServerKey\") DO UPDATE SET \"Admin\" = EXCLUDED.\"Admin\";", connection);
-            cmd.Parameters.AddWithValue("@ServerKey", ServerKey);
-            cmd.Parameters.AddWithValue("@Admin", Admin.Value);
-            cmd.ExecuteNonQuery();
-        }
-
     }
 }
